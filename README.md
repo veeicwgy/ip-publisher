@@ -6,6 +6,10 @@
 > 从「热点发现」到「手动发布包输出」，一条命令跑通内容生产链路。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/veeicwgy/ip-publisher?style=social)](https://github.com/veeicwgy/ip-publisher/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/veeicwgy/ip-publisher?style=social)](https://github.com/veeicwgy/ip-publisher/network/members)
+
+> 如果这个项目对你有帮助，欢迎先点一个 **Star**。这会直接帮助我判断是否优先补齐平台 API 自动发布、更多封面模板和更完整的内容工作流。
 
 ---
 
@@ -24,6 +28,8 @@
 ---
 
 ## 30 秒看效果
+
+### 真实输出示例
 
 下面这张图就是一次真实生成后的文章效果示例。你只需要给出一句需求，仓库里的工作流就会继续完成热点筛选、人设对齐、正文生成、去 AI 味和封面准备，最后产出适合复制发布的内容结果。
 
