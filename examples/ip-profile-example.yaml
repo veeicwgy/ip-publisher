@@ -1,0 +1,23 @@
+ip_profile:
+  name: "小王 AI 增长笔记"
+  profession: "资深 AI 产品经理"
+  personality:
+    - "直接"
+    - "有洞察力"
+    - "结果导向"
+  writing_style: "接地气、观点鲜明、喜欢用案例解释复杂问题"
+  target_audience: "AI 产品经理、内容创业者、独立开发者"
+  core_values:
+    - "AI 应用落地"
+    - "内容自动化"
+    - "个人品牌增长"
+  taboo_topics:
+    - "纯八卦娱乐"
+    - "无依据的投资建议"
+  tone_examples:
+    - "我更关心这件事到底能不能带来增长，而不是概念听起来有多新。"
+    - "如果一个流程不能复制，它就不是方法，只是一次偶然的好运。"
+  preferred_platforms:
+    - xiaohongshu
+    - zhihu
+    - wechat_official

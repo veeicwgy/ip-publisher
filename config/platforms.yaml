@@ -1,0 +1,77 @@
+platforms:
+  - platform_id: xiaohongshu
+    display_name:
+      zh: 小红书
+      en: Xiaohongshu
+    article_format: [markdown, text]
+    max_length: 1000
+    supports_cover: true
+    cover_ratio: "1:1"
+    recommended_tags_count: 8
+    wechatsync_adapter: xiaohongshu
+
+  - platform_id: zhihu
+    display_name:
+      zh: 知乎
+      en: Zhihu
+    article_format: [markdown, html]
+    max_length: 5000
+    supports_cover: true
+    cover_ratio: "16:9"
+    recommended_tags_count: 5
+    wechatsync_adapter: zhihu
+
+  - platform_id: wechat_official
+    display_name:
+      zh: 微信公众号
+      en: WeChat Official Account
+    article_format: [html, markdown]
+    max_length: 20000
+    supports_cover: true
+    cover_ratio: "2.35:1"
+    recommended_tags_count: 0
+    wechatsync_adapter: wechat
+
+  - platform_id: csdn
+    display_name:
+      zh: CSDN
+      en: CSDN
+    article_format: [markdown, html]
+    max_length: 10000
+    supports_cover: true
+    cover_ratio: "16:9"
+    recommended_tags_count: 6
+    wechatsync_adapter: csdn
+
+  - platform_id: weibo
+    display_name:
+      zh: 微博
+      en: Weibo
+    article_format: [text]
+    max_length: 140
+    supports_cover: false
+    cover_ratio: "none"
+    recommended_tags_count: 2
+    wechatsync_adapter: weibo
+
+  - platform_id: toutiao
+    display_name:
+      zh: 今日头条
+      en: Toutiao
+    article_format: [html, markdown]
+    max_length: 5000
+    supports_cover: true
+    cover_ratio: "16:9"
+    recommended_tags_count: 5
+    wechatsync_adapter: toutiao
+
+  - platform_id: juejin
+    display_name:
+      zh: 掘金
+      en: Juejin
+    article_format: [markdown, html]
+    max_length: 10000
+    supports_cover: true
+    cover_ratio: "16:9"
+    recommended_tags_count: 5
+    wechatsync_adapter: juejin

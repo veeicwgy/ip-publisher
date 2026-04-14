@@ -1,0 +1,16 @@
+{
+  "identifier": "ip-publisher",
+  "title": "IP Publisher - 全流程个人 IP 内容自动化",
+  "description": "从热点抓取到多平台发布的完整 AI 工作流。输入你的 IP 定位，一句话生成并发布高质量无 AI 感文章。",
+  "tags": ["content-creation", "ip-branding", "multi-platform", "chinese", "marketing"],
+  "author": "veeicwgy",
+  "homepage": "https://github.com/veeicwgy/ip-publisher",
+  "trigger": "写一篇 [平台] 文章",
+  "examples": [
+    "帮我写一篇关于 AI 趋势的小红书文章",
+    "基于今天的热点写一篇公众号推文",
+    "设置我的 IP 人设",
+    "抓取今天的热点话题",
+    "一键发布到所有平台"
+  ]
+}

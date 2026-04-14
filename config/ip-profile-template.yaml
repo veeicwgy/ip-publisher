@@ -1,0 +1,22 @@
+# IP Publisher 人设模板
+# 复制到 ~/.ip-publisher/profile.yaml 后填写即可使用
+
+ip_profile:
+  name: ""                 # IP 名称 / 笔名
+  profession: ""           # 职业 / 领域，例如：AI 产品经理、独立开发者
+  personality:              # 性格特征列表，例如：直接、有洞察力、略带毒舌
+    - ""
+    - ""
+  writing_style: ""        # 写作风格，例如：接地气、有数据支撑、观点鲜明
+  target_audience: ""      # 目标受众，例如：AI 从业者、独立创作者、产品经理
+  core_values:              # 核心价值观 / 擅长话题
+    - ""
+    - ""
+  taboo_topics:             # 不希望涉及的禁忌话题
+    - ""
+  tone_examples:            # 2-3 个代表性金句样本，用于 Humanizer 学习语气
+    - ""
+    - ""
+  preferred_platforms:      # 常用发布平台
+    - xiaohongshu
+    - zhihu
