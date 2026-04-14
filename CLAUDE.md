@@ -11,6 +11,7 @@
 - `humanizer` - 消除文章 AI 生成痕迹
 - `cover-generator` - 生成文章封面图
 - `multi-publisher` - 多平台一键发布
+- `github-open-source-site-rework` - 将官网从收费导向改为 GitHub 开源仓库导向
 
 ## 快速开始
 

@@ -116,6 +116,18 @@ bash scripts/setup.sh
 
 ---
 
+## 仓库附带的运维 Skill
+
+除了内容生产主流程，这个仓库现在也附带一个用于维护官网开源导向的 Skill：
+
+| Skill | 用途 | 位置 |
+| --- | --- | --- |
+| `github-open-source-site-rework` | 当官网需要从收费、升级或价格导向改为 GitHub 开源仓库导向时，统一处理 CTA、试用提示、残留文案、回归测试与交付清单。 | `skills/github-open-source-site-rework/SKILL.md` |
+
+如果你在维护官网或产品落地页，希望所有引导都与本仓库的开源定位保持一致，可以直接复用这个 Skill。
+
+---
+
 ## License
 
 本项目采用 [MIT License](LICENSE)。

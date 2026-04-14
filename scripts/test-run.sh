@@ -17,6 +17,7 @@ required_files=(
   "$REPO_ROOT/skills/humanizer/SKILL.md"
   "$REPO_ROOT/skills/cover-generator/SKILL.md"
   "$REPO_ROOT/skills/multi-publisher/SKILL.md"
+  "$REPO_ROOT/skills/github-open-source-site-rework/SKILL.md"
 )
 
 for file in "${required_files[@]}"; do

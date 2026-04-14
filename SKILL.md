@@ -1,6 +1,6 @@
 ---
 name: ip-publisher-suite
-description: IP Publisher 总入口说明。Use for: 安装、理解和调度个人 IP 内容自动化技能集合，包括人设、热点、写作、去 AI 味、封面和多平台发布。
+description: IP Publisher 总入口说明。Use for: 安装、理解和调度个人 IP 内容自动化技能集合，包括人设、热点、写作、去 AI 味、封面、多平台发布，以及官网开源导向改版。
 ---
 
 # IP Publisher Skill Suite
@@ -10,6 +10,7 @@ description: IP Publisher 总入口说明。Use for: 安装、理解和调度个
 - 需要理解整个仓库由哪些 Skill 组成
 - 需要安装 Claude Code 或 OpenClaw 可识别的 Skill 集合
 - 需要查看完整工作流与配置文件关系
+- 需要把产品官网从收费导向改为 GitHub 开源仓库导向
 
 ## Included Skills
 
@@ -22,6 +23,7 @@ description: IP Publisher 总入口说明。Use for: 安装、理解和调度个
 | `humanizer` | 去 AI 味 | 草稿、人设语气 | 人性化文章 |
 | `cover-generator` | 生成封面任务 | 标题、平台、风格 | 封面方案 |
 | `multi-publisher` | 多平台发布 | 文章、封面、平台列表 | 状态报告 |
+| `github-open-source-site-rework` | 维护官网的开源获取导向 | 当前官网页面、试用提示、GitHub 仓库地址 | 改版后的官网文案与校验清单 |
 
 ## Default Workflow
 
