@@ -30,14 +30,26 @@ if [ ! -f "$PROFILE_PATH" ]; then
     read -rp "请输入你的职业/领域: " profession
     read -rp "请输入你的写作风格: " writing_style
     read -rp "请输入你的目标受众: " target_audience
-    python3 - <<PY
+    IP_NAME="$ip_name" \
+    PROFESSION="$profession" \
+    WRITING_STYLE="$writing_style" \
+    TARGET_AUDIENCE="$target_audience" \
+    PROFILE_PATH="$PROFILE_PATH" \
+    python3 - <<'PY'
+import json
+import os
 from pathlib import Path
-path = Path(r"$PROFILE_PATH")
+
+path = Path(os.environ["PROFILE_PATH"])
 text = path.read_text(encoding="utf-8")
-text = text.replace('name: ""', f'name: "{ip_name}"', 1)
-text = text.replace('profession: ""', f'profession: "{profession}"', 1)
-text = text.replace('writing_style: ""', f'writing_style: "{writing_style}"', 1)
-text = text.replace('target_audience: ""', f'target_audience: "{target_audience}"', 1)
+replacements = {
+    'name: ""': f'name: {json.dumps(os.environ.get("IP_NAME", ""), ensure_ascii=False)}',
+    'profession: ""': f'profession: {json.dumps(os.environ.get("PROFESSION", ""), ensure_ascii=False)}',
+    'writing_style: ""': f'writing_style: {json.dumps(os.environ.get("WRITING_STYLE", ""), ensure_ascii=False)}',
+    'target_audience: ""': f'target_audience: {json.dumps(os.environ.get("TARGET_AUDIENCE", ""), ensure_ascii=False)}',
+}
+for source, target in replacements.items():
+    text = text.replace(source, target, 1)
 path.write_text(text, encoding="utf-8")
 PY
   fi
