@@ -9,6 +9,12 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
+## 30–60 秒真实演示
+
+![IP Publisher 真实演示 GIF](assets/ip-publisher-demo.gif)
+
+> 这份演示基于真实安装日志、人设文件与实际生成结果拼接而成，展示的是从 Quick Start 到首条内容生成的完整路径。
+
 ---
 
 ## 这个项目解决什么问题
