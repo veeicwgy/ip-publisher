@@ -12,3 +12,14 @@
 ## 复核目标
 
 重新发布后重点确认 ClawHub 页面中的 `skills/ip-publisher/SKILL.md` 已显示新版安全边界、依赖声明与真实发布限制。
+
+## 重新发布后状态
+
+| 项目 | 当前结果 |
+| --- | --- |
+| ClawHub 页面 | `https://clawhub.ai/veeicwgy/ip-publisher` |
+| 当前版本 | `v1.0.1` |
+| 文件体积 | `SKILL.md 5.7 KB`，`prompt.md 1.1 KB` |
+| 发布结果 | 页面已出现 `Published ip-publisher@1.0.1` |
+| 安全扫描状态 | 当前为 `Security scan in progress`，VirusTotal 仍显示 `Pending` |
+| 旧风险文案 | 当前页面已不再展示旧版 `Suspicious / medium confidence` 提示，但最终结论仍需等待扫描完成后复核 |

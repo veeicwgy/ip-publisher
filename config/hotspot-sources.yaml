@@ -2,34 +2,34 @@ sources:
   - source_id: weibo_hot_search
     display_name: 微博热搜
     enabled: true
-    fetcher: wewrite
+    fetcher: public_web
     category: social
     freshness: realtime
 
   - source_id: zhihu_hotlist
     display_name: 知乎热榜
     enabled: true
-    fetcher: wewrite
+    fetcher: public_web
     category: qa
     freshness: realtime
 
   - source_id: toutiao_trending
     display_name: 今日头条
     enabled: true
-    fetcher: wewrite
+    fetcher: public_web
     category: news
     freshness: realtime
 
   - source_id: kr36_hot
     display_name: 36氪
     enabled: true
-    fetcher: wewrite
+    fetcher: public_web
     category: business
     freshness: hourly
 
   - source_id: wechat_hot_articles
     display_name: 微信热文
     enabled: true
-    fetcher: wewrite
+    fetcher: public_web
     category: article
     freshness: hourly

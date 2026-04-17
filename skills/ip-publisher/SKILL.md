@@ -1,6 +1,6 @@
 ---
 name: ip publisher xiaohongshu wechat zhihu content publisher
-description: IP Publisher is a Xiaohongshu, WeChat Official Account, and Zhihu content publisher for personal IP creators who need one workflow from hotspot selection to drafting, AI style removal, cover brief creation, and publishing preparation. Use for: xiaohongshu publisher, wechat publisher, zhihu publisher, ip publisher, personal IP content workflow, AI content workflow, hotspot selection, platform-native article generation, and safe multi-platform publishing preparation. 默认不自动登录、不代管凭证、不在未经同意时持久化本地配置。
+description: IP Publisher is a Xiaohongshu, WeChat Official Account, and Zhihu content workflow skill for personal IP creators who need one workflow from hotspot selection to drafting, AI style removal, cover brief creation, and publish-pack preparation. Use for: xiaohongshu publisher, wechat publisher, zhihu publisher, ip publisher, personal IP content workflow, AI content workflow, hotspot selection, platform-native article generation, and safe multi-platform publish-pack preparation. 默认不自动登录、不代管凭证、不在未经同意时持久化本地配置。
 ---
 
 # IP Publisher
@@ -23,17 +23,18 @@ description: IP Publisher is a Xiaohongshu, WeChat Official Account, and Zhihu c
 - 用户说“基于热点写内容并准备发布”
 - 用户说“帮我去 AI 味，再生成封面和发布包”
 - 用户说“准备发布内容到 XX 平台”
-- 用户说“一键发布”
+- 用户说“生成发布包”
+- 用户说“把这篇内容拆成多个平台版本”
 
 ## What users get after install
 
-安装后，用户得到的是一条可执行的 **IP Publisher workflow**：热点抓取、选题判断、内容策略、平台草稿、AI style removal、封面 brief，以及最终的发布准备包。对于 **Xiaohongshu / 小红书**、**WeChat Official Account / 微信公众号**、**Zhihu / 知乎**，它会直接产出更接近平台原生格式的标题、正文、标签与发布建议。默认产出是**可人工审阅、可复制粘贴、可进一步发布**的内容包，只有在用户明确要求、并且本地发布插件或账号环境已由用户自行配置完成时，才进入发布执行环节。
+安装后，用户得到的是一条可执行的 **IP Publisher workflow**：热点抓取、选题判断、内容策略、平台草稿、AI style removal、封面 brief，以及最终的发布准备包。对于 **Xiaohongshu / 小红书**、**WeChat Official Account / 微信公众号**、**Zhihu / 知乎**，它会直接产出更接近平台原生格式的标题、正文、标签与发布建议。默认产出是**可人工审阅、可复制粘贴、可继续交给人工后台发布**的内容包；仓库内还提供 `scripts/generate-publish-pack.py`，可把草稿整理成 Markdown / JSON 双格式发布包。只有在用户明确要求、并且本地发布插件或账号环境已由用户自行配置完成时，才进入发布执行环节。
 
 ## Searchable use cases
 
 | Search intent | What this skill can do |
 | --- | --- |
-| `ip publisher` | 用品牌词直接进入个人 IP 内容自动化主流程 |
+| `ip publisher` | 用品牌词直接进入个人 IP 内容工作流主流程 |
 | `personal ip` | 为个人品牌、知识型创作者、行业 IP 提供内容生产工作流 |
 | `ai content workflow` | 将热点、选题、写作、润色、封面与发布准备串联起来 |
 | `xiaohongshu` | 生成小红书笔记结构、标题、正文、标签与封面方向 |
@@ -60,7 +61,7 @@ description: IP Publisher is a Xiaohongshu, WeChat Official Account, and Zhihu c
 | `article-generator` | 生成平台文案 | 本地 Skill 编排 | 输出草稿 |
 | `humanizer` | 降低 AI 味 | 本地 Skill 编排 | 输出润色版草稿 |
 | `cover-generator` | 生成封面方案或提示词 | 调用图像生成能力时，应在结果中说明 | 默认输出封面 brief 或可执行提示词 |
-| `multi-publisher` | 发布准备或发布执行 | 依赖用户本地已安装并登录的发布插件/工具（当前以 Wechatsync 手动链路为主） | 默认输出发布包，非默认自动发布 |
+| `multi-publisher` | 发布准备或发布执行 | 依赖用户本地已安装并登录的发布插件/工具（当前以 Wechatsync 手动链路为主） | 默认输出发布包与预检结果，非默认自动发布 |
 
 ## Step by step personal IP content workflow
 
@@ -101,7 +102,7 @@ description: IP Publisher is a Xiaohongshu, WeChat Official Account, and Zhihu c
 
 ### Step 7 - 发布准备或发布执行
 
-1. 默认先生成“发布包”，包括标题、正文、封面、标签、平台填写建议和注意事项。
+1. 默认先生成“发布包”，包括标题、正文、封面、标签、平台填写建议和注意事项；如需结构化文件，可调用 `scripts/generate-publish-pack.py` 输出 Markdown / JSON。
 2. 若用户明确要求执行发布，则先检查 `multi-publisher` 所声明的前置条件是否满足。
 3. 当前默认发布链路依赖用户本地已安装并已登录的 Wechatsync 等工具；若条件不满足，则退回手动复制粘贴发布方案。
 4. 输出真实状态报告，只能写“已准备”“待用户确认”“手动发布完成”或“插件执行结果”，不得虚构平台回执。

@@ -10,6 +10,7 @@ required_files=(
   "$REPO_ROOT/config/platforms.yaml"
   "$REPO_ROOT/config/hotspot-sources.yaml"
   "$REPO_ROOT/scripts/setup.sh"
+  "$REPO_ROOT/scripts/generate-publish-pack.py"
   "$REPO_ROOT/skills/ip-publisher/SKILL.md"
   "$REPO_ROOT/skills/ip-profile/SKILL.md"
   "$REPO_ROOT/skills/hotspot-fetcher/SKILL.md"
@@ -25,5 +26,12 @@ for file in "${required_files[@]}"; do
 done
 
 echo "All core files exist."
+python3 "$REPO_ROOT/scripts/generate-publish-pack.py" \
+  --platform xiaohongshu \
+  --title "Smoke Test" \
+  --body "这是一条用于验证发布包生成脚本的自检正文。" \
+  --output-dir outputs/smoke-test >/dev/null
+
+echo "Publish-pack smoke test passed."
 echo "Try: bash scripts/setup.sh"
 echo "Then say: 帮我写一篇小红书文章"

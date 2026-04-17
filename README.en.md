@@ -1,11 +1,11 @@
-# IP Publisher — AI Content Workflow for Personal Brands and Social Media Publishing
+# IP Publisher — AI Content Workflow for Personal Brands
 
 <p align="right"><a href="./README.md">简体中文</a> | <strong>English</strong></p>
 
 <p align="center"><img src="assets/logo.webp" alt="IP Publisher Logo" width="520"></p>
 
-> An **AI content creation workflow** for personal brands, creators, consultants, founders, and indie hackers.
-> Turn trends into **publish-ready social media posts, long-form articles, cover images, and multi-platform content packs** from one command.
+> A repository for creators who need a repeatable **AI content workflow**.
+> Its current value is not "one-click publishing". Its current value is helping you turn one idea into a cleaner **publish pack** with persona context, platform adaptation, and manual-review-ready output.
 
 <p align="center">
   <a href="https://ippublisher-lwukxvsq.manus.space">Website</a> ·
@@ -17,41 +17,47 @@
 [![GitHub stars](https://img.shields.io/github/stars/veeicwgy/ip-publisher?style=social)](https://github.com/veeicwgy/ip-publisher/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/veeicwgy/ip-publisher?style=social)](https://github.com/veeicwgy/ip-publisher/network/members)
 
-> If this project is useful to you, please consider giving it a **Star**. That helps prioritize automated publishing, more cover templates, and a broader creator workflow.
+> If this project is useful, please give it a **Star**. I would rather spend the next iteration making the workflow more verifiable than adding bigger claims that still cannot be checked.
 
 ---
 
-## What problem does this AI content workflow solve?
+## Why I built this repository
 
-Most creators do not struggle with typing words. They struggle with finding angles, tracking trends, rewriting for different platforms, reducing the generic AI tone, and preparing final assets for publishing. Those tasks usually live across too many disconnected tools.
+When I work on personal-brand content, the hardest part is rarely typing the draft itself. The real friction is choosing a usable angle, keeping the voice aligned with the persona, rewriting the same idea for different channels, removing the generic AI tone, and packaging everything for the final publishing step.
 
-**IP Publisher** combines them into one **content automation workflow**: `trend discovery -> persona alignment -> platform adaptation -> humanization -> cover generation -> publish-ready output`.
-
-This makes the repository easier to understand as a tool for **personal brand content automation**, **social media content creation**, and **multi-platform publishing preparation**.
+That is why I narrowed the positioning of **IP Publisher**. This repository is a **creator workflow system** first, and a publishing helper second. If you need a tool that promises to log into every platform and publish automatically, this version is not that. If you need a workflow that helps you prepare cleaner drafts, platform-specific variants, and structured publish packs that you or your team can review and post manually, it is already useful.
 
 ---
 
-## Best fit for international users
+## What is actually runnable today
 
-| Use case | What IP Publisher helps you do |
-| --- | --- |
-| Personal branding | Turn your expertise into consistent posts and articles |
-| Creator workflow | Generate content ideas, drafts, covers, and final publishing packs |
-| Social media automation | Adapt one idea into multiple platform-specific formats |
-| Thought leadership | Build opinion pieces for long-form platforms and newsletters |
-| Content repurposing | Rewrite one topic for short-form, long-form, and educational channels |
+| Deliverable | What it does now | File |
+| --- | --- | --- |
+| Setup script | Pulls dependencies, initializes local persona config, installs skills for Claude / OpenClaw | `scripts/setup.sh` |
+| Publish-pack generator | Reads `config/platforms.yaml` and exports Markdown / JSON packs for multiple platforms | `scripts/generate-publish-pack.py` |
+| Platform rules | Stores real limits such as content length, cover ratio, and recommended tag count | `config/platforms.yaml` |
+| Persona template | Defines the local `profile.yaml` structure | `config/ip-profile-template.yaml` |
+| Example outputs | Shows realistic long-form and short-form content examples | `examples/` |
 
 ---
 
-## Content Output Example
+## How I use it in practice
 
-The image below shows the kind of output this repository is built to produce. You provide one prompt, and the workflow continues with trend filtering, persona alignment, article drafting, humanization, and cover preparation before exporting a result that is ready to copy, review, and publish.
+My own workflow is simple. I keep a local persona file, run the main skill to narrow the angle, generate a draft, reduce the template feel, and prepare a cover direction. I do **not** ask the tool to fake a successful publish event. At the last step, I use the publish-pack generator to turn the draft into platform-ready title, body, tag, and checklist bundles, then I review and paste them into the actual publishing backends myself.
+
+That change matters. It moves the project away from pseudo-automation and toward a workflow that a solo creator or a small content team can repeat without guessing what the next step should be. The files in `examples/article-output-wechat.md`, `examples/article-output-xiaohongshu.md`, and `examples/article-output-zhihu.md` reflect that operating style.
+
+---
+
+## Output example
+
+The image below reflects the kind of result this repository is trying to produce today: not a fake "published successfully" screen, but a structured content workflow and a reviewable output set.
 
 <p align="center"><img src="assets/one-click-demo.png" alt="IP Publisher content workflow output example" width="980"></p>
 
 ---
 
-## Get it running in 3 minutes
+## Get it running in about 3 minutes
 
 ### 1) Clone the repository
 
@@ -60,91 +66,87 @@ git clone https://github.com/veeicwgy/ip-publisher.git
 cd ip-publisher
 ```
 
-### 2) Install dependencies and initialize config
+### 2) Install dependencies and initialize persona config
 
 ```bash
 bash scripts/setup.sh
 ```
 
-### 3) Trigger the main workflow
+### 3) Generate a real publish pack
 
-Say this to Claude Code or OpenClaw:
-
-```text
-Write a Xiaohongshu (RedNote) post about AI trends for my personal brand
+```bash
+python3 scripts/generate-publish-pack.py \
+  --platform xiaohongshu wechat_official zhihu \
+  --title "Why I fixed the content workflow before chasing bigger automation" \
+  --angle "A personal brand needs a stable content system before it needs bigger automation" \
+  --body-file examples/article-output-wechat.md \
+  --tags personal-brand,content-workflow,multi-platform
 ```
 
-If you want to understand the product before installing, you can also visit the [IP Publisher website](https://ippublisher-lwukxvsq.manus.space).
+This command creates both a Markdown pack and a JSON manifest under `outputs/`, so you can review the copy, compare platform checks, and continue with your own manual publishing flow.
+
+If you want to inspect the product shape first, visit the [IP Publisher website](https://ippublisher-lwukxvsq.manus.space).
 
 ---
 
-## What it automates
+## Best-fit use cases
 
-| Step | Action | Output |
-| --- | --- | --- |
-| 1 | Load or create your brand persona | Defines profession, tone, audience, expertise, and topic boundaries |
-| 2 | Fetch live trends | Pulls public topics from Weibo, Zhihu, 36Kr, and other trend sources |
-| 3 | Generate a content angle | Produces hooks, positioning, key arguments, and emotion targets |
-| 4 | Adapt to target platforms | Creates tailored copy for Xiaohongshu, Zhihu, WeChat, and other channels |
-| 5 | Humanize the writing | Reduces template feel and adds a more personal voice |
-| 6 | Generate cover images | Uses AI image generation for visual assets |
-| 7 | Export publish-ready packs | Delivers copy and status notes ready for manual publishing |
-
----
-
-## Supported platforms for multi-platform publishing
-
-| Platform | Best for | Search-friendly equivalent |
-| --- | --- | --- |
-| Xiaohongshu | Lifestyle storytelling and recommendation posts | RedNote / Little Red Book |
-| Zhihu | Opinion pieces and long-form answers | Q&A thought leadership |
-| WeChat Official Accounts | Narrative long-form articles and brand content | Newsletter-style publishing |
-| CSDN | Technical tutorials and engineering writeups | Developer blog publishing |
-| Weibo | Short commentary and trend reactions | Short-form social posting |
-| Toutiao | Broad-interest trend expansion | News-style content distribution |
-| Juejin | Technical practice and developer education | Dev content publishing |
-
----
-
-## Common prompts for content automation
-
-```text
-Write a social media post about AI trends for my personal brand
-Create a publish-ready WeChat article from today's hottest topic
-Show me the best trending topics for my niche
-Turn one idea into versions for Xiaohongshu, Zhihu, and WeChat
-Generate a cover image and final publishing pack for this article
-```
-
----
-
-## Why this repository is different from a simple AI writer
-
-This is not just an AI writing assistant. It is a **personal brand content system** and **creator publishing workflow**. The goal is not only to draft text, but also to decide what to talk about, how to adapt that idea to each platform, how to make the writing sound less generic, and how to prepare the final assets for publishing.
-
-That positioning makes it relevant to users searching for **AI social media workflow**, **content repurposing tool**, **personal branding automation**, or **creator content pipeline**.
-
----
-
-## Core capabilities and dependencies
-
-| Capability / Dependency | Purpose |
+| Use case | Why it fits |
 | --- | --- |
-| Agent-based search and web extraction | Pulls trending topics directly from public sources without extra Python packages |
-| Wechatsync | Supports multi-platform sync and publishing workflows, although current release still expects user-side cooperation |
-| miaoda_image_generate | Generates real AI cover images |
-| Humanizer-zh | Refines Chinese copy to reduce obvious AI tone |
+| Personal branding | Keep persona, positioning, and output structure consistent |
+| Social media publishing preparation | Turn one source draft into platform-specific publish packs |
+| Content repurposing | Reuse the same idea across short-form and long-form channels |
+| Small creator teams | Hand structured output to editors or operators for final review |
 
 ---
 
-## Current status and roadmap
+## Current capability boundaries
 
-| Area | Current status | Next step |
+| Module | Current state | Notes |
 | --- | --- | --- |
-| Trend discovery | Already uses direct web search and extraction | Add more niche sources |
-| Humanization | Rule-based refinement flow is in place | Add evaluation and feedback loops |
-| Cover generation | Already upgraded to real image generation | Add more templates and batch generation |
-| Publishing delivery | Exports standardized article and cover assets for manual publishing | Add API-based automated publishing later |
+| Trend discovery | Available through skill orchestration and public web sourcing | Not yet a standalone repository script |
+| Platform adaptation | Available through the main workflow skill | Depends on Claude / OpenClaw execution |
+| Humanization | Available through the `humanizer` sub-skill | Still workflow-oriented rather than a separate engine |
+| Cover generation | Can output cover briefs and use image generation when the runtime supports it | Environment-dependent |
+| Multi-platform publishing | Exports publish packs and preflight checks by default | Does not fake automatic posting |
+| Fully automatic posting | Not implemented | Should only be claimed after real API or plugin execution exists |
+
+---
+
+## Supported platforms
+
+| Platform | Best for | Cover ratio | Recommended tags |
+| --- | --- | --- | --- |
+| Xiaohongshu | Story-led creator posts and recommendation notes | `1:1` | 8 |
+| Zhihu | Opinion pieces and long-form answers | `16:9` | 5 |
+| WeChat Official Account | Narrative long-form brand articles | `2.35:1` | 0 |
+| CSDN | Technical tutorials and engineering writeups | `16:9` | 6 |
+| Weibo | Short reactions and trend commentary | `none` | 2 |
+| Toutiao | Broad-interest trend expansion | `16:9` | 5 |
+| Juejin | Developer education and technical practice | `16:9` | 5 |
+
+---
+
+## More honest prompts
+
+```text
+Find a topic that fits my persona, then draft a WeChat article
+Turn this source draft into Xiaohongshu and Zhihu versions
+Reduce the generic AI tone and give me a cover brief
+Generate a multi-platform publish pack for manual review, not direct posting
+```
+
+---
+
+## Repository structure
+
+```text
+config/      Platform rules, persona template, hotspot sources
+examples/    Real sample outputs
+scripts/     Setup, dependency install, publish-pack generator
+skills/      Main workflow and sub-skill orchestration
+assets/      README visuals
+```
 
 ---
 
