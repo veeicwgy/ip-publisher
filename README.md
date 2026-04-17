@@ -1,9 +1,17 @@
 # IP Publisher
 
+<p align="right"><strong>简体中文</strong> | <a href="./README.en.md">English</a></p>
+
 <p align="center"><img src="assets/logo.webp" alt="IP Publisher Logo" width="520"></p>
 
-> 面向个人 IP 运营者的全流程 AI 内容自动化工具
+> 面向个人 IP 运营者的全流程 AI 内容自动化工具。
 > 从「热点发现」到「手动发布包输出」，一条命令跑通内容生产链路。
+
+<p align="center">
+  <a href="https://ippublisher-lwukxvsq.manus.space">官网</a> ·
+  <a href="https://github.com/veeicwgy/ip-publisher">GitHub 仓库</a> ·
+  <a href="./README.en.md">English README</a>
+</p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/veeicwgy/ip-publisher?style=social)](https://github.com/veeicwgy/ip-publisher/stargazers)
@@ -15,25 +23,17 @@
 
 ## 这个项目解决什么问题
 
-个人创作者做内容，最耗时间的不是“写字”，而是：
+个人创作者做内容，最耗时间的往往不是“写字”，而是选题慢、多平台改写重复劳动、内容带 AI 模板感，以及封面和发布准备分散在不同工具里。
 
-- 选题慢：每天不知道写什么
-- 多平台改写重复劳动：小红书、知乎、公众号风格不同
-- AI 味重：读起来像模板
-- 发布链路碎片化：封面、正文、分发各一套工具
-
-**IP Publisher** 把这些步骤串成一个可执行工作流：
-`热点 -> 人设对齐 -> 平台改写 -> 去 AI 味 -> 封面生成 -> 手动发布包输出`
+**IP Publisher** 把这些步骤串成一条可执行工作流：`热点 -> 人设对齐 -> 平台改写 -> 去 AI 味 -> 封面生成 -> 手动发布包输出`。
 
 ---
 
-## 30 秒看效果
+## 内容输出示例
 
-### 真实输出示例
+下面这张图是仓库中内容生产结果的展示示例。你只需要给出一句需求，工作流就会继续完成热点筛选、人设对齐、正文生成、去 AI 味和封面准备，最后产出适合复制发布的内容结果。
 
-下面这张图就是一次真实生成后的文章效果示例。你只需要给出一句需求，仓库里的工作流就会继续完成热点筛选、人设对齐、正文生成、去 AI 味和封面准备，最后产出适合复制发布的内容结果。
-
-<p align="center"><img src="assets/one-click-demo.png" alt="IP Publisher 30 秒看效果示例" width="980"></p>
+<p align="center"><img src="assets/one-click-demo.png" alt="IP Publisher 内容输出示例" width="980"></p>
 
 ---
 
@@ -59,6 +59,8 @@ bash scripts/setup.sh
 ```text
 帮我写一篇小红书文章
 ```
+
+如果你想先看产品形态与官网说明，也可以直接访问 [IP Publisher 官网](https://ippublisher-lwukxvsq.manus.space)。
 
 ---
 
