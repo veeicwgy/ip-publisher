@@ -1,13 +1,13 @@
 ---
-name: ip publisher personal ip ai content workflow
-description: IP Publisher is a personal IP AI content workflow skill for Xiaohongshu, WeChat Official Account, Zhihu, CSDN, Weibo, Toutiao, and Juejin. Use for: personal IP content workflow, AI content workflow, hotspot selection, Xiaohongshu note writing, WeChat Official Account article drafting, Zhihu answer and article generation, AI style removal, cover brief creation, and safe multi-platform publishing preparation. 默认不自动登录、不代管凭证、不在未经同意时持久化本地配置。
+name: ip publisher xiaohongshu wechat zhihu content publisher
+description: IP Publisher is a Xiaohongshu, WeChat Official Account, and Zhihu content publisher for personal IP creators who need one workflow from hotspot selection to drafting, AI style removal, cover brief creation, and publishing preparation. Use for: xiaohongshu publisher, wechat publisher, zhihu publisher, ip publisher, personal IP content workflow, AI content workflow, hotspot selection, platform-native article generation, and safe multi-platform publishing preparation. 默认不自动登录、不代管凭证、不在未经同意时持久化本地配置。
 ---
 
 # IP Publisher
 
-## Use this skill for personal IP content workflow
+## Use this skill as a Xiaohongshu WeChat Zhihu content publisher workflow
 
-当用户想把“找热点、定角度、写内容、去 AI 味、出封面、做发布准备”串成一条完整流程时，使用本 Skill。它尤其适合 **personal IP**、**AI content workflow**、**content automation** 与 **multi-platform publishing preparation** 场景。
+当用户想把“找热点、定角度、写内容、去 AI 味、出封面、做发布准备”串成一条完整流程时，使用本 Skill。它尤其适合 **xiaohongshu publisher**、**wechat publisher**、**zhihu publisher**、**personal IP**、**AI content workflow**、**content automation** 与 **multi-platform publishing preparation** 场景。
 
 ## Platform coverage: Xiaohongshu, WeChat Official Account, Zhihu and more
 
@@ -27,7 +27,7 @@ description: IP Publisher is a personal IP AI content workflow skill for Xiaohon
 
 ## What users get after install
 
-安装后，用户得到的是一条可执行的 **IP Publisher workflow**：热点抓取、选题判断、内容策略、平台草稿、AI style removal、封面 brief，以及最终的发布准备包。默认产出是**可人工审阅的内容包**，只有在用户明确要求、并且本地发布插件或账号环境已由用户自行配置完成时，才进入发布执行环节。
+安装后，用户得到的是一条可执行的 **IP Publisher workflow**：热点抓取、选题判断、内容策略、平台草稿、AI style removal、封面 brief，以及最终的发布准备包。对于 **Xiaohongshu / 小红书**、**WeChat Official Account / 微信公众号**、**Zhihu / 知乎**，它会直接产出更接近平台原生格式的标题、正文、标签与发布建议。默认产出是**可人工审阅、可复制粘贴、可进一步发布**的内容包，只有在用户明确要求、并且本地发布插件或账号环境已由用户自行配置完成时，才进入发布执行环节。
 
 ## Searchable use cases
 
@@ -37,8 +37,11 @@ description: IP Publisher is a personal IP AI content workflow skill for Xiaohon
 | `personal ip` | 为个人品牌、知识型创作者、行业 IP 提供内容生产工作流 |
 | `ai content workflow` | 将热点、选题、写作、润色、封面与发布准备串联起来 |
 | `xiaohongshu` | 生成小红书笔记结构、标题、正文、标签与封面方向 |
+| `xiaohongshu publisher` | 为小红书准备可直接发布的笔记草稿、标签与封面 brief |
 | `wechat official account` | 生成微信公众号文章结构、标题与导语结尾 |
+| `wechat publisher` | 为微信公众号准备文章草稿、摘要、导语、结尾与发布说明 |
 | `zhihu` | 生成知乎回答、知乎文章的逻辑展开与观点表达 |
+| `zhihu publisher` | 为知乎回答或文章准备更适合发布的观点结构与正文草稿 |
 
 ## Safety and operational boundaries
 
