@@ -1,22 +1,44 @@
 ---
-name: ip-publisher
-description: 全流程个人 IP 内容自动化主 Skill。Use for: 围绕热点选题、平台写作、去 AI 味、封面方案和发布准备的串联执行；默认不自动登录、不代管凭证、不在未经同意时持久化本地配置。
+name: ip publisher personal ip ai content workflow
+description: IP Publisher is a personal IP AI content workflow skill for Xiaohongshu, WeChat Official Account, Zhihu, CSDN, Weibo, Toutiao, and Juejin. Use for: personal IP content workflow, AI content workflow, hotspot selection, Xiaohongshu note writing, WeChat Official Account article drafting, Zhihu answer and article generation, AI style removal, cover brief creation, and safe multi-platform publishing preparation. 默认不自动登录、不代管凭证、不在未经同意时持久化本地配置。
 ---
 
 # IP Publisher
 
+## Use this skill for personal IP content workflow
+
+当用户想把“找热点、定角度、写内容、去 AI 味、出封面、做发布准备”串成一条完整流程时，使用本 Skill。它尤其适合 **personal IP**、**AI content workflow**、**content automation** 与 **multi-platform publishing preparation** 场景。
+
+## Platform coverage: Xiaohongshu, WeChat Official Account, Zhihu and more
+
+该 Skill 重点支持以下平台及其对应写法：**Xiaohongshu / 小红书**、**WeChat Official Account / 微信公众号**、**Zhihu / 知乎**、CSDN、Weibo、Toutiao、Juejin。它会根据目标平台输出适合的平台原生版本，而不是把一份通稿强行改写。
+
 ## Trigger when
 
-- 用户说“写一篇 XX 平台文章”
-- 用户说“帮我写一篇”“整一篇”“出一个”“给我来一篇”
-- 用户说“帮我运营 IP”
-- 用户说“基于热点写文章”
-- 用户说“准备发布内容到 XX”
+- 用户说“帮我做 personal IP 内容工作流”
+- 用户说“做一个 AI content workflow”
+- 用户说“给我写一篇小红书笔记”
+- 用户说“帮我写一篇微信公众号文章”
+- 用户说“帮我生成一篇知乎回答或知乎文章”
+- 用户说“基于热点写内容并准备发布”
+- 用户说“帮我去 AI 味，再生成封面和发布包”
+- 用户说“准备发布内容到 XX 平台”
 - 用户说“一键发布”
 
-## What this skill does
+## What users get after install
 
-该 Skill 负责把热点发现、内容生成、去 AI 味、封面方案和发布准备串成一个可执行流程。默认产出是**可人工审阅的内容包**，包括选题、标题、正文、封面建议和平台发布清单；只有在用户明确要求，且本地发布插件或账号环境已经由用户自行配置完成时，才进入发布执行环节。
+安装后，用户得到的是一条可执行的 **IP Publisher workflow**：热点抓取、选题判断、内容策略、平台草稿、AI style removal、封面 brief，以及最终的发布准备包。默认产出是**可人工审阅的内容包**，只有在用户明确要求、并且本地发布插件或账号环境已由用户自行配置完成时，才进入发布执行环节。
+
+## Searchable use cases
+
+| Search intent | What this skill can do |
+| --- | --- |
+| `ip publisher` | 用品牌词直接进入个人 IP 内容自动化主流程 |
+| `personal ip` | 为个人品牌、知识型创作者、行业 IP 提供内容生产工作流 |
+| `ai content workflow` | 将热点、选题、写作、润色、封面与发布准备串联起来 |
+| `xiaohongshu` | 生成小红书笔记结构、标题、正文、标签与封面方向 |
+| `wechat official account` | 生成微信公众号文章结构、标题与导语结尾 |
+| `zhihu` | 生成知乎回答、知乎文章的逻辑展开与观点表达 |
 
 ## Safety and operational boundaries
 
@@ -24,7 +46,7 @@ description: 全流程个人 IP 内容自动化主 Skill。Use for: 围绕热点
 - 默认**不收集、不代填、不托管**任何平台账号、Cookie、Token 或密码。
 - 默认**不直接联网登录平台后台**；发布动作仅在用户明确授权且本地环境已具备所需插件时尝试。
 - 若缺少发布条件，本 Skill 改为输出手动发布包，不伪造“已发布成功”。
-- 所有外部动作都应在结果中说明来源与限制，不隐瞒依赖项。
+- 所有外部动作都应在结果中说明来源、依赖项与限制，不隐瞒前置条件。
 
 ## External dependencies and declared interfaces
 
@@ -37,12 +59,12 @@ description: 全流程个人 IP 内容自动化主 Skill。Use for: 围绕热点
 | `cover-generator` | 生成封面方案或提示词 | 调用图像生成能力时，应在结果中说明 | 默认输出封面 brief 或可执行提示词 |
 | `multi-publisher` | 发布准备或发布执行 | 依赖用户本地已安装并登录的发布插件/工具（当前以 Wechatsync 手动链路为主） | 默认输出发布包，非默认自动发布 |
 
-## Step by step
+## Step by step personal IP content workflow
 
 ### Step 1 - 人设加载或临时设定
 
-1. 优先检查用户是否已在当前会话提供职业/领域、风格、受众、价值观和禁忌话题。
-2. 若本地存在 `~/.ip-publisher/profile.yaml`，可询问用户是否直接复用。
+1. 优先检查用户是否已在当前会话提供职业、领域、风格、受众、价值观和禁忌话题。
+2. 若本地存在 `~/.ip-publisher/profile.yaml`，先询问用户是否直接复用。
 3. 若用户未授权本地保存，则仅在当前任务中临时使用该人设信息。
 4. 只有在用户明确说“保存人设配置”时，才把结构化结果写入本地 YAML。
 
@@ -58,9 +80,9 @@ description: 全流程个人 IP 内容自动化主 Skill。Use for: 围绕热点
 2. 如果用户明确要求自动选择，则选择匹配度最高的话题，并在结果中说明选择依据。
 3. 输出内容策略，包括标题方向、核心观点、目标情绪和风险边界。
 
-### Step 4 - 平台适配内容生成
+### Step 4 - Platform writing for Xiaohongshu, WeChat Official Account, Zhihu and others
 
-根据目标平台调用 `article-generator` 生成草稿，并遵循对应平台的篇幅、结构和语气要求。若用户一次指定多个平台，则为每个平台分别生成版本，不混淆格式。
+根据目标平台调用 `article-generator` 生成草稿，并遵循对应平台的篇幅、结构和语气要求。若用户一次指定多个平台，则为每个平台分别生成版本，不混淆格式。对于 Xiaohongshu、WeChat Official Account、Zhihu，应优先输出更贴近平台原生阅读习惯的表达方式。
 
 ### Step 5 - 去 AI 味处理
 
