@@ -5,7 +5,7 @@
 在本地完成安装后，实现以下最短链路：
 
 ```text
-git clone -> bash scripts/setup.sh -> 对 Claude 说“帮我写一篇小红书文章”
+git clone -> bash scripts/setup.sh -> python3 scripts/quickstart.py -> 生成三平台发布包
 ```
 
 ## 安装步骤
@@ -30,21 +30,36 @@ bash scripts/setup.sh
 - 把 `skills/` 下的 Skill 安装到 Claude Code 与 OpenClaw 目录
 - 初始化 `~/.ip-publisher/profile.yaml`
 
-### 3. 启动首个任务
+### 3. 运行交互式 quickstart
 
-```text
-帮我写一篇小红书文章
+```bash
+python3 scripts/quickstart.py
 ```
 
-## 推荐首条指令
+脚本会直接问你几个问题，例如：
 
-| 指令 | 目的 |
+```text
+你想改写的主题是什么？
+你最想强调的核心观点是什么？
+你希望主要写给谁看？
+目标平台是什么？
+```
+
+答完以后，你会在 `outputs/` 下看到：
+
+| 文件 | 作用 |
 | --- | --- |
-| 设置我的 IP 人设 | 初始化用户画像 |
-| 给我看看今天适合我的热点 | 检查热点链路是否正常 |
-| 帮我写一篇公众号文章 | 检查平台生成是否正常 |
-| 去掉这篇文章的 AI 味 | 检查 Humanizer 是否接入 |
-| 一键发布到知乎和公众号 | 检查发布链路 |
+| `*.md` | 直接审阅、复制、协作 |
+| `*.json` | 继续接入你自己的流程或脚本 |
+
+## 推荐首条动作
+
+| 动作 | 目的 |
+| --- | --- |
+| 直接跑 `python3 scripts/quickstart.py` | 最快看到三平台结果 |
+| 复用 `~/.ip-publisher/profile.yaml` | 让改写更像你自己的语气 |
+| 用 `scripts/generate-publish-pack.py` | 适合脚本化生成发布包 |
+| 把结果交给编辑或运营复核 | 发挥“发布包先于代发”的优势 |
 
 ## 故障排查
 
@@ -52,5 +67,6 @@ bash scripts/setup.sh
 | --- | --- | --- |
 | 找不到 Skill | 安装目录未复制成功 | 重新执行 `bash scripts/setup.sh` |
 | 没有 `profile.yaml` | 初始化未完成 | 复制 `config/ip-profile-template.yaml` 到 `~/.ip-publisher/profile.yaml` |
-| 热点抓取失败 | 上游依赖未拉取或网络异常 | 检查 `~/.ip-publisher/deps/wewrite` |
-| 发布失败 | 平台未授权 | 先在对应平台完成授权 |
+| quickstart 无法生成文件 | Python 依赖未装好 | 重新执行 `bash scripts/setup.sh` |
+| 发布包不符合预期 | 主题或角度太空泛 | 在 quickstart 中补充更具体的核心观点 |
+| 没有自动发布 | 当前默认就是发布包模式 | 先人工审阅，再决定是否接你自己的发布链路 |

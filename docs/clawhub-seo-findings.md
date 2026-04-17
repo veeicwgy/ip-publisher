@@ -67,3 +67,12 @@
 - 在 `zhihu publisher` 查询下，首屏仍由知乎垂直发帖或多平台发布技能占据，本 Skill 目前未进入首屏，说明标题中的 Zhihu 词元已经建立相关性，但还没有形成足够强的排序竞争力。
 
 综合本轮复核，当前版本最稳定的优势仍然是 **精确品牌词 `ip-publisher`**；而 `ip publisher`、`wechat publisher`、`xiaohongshu publisher`、`zhihu publisher` 这些更高流量或更高意图的通用词，仍需要继续通过标题前半段、摘要首句和差异化结果承诺来争取排序提升。
+
+## Live verification before v1.0.5 preparation
+
+- 详情页 `https://clawhub.ai/veeicwgy/ip-publisher` 当前可正常访问，页面显示版本 **v1.0.4**，安全扫描已转为 **Benign**，说明条目本身在线且可见。
+- 搜索入口跳转到 `https://clawhub.ai/skills?sort=downloads` 后，首屏默认展示热门技能列表与搜索框，但未自动带出当前 skill，也未在默认首屏看到 `ip-publisher`。
+- 这意味着当前搜索问题至少仍表现为：**详情页在线 ≠ 列表页自然首屏可见**。下一步需要在搜索框中复现实测词（如 `ip publisher`、`xiaohongshu publisher`）并截取结果，用于整理 ticket 证据。
+
+在 `https://clawhub.ai/skills?q=ip+publisher` 里直接搜索 `ip publisher` 后，结果页最终显示 **25 skills matching \"ip publisher\"**，但首屏结果包含 `wechat article publisher`、`XHS Publisher`、`Article Publisher`、`Social Publisher` 等词相近技能，**未出现当前 skill `ip-publisher`**。这已经构成更强的 ticket 证据：详情页存在、关键词高度相关，但实际搜索结果未召回当前条目。
+在 `https://clawhub.ai/skills?q=xiaohongshu+publisher` 搜索 `xiaohongshu publisher` 后，结果页同样返回 **25 skills matching \"xiaohongshu publisher\"**，首屏出现 `Xiaohongshu Auto Publisher`、`XHS Publisher`、`Xiaohongshu Content Creator` 等强相关技能，但**仍未出现当前条目 `ip-publisher`**。这说明仅依赖现有 title、description、tags 还不足以进入高频词召回，需要在 v1.0.5 进一步收敛 display name、description 与标签组合。

@@ -1,16 +1,26 @@
 {
   "identifier": "ip-publisher",
-  "title": "IP Publisher - 个人 IP 内容工作流与多平台发布包",
-  "description": "从热点筛选到多平台发布包生成的个人 IP 内容工作流。输入你的 IP 定位，生成更适合人工审阅与继续发布的内容结果。",
-  "tags": ["content-creation", "ip-branding", "multi-platform", "chinese", "marketing"],
+  "title": "IP Publisher | Xiaohongshu WeChat Zhihu",
+  "description": "帮你把一个话题改写成小红书、公众号、知乎三个版本，一键生成发布包。更适合人工审阅、团队协作和安全发布准备。",
+  "tags": [
+    "ip-publisher",
+    "xiaohongshu",
+    "wechat",
+    "zhihu",
+    "xiaohongshu-publisher",
+    "wechat-publisher",
+    "zhihu-publisher",
+    "publish-pack",
+    "content-workflow"
+  ],
   "author": "veeicwgy",
   "homepage": "https://github.com/veeicwgy/ip-publisher",
-  "trigger": "写一篇 [平台] 文章",
+  "trigger": "把一个话题改写成小红书、公众号、知乎三个版本",
   "examples": [
-    "帮我写一篇关于 AI 趋势的小红书文章",
-    "基于今天的热点写一篇公众号推文",
-    "设置我的 IP 人设",
-    "抓取今天的热点话题",
-    "为这篇内容生成多平台发布包"
+    "把这个话题改写成小红书、公众号、知乎三个版本",
+    "为这篇母稿一键生成发布包",
+    "帮我准备小红书、公众号、知乎的三平台内容",
+    "把这篇内容改成更适合小红书和公众号的版本",
+    "给我一个可审阅的 Markdown 和 JSON 发布包"
   ]
 }
