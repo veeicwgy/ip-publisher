@@ -76,3 +76,22 @@
 
 在 `https://clawhub.ai/skills?q=ip+publisher` 里直接搜索 `ip publisher` 后，结果页最终显示 **25 skills matching \"ip publisher\"**，但首屏结果包含 `wechat article publisher`、`XHS Publisher`、`Article Publisher`、`Social Publisher` 等词相近技能，**未出现当前 skill `ip-publisher`**。这已经构成更强的 ticket 证据：详情页存在、关键词高度相关，但实际搜索结果未召回当前条目。
 在 `https://clawhub.ai/skills?q=xiaohongshu+publisher` 搜索 `xiaohongshu publisher` 后，结果页同样返回 **25 skills matching \"xiaohongshu publisher\"**，首屏出现 `Xiaohongshu Auto Publisher`、`XHS Publisher`、`Xiaohongshu Content Creator` 等强相关技能，但**仍未出现当前条目 `ip-publisher`**。这说明仅依赖现有 title、description、tags 还不足以进入高频词召回，需要在 v1.0.5 进一步收敛 display name、description 与标签组合。
+
+2026-04-17 发布页实操记录：已在 ClawHub 发布页填写 `slug=ip-publisher`、`display name=IP Publisher | Xiaohongshu WeChat Zhihu`、`version=1.0.5`，并设置 9 个核心 tags：`ip-publisher, xiaohongshu, wechat, zhihu, xiaohongshu-publisher, wechat-publisher, zhihu-publisher, publish-pack, content-workflow`。同时已上传本地 `skills/ip-publisher` 目录（2 files / 9.1 KB），勾选 MIT-0 协议后页面显示 **All checks passed**，下一步可直接点击 **Publish skill** 提交新版本。
+发布结果复核：`ip-publisher@1.0.5` 已成功创建，页面出现 **Security scan in progress** 与 `Published ip-publisher@1.0.5` 提示；但详情页摘要仍显示旧口径“Automates personal IP content creation...”，说明新 description 尚未按预期刷新。随后已打开站内 **Report skill** 弹窗，当前可直接填写“详情页存在但搜索未召回，且摘要未同步到新版本”的问题说明并提交给 moderators。
+站内报告提交后，详情页顶部出现 **Skill flagged — suspicious patterns detected** 提示，并新增 `submit an issue on GitHub` 入口。页面说明为：ClawHub Security / OpenClaw 将该 skill 标记为 suspicious，当前可沿 GitHub issue 入口继续提交申诉或补充说明。与此同时，`latest` 已可指向 `v1.0.5`，但详情页摘要仍未刷新到新 description，且旧标签仍继续保留在详情页中。
+已从站内 `submit an issue on GitHub` 入口跳转到 `openclaw/clawhub/issues/new`。当前仓库支持直接创建公开 issue，页面已打开标题输入框与 Markdown 描述区域，可继续提交关于 `ip-publisher` 搜索未召回、详情页摘要未刷新，以及站内报告后被错误标记为 suspicious 的联合问题单。
+GitHub 工单已成功创建：`openclaw/clawhub#1714`，标题为 **Search does not recall ip-publisher, summary not refreshed after v1.0.5, and report flow flagged the skill as suspicious**。至此，本轮已完成：代码推送到 GitHub、ClawHub 发布 `v1.0.5`、以及围绕搜索未召回/摘要未刷新/误报 suspicious 的公开 issue 提交。
+
+## Live verification before v1.0.6 republish
+
+- 2026-04-20 复核 `https://clawhub.ai/veeicwgy/ip-publisher`，当前详情页仍显示 **v1.0.5**，标题为 `IP Publisher | Xiaohongshu WeChat Zhihu`。
+- 页面顶部依旧存在 **Skill flagged — suspicious patterns detected** 提示，OpenClaw 结果仍为 **Suspicious / medium confidence**。
+- 当前摘要仍停留在旧口径：`Automates personal IP content creation from hotspot selection to platform-specific article generation...`，尚未刷新到 v1.0.6 去误报后的边界说明。
+- 详情页 README 正文也仍是旧版内容，仍包含 `scripts/quickstart.py`、`scripts/generate-publish-pack.py`、本地配置路径、热点抓取和概念模块声明，这与当前仓库内已收敛的 skill 内容不一致。
+- 详情页标签仍保留旧噪音项和历史项，包括 `ai-content-workflow`、`content-automation`、`humanizer`、`hotspot`、`multi-publish`、`openclaw`、`personal-ip`、`v1.0.1 ip-publisher` 等，说明 live metadata 尚未清理。
+- 当前 owner tools 区仍可见版本选择与 tag 更新入口，说明可以继续基于本账号执行 v1.0.6 重新发布与后续标签清理。
+- 进入 `publish-skill` 页面后，已填写 `slug=ip-publisher`、`display name=IP Publisher | Xiaohongshu WeChat Zhihu`、`version=1.0.6`。
+- v1.0.6 当前拟使用的 tags 已收敛为：`ip-publisher, xiaohongshu, wechat, zhihu, xiaohongshu-draft, wechat-draft, zhihu-draft, publish-pack, content-rewrite`。
+- changelog 已明确写明：本次版本收窄为三平台草稿改写与可审阅发布包整理，移除默认 repo 脚本、本地读写、网页抓取与直接发布承诺，并新增 package-boundary / output-contract 参考说明。
+- 发布页当前校验仍提示尚未勾选 MIT-0 条款、尚未添加文件、且缺少 SKILL.md 文件识别，因此下一步需要上传 v1.0.6 skill 包并勾选协议。
