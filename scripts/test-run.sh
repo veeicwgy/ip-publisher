@@ -26,6 +26,8 @@ required_files=(
   "$REPO_ROOT/ip_publisher/schemas/article_request.schema.json"
   "$REPO_ROOT/ip_publisher/schemas/article_draft.schema.json"
   "$REPO_ROOT/ip_publisher/schemas/audit_report.schema.json"
+  "$REPO_ROOT/ip_publisher/publisher/publish_package.py"
+  "$REPO_ROOT/ip_publisher/auditor/structure_audit.py"
   "$REPO_ROOT/data/tasks/demo-request.json"
 )
 
@@ -44,12 +46,16 @@ python3 "$REPO_ROOT/scripts/generate-publish-pack.py" \
 
 python3 "$REPO_ROOT/scripts/quickstart.py" \
   --yes \
-  --topic "Quickstart Smoke Test" \
-  --angle "先跑通三平台改写，再决定后续怎么发布" \
-  --body "这是 quickstart 的非交互测试正文，用来验证脚本可以直接产出三平台发布包。" \
-  --tags 多平台改写,发布包 \
-  --platforms xiaohongshu wechat_official zhihu \
-  --output-dir outputs/quickstart-smoke-test >/dev/null
+  --product-name "Quickstart Smoke Test" \
+  --primary-keywords "Quickstart Smoke Test,自动生成文章" \
+  --secondary-keywords "内容审核,多平台发布" \
+  --hotspot "可信内容工作流开始替代一键直发幻想" \
+  --hotspot-summary "这是 quickstart 的非交互测试热点摘要，用来验证脚本可以产出 7 平台发布包。" \
+  --outline-brief "围绕 quickstart 如何把知识库、关键词、热点和大纲串起来，解释先审核再发布的原因。" \
+  --must-include-sections 核心结论,知识库价值,审核引擎,发布边界 \
+  --audience "内容运营团队" \
+  --content-type technical \
+  --output-root outputs/quickstart-smoke-test >/dev/null
 
 PYTHONPYCACHEPREFIX="$REPO_ROOT/.pycache" python3 -m ip_publisher.cli.run_phase1 \
   --request "$REPO_ROOT/data/tasks/demo-request.json" \

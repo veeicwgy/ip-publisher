@@ -1,157 +1,237 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+
 import argparse
 import json
-import subprocess
 import sys
 import tempfile
+from datetime import datetime
 from pathlib import Path
 
 import yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
 DEFAULT_PROFILE = Path.home() / ".ip-publisher" / "profile.yaml"
-GENERATOR = REPO_ROOT / "scripts" / "generate-publish-pack.py"
-DEFAULT_PLATFORMS = ["xiaohongshu", "wechat_official", "zhihu"]
+DEFAULT_KB_DIR = REPO_ROOT / "data" / "kb_raw"
+DEFAULT_INDEX_DIR = REPO_ROOT / "data" / "kb_index"
+DEFAULT_OUTPUT_DIR = REPO_ROOT / "outputs"
+DEFAULT_PLATFORMS = [
+    "wechat_official",
+    "xiaohongshu",
+    "zhihu",
+    "juejin",
+    "csdn",
+    "toutiao",
+    "weibo",
+]
+DEFAULT_STRUCTURE = {
+    "qa_required": True,
+    "comparison_table_required": True,
+    "ai_friendly_required": True,
+    "authority_signal_required": True,
+    "entity_labels_required": True,
+    "opening_value_required": True,
+    "code_example_required": False,
+}
 
 
-def parse_args():
-    parser = argparse.ArgumentParser(description="Interactive quickstart for IP Publisher")
-    parser.add_argument("--topic", default="")
-    parser.add_argument("--angle", default="")
-    parser.add_argument("--body", default="")
-    parser.add_argument("--tags", default="")
-    parser.add_argument("--name", default="")
-    parser.add_argument("--profession", default="")
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Interactive quickstart for KB-driven multi-platform publishing")
+    parser.add_argument("--product-name", default="")
+    parser.add_argument("--primary-keywords", default="")
+    parser.add_argument("--secondary-keywords", default="")
+    parser.add_argument("--forbidden-terms", default="")
+    parser.add_argument("--hotspot", default="")
+    parser.add_argument("--hotspot-summary", default="")
+    parser.add_argument("--outline-brief", default="")
+    parser.add_argument("--must-include-sections", default="")
     parser.add_argument("--audience", default="")
-    parser.add_argument("--style", default="")
+    parser.add_argument("--tone", default="")
+    parser.add_argument("--content-type", choices=["general", "technical"], default="")
     parser.add_argument("--platforms", nargs="+", default=[])
-    parser.add_argument("--output-dir", default="outputs")
+    parser.add_argument("--kb-dir", default=str(DEFAULT_KB_DIR))
+    parser.add_argument("--index-db", default="")
+    parser.add_argument("--output-root", default=str(DEFAULT_OUTPUT_DIR))
     parser.add_argument("--profile", default=str(DEFAULT_PROFILE))
-    parser.add_argument("--yes", action="store_true", help="Use defaults for confirmations in non-interactive mode")
+    parser.add_argument("--publisher", choices=["none", "wechatsync"], default="wechatsync")
+    parser.add_argument("--publish-mode", choices=["publish_pack", "direct_publish_ready"], default="direct_publish_ready")
+    parser.add_argument("--yes", action="store_true")
     return parser.parse_args()
 
 
-def ask(text: str, default: str = ""):
+def ask(text: str, default: str = "") -> str:
     suffix = f" [{default}]" if default else ""
     value = input(f"{text}{suffix}: ").strip()
     return value or default
 
 
-def choose_profile(args):
-    profile_path = Path(args.profile)
-    if profile_path.exists() and not args.yes:
-        reuse = ask("检测到本地 profile.yaml，是否直接复用？(y/n)", "y").lower()
-        if reuse.startswith("y"):
-            return str(profile_path), None
-    if args.name or args.profession or args.audience or args.style:
-        data = {
-            "ip_profile": {
-                "name": args.name or "未命名 IP",
-                "profession": args.profession or "内容创作者",
-                "writing_style": args.style or "真实、清楚、少一点套话",
-                "target_audience": args.audience or "关注这个话题的人",
-                "core_values": [item.strip() for item in args.tags.split(",") if item.strip()],
-                "tone_examples": [args.angle or "先把问题说清楚，再给出自己的判断。"],
-                "preferred_platforms": args.platforms or DEFAULT_PLATFORMS,
-            }
-        }
-    elif args.yes:
-        data = {
-            "ip_profile": {
-                "name": "未命名 IP",
-                "profession": "内容创作者",
-                "writing_style": "真实、清楚、少一点套话",
-                "target_audience": "关注这个话题的人",
-                "core_values": [item.strip() for item in args.tags.split(",") if item.strip()],
-                "tone_examples": [args.angle or "先把问题说清楚，再给出自己的判断。"],
-                "preferred_platforms": args.platforms or DEFAULT_PLATFORMS,
-            }
-        }
-    else:
-        print("\n没有强制要求先配完整人设，我只问你 4 个最关键的问题。\n")
-        data = {
-            "ip_profile": {
-                "name": ask("你想让发布包里显示的名字", "未命名 IP"),
-                "profession": ask("你的职业/领域", "内容创作者"),
-                "writing_style": ask("希望整体语气更像什么", "真实、清楚、少一点套话"),
-                "target_audience": ask("你希望主要写给谁看", "关注这个话题的人"),
-                "core_values": [item.strip() for item in ask("补充 2-3 个关键词标签，用逗号分隔", args.tags).split(",") if item.strip()],
-                "tone_examples": [args.angle or "先把问题说清楚，再给出自己的判断。"],
-                "preferred_platforms": args.platforms or DEFAULT_PLATFORMS,
-            }
-        }
-    temp_dir = Path(tempfile.mkdtemp(prefix="ip-publisher-profile-"))
-    temp_profile = temp_dir / "profile.yaml"
-    temp_profile.write_text(yaml.safe_dump(data, allow_unicode=True, sort_keys=False), encoding="utf-8")
-    return str(temp_profile), temp_dir
+def resolve_input(cli_value: str, prompt: str, default: str, assume_yes: bool) -> str:
+    if cli_value:
+        return cli_value
+    if assume_yes:
+        return default
+    return ask(prompt, default)
 
 
-def gather_inputs(args):
-    topic = args.topic or ask("你想改写的主题是什么", "为什么我先把内容流程跑顺，再谈自动化")
-    angle = args.angle or ask("你最想强调的核心观点", f"先把「{topic}」讲清楚，再谈自动化")
-    body = args.body or ask("输入 1-2 句背景或素材（可直接回车使用默认母稿）", "")
-    tags = args.tags or ask("补充标签，逗号分隔", "内容工作流,发布包,多平台改写")
-    platforms = args.platforms or ask("目标平台，空格分隔", "xiaohongshu wechat_official zhihu").split()
-    return topic, angle, body, tags, platforms
+def split_csv(value: str) -> list[str]:
+    return [item.strip() for item in value.split(",") if item.strip()]
 
 
-def run_generator(topic, angle, body, tags, platforms, profile_path, output_dir):
-    command = [
-        sys.executable,
-        str(GENERATOR),
-        "--platform",
-        *platforms,
-        "--topic",
-        topic,
-        "--angle",
-        angle,
-        "--tags",
-        tags,
-        "--profile",
-        profile_path,
-        "--output-dir",
-        output_dir,
-    ]
-    if body.strip():
-        command.extend(["--body", body])
-    result = subprocess.run(command, check=True, capture_output=True, text=True)
-    return [line.split(": ", 1)[1].strip() for line in result.stdout.splitlines() if ": " in line]
+def load_profile_defaults(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return payload.get("ip_profile", {})
 
 
-def print_preview(paths):
-    if not paths:
-        return
-    json_path = next((Path(item) for item in paths if item.endswith(".json")), None)
-    md_path = next((Path(item) for item in paths if item.endswith(".md")), None)
-    print("\n已生成发布包：")
-    for item in paths:
-        print(f"- {item}")
-    if json_path and json_path.exists():
-        data = json.loads(json_path.read_text(encoding="utf-8"))
-        print("\n平台预览：")
-        for pack in data.get("packs", []):
-            print(f"\n[{pack['display_name']}] {pack['title']}")
-            preview = pack["body"].strip().splitlines()[:5]
-            for line in preview:
-                print(line)
-    if md_path and md_path.exists():
-        print(f"\n你也可以直接打开 Markdown 发布包继续人工审阅：{md_path}")
+def build_request(args: argparse.Namespace, profile_defaults: dict) -> dict:
+    timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+    kb_dir = args.kb_dir or str(DEFAULT_KB_DIR)
+    product_name = resolve_input(args.product_name, "产品或工具名", "MinerU", args.yes)
+    primary_keywords = split_csv(
+        resolve_input(
+            args.primary_keywords,
+            "需要运营的主关键词（逗号分隔）",
+            f"{product_name} 知识库,自动生成文章",
+            args.yes,
+        )
+    )
+    secondary_keywords = split_csv(
+        resolve_input(
+            args.secondary_keywords,
+            "补充次关键词（逗号分隔）",
+            "内容审核,多平台发布,可信内容,AI 友好结构",
+            args.yes,
+        )
+    )
+    forbidden_terms = split_csv(
+        resolve_input(args.forbidden_terms, "禁用词（逗号分隔，可直接回车）", "保证收录,全自动无人工", args.yes)
+    )
+    hotspot = resolve_input(args.hotspot, "热点线索 / 选题描述", "AI 内容运营开始回归可信和可审计", args.yes)
+    hotspot_summary = resolve_input(
+        args.hotspot_summary,
+        "热点补充说明",
+        "越来越多团队开始从追求一键生成，转向先做知识库驱动与审核闭环。",
+        args.yes,
+    )
+    outline_brief = resolve_input(
+        args.outline_brief,
+        "大纲描述",
+        f"围绕 {product_name} 在知识库驱动内容生产中的价值，解释为什么先做生成和审核，再接发布。",
+        args.yes,
+    )
+    audience = resolve_input(
+        args.audience,
+        "主要读者",
+        profile_defaults.get("target_audience", "内容运营和产品营销团队"),
+        args.yes,
+    )
+    tone = args.tone or profile_defaults.get("writing_style", "专业、克制、可执行")
+    if not tone and not args.yes:
+        tone = ask("整体语气", "专业、克制、可执行")
+    content_type = resolve_input(args.content_type, "内容类型（general / technical）", "general", args.yes)
+    must_include_sections = split_csv(
+        resolve_input(
+            args.must_include_sections,
+            "必须包含的小节（逗号分隔）",
+            "核心结论,知识库价值,审核引擎,发布边界",
+            args.yes,
+        )
+    )
+    platforms = args.platforms or DEFAULT_PLATFORMS
+    structure = dict(DEFAULT_STRUCTURE)
+    structure["code_example_required"] = content_type == "technical"
+    return {
+        "task_id": f"quickstart-{timestamp}",
+        "product": {
+            "name": product_name,
+        },
+        "kb_scope": {
+            "tags": ["knowledge-base"],
+        },
+        "seo": {
+            "primary_keywords": primary_keywords,
+            "secondary_keywords": secondary_keywords,
+            "forbidden_terms": forbidden_terms,
+        },
+        "hotspot": {
+            "title": hotspot,
+            "summary": hotspot_summary,
+            "source": "manual",
+        },
+        "outline": {
+            "brief": outline_brief,
+            "must_include_sections": must_include_sections,
+        },
+        "platforms": platforms,
+        "audience": audience,
+        "tone": tone,
+        "content_type": content_type,
+        "structure": structure,
+        "publish": {
+            "mode": args.publish_mode,
+            "publisher": args.publisher,
+        },
+        "language": "zh-CN",
+        "_runtime": {
+            "kb_dir": kb_dir,
+        },
+    }
 
 
-def main():
+def run_workflow(request: dict, output_root: Path, index_db: Path) -> dict:
+    from ip_publisher.workflows.phase1_generate_and_audit import run_phase1
+
+    runtime = request.pop("_runtime")
+    with tempfile.TemporaryDirectory(prefix="ip-publisher-request-") as temp_dir:
+        request_path = Path(temp_dir) / "request.json"
+        request_path.write_text(json.dumps(request, ensure_ascii=False, indent=2), encoding="utf-8")
+        return run_phase1(
+            request_path=request_path,
+            kb_dir=Path(runtime["kb_dir"]),
+            index_db=index_db,
+            output_root=output_root,
+        )
+
+
+def print_preview(result: dict) -> None:
+    artifacts = result["artifacts"]
+    audit_report = result["audit_report"]
+    draft = result["draft"]
+    print("\n已生成知识库驱动发布包：")
+    for key, value in artifacts.items():
+        print(f"- {key}: {value}")
+    print("\n审核摘要：")
+    print(f"- 状态: {audit_report['status']}")
+    print(f"- Overall Score: {audit_report['scores']['overall']:.2f}")
+    print(f"- 可引用声明数: {audit_report.get('metrics', {}).get('citable_claims', 0)}")
+    print(f"- 事实密度: {audit_report.get('metrics', {}).get('fact_density', 0):.2f}")
+    print("\n平台预览：")
+    for platform, variant in draft.get("platform_variants", {}).items():
+        direct_publish = variant.get("direct_publish", {})
+        mode = direct_publish.get("via", "manual_copy")
+        print(f"\n[{platform}] {variant['title']}")
+        print(f"格式: {variant['format']} | 标签: {', '.join(variant.get('tags', [])) or '无'} | 发布方式: {mode}")
+        if direct_publish.get("cli_example"):
+            print(f"Wechatsync: {direct_publish['cli_example']}")
+
+
+def main() -> None:
     args = parse_args()
     print("IP Publisher Quickstart")
-    print("这会把一个主题改写成小红书、公众号、知乎三个版本，并直接生成发布包。\n")
-    topic, angle, body, tags, platforms = gather_inputs(args)
-    profile_path, temp_dir = choose_profile(args)
-    try:
-        paths = run_generator(topic, angle, body, tags, platforms, profile_path, args.output_dir)
-        print_preview(paths)
-    finally:
-        if temp_dir and temp_dir.exists():
-            for item in temp_dir.glob("*"):
-                item.unlink()
-            temp_dir.rmdir()
+    print("这条路径会基于 知识库 + 关键词 + 热点 + 大纲，默认输出 7 平台发布包和 Wechatsync 草稿同步信息。\n")
+    profile_defaults = load_profile_defaults(Path(args.profile))
+    request = build_request(args, profile_defaults)
+    index_db = Path(args.index_db) if args.index_db else DEFAULT_INDEX_DIR / f"{request['task_id']}.db"
+    result = run_workflow(
+        request=request,
+        output_root=Path(args.output_root),
+        index_db=index_db,
+    )
+    print_preview(result)
 
 
 if __name__ == "__main__":

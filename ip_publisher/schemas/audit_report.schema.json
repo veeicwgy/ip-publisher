@@ -15,7 +15,22 @@
         "keyword_fit": { "type": "number" },
         "outline_fit": { "type": "number" },
         "platform_fit": { "type": "number" },
+        "ai_structure": { "type": "number" },
+        "fact_density": { "type": "number" },
+        "authority_signal": { "type": "number" },
         "overall": { "type": "number" }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "citable_claims": { "type": "number" },
+        "fact_density": { "type": "number" },
+        "authority_signal_count": { "type": "number" },
+        "primary_keywords_in_title": { "type": "number" },
+        "primary_keywords_in_summary": { "type": "number" },
+        "hotspot_hit": { "type": "number" },
+        "platforms_ready": { "type": "number" }
       }
     },
     "blockers": {

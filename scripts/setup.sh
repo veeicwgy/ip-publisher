@@ -66,4 +66,4 @@ done
 
 echo "IP Publisher 安装完成。"
 echo "人设文件: $PROFILE_PATH"
-echo "现在可以对 Claude 或 OpenClaw 说：帮我写一篇小红书文章"
+echo "现在可以对 Claude 或 OpenClaw 说：基于知识库和关键词生成一套 7 平台发布包"

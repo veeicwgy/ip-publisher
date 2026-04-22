@@ -21,8 +21,30 @@
     "brief": "围绕 MinerU 在知识库驱动内容生产中的价值，解释为什么先做生成和审核，再接发布。",
     "must_include_sections": ["核心结论", "知识库价值", "审核引擎", "Phase 1 边界"]
   },
-  "platforms": ["xiaohongshu", "wechat_official", "zhihu"],
+  "platforms": [
+    "wechat_official",
+    "xiaohongshu",
+    "zhihu",
+    "juejin",
+    "csdn",
+    "toutiao",
+    "weibo"
+  ],
   "audience": "内容运营和产品营销团队",
   "tone": "专业、克制、可执行",
+  "content_type": "technical",
+  "structure": {
+    "qa_required": true,
+    "comparison_table_required": true,
+    "ai_friendly_required": true,
+    "authority_signal_required": true,
+    "entity_labels_required": true,
+    "opening_value_required": true,
+    "code_example_required": true
+  },
+  "publish": {
+    "mode": "direct_publish_ready",
+    "publisher": "wechatsync"
+  },
   "language": "zh-CN"
 }

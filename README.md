@@ -4,31 +4,96 @@
 
 <p align="center"><img src="assets/logo.webp" alt="IP Publisher Logo" width="520"></p>
 
-> 帮你把一个话题改写成 **小红书、公众号、知乎** 三个版本，并一键生成可审阅、可复制、可协作的 **发布包**。
+> 基于 **知识库 + 关键词 + 热点 + 大纲** 自动生成文章，先过审核，再输出 **7 平台发布包 / Wechatsync 草稿同步信息**。
 
 <p align="center">
   <a href="https://clawhub.ai/veeicwgy/ip-publisher"><strong>👉 Install from ClawHub</strong></a> ·
-  <a href="https://ippublisher-lwukxvsq.manus.space">官网</a> ·
-  <a href="https://github.com/veeicwgy/ip-publisher">GitHub 仓库</a>
+  <a href="https://github.com/veeicwgy/ip-publisher">GitHub 仓库</a> ·
+  <a href="./docs/platform-support.md">平台矩阵</a> ·
+  <a href="./docs/publish-package.md">发布包定义</a>
 </p>
 
 ---
 
-## 30 秒先看懂它能给你什么
+## 现在这个仓库到底解决什么问题
 
-| 你会看到什么 | 最短动作 | 最终得到什么 |
-| --- | --- | --- |
-| 一张结果预览图 | 打开下方示意图 | 先理解它不是“假装代发”，而是把三平台内容和发布信息整理好 |
-| 一条命令 | `python3 scripts/quickstart.py` | 回答几个问题，直接生成多平台发布包 |
-| 两个输出文件 | `outputs/*.md` + `outputs/*.json` | Markdown 便于人工审阅，JSON 便于继续接流程或二次处理 |
+它不再把自己定义成“一个话题改写成三平台文案”的小工具，而是一个更完整的内容工作流：
 
-<p align="center"><img src="assets/one-click-demo.png" alt="IP Publisher 内容输出示意" width="980"></p>
+1. 从知识库里检索真实资料
+2. 结合主关键词、热点线索和大纲生成文章
+3. 做准确性、结构、关键词、平台格式审核
+4. 审核通过后输出 7 平台发布包
+5. 如果你已经装了 [Wechatsync](https://github.com/wechatsync/Wechatsync)，再进入草稿同步
 
-我把这个仓库继续收窄以后，核心价值终于变得很清楚：**不是替你偷偷登录后台代发，而是把“同一话题拆成三种平台表达 + 整理成发布包”这件事做得更直给。** 这样更安全，因为你可以终审；也更适合团队协作，因为编辑、运营、作者都能看同一份结果。
+默认不托管账号密码，也不直接伪装成“已发布成功”。
 
 ---
 
-## 现在就能跑通的方式
+## Canonical 7 平台
+
+仓库默认支持的标准平台包固定为 7 个：
+
+| 平台 ID | 平台名 | 适合的内容 | 默认格式 | 默认发布方式 |
+| --- | --- | --- | --- | --- |
+| `wechat_official` | 微信公众号 | 品牌长文、深度说明 | `html` | `Wechatsync` 草稿同步 |
+| `xiaohongshu` | 小红书 | 推荐型短内容、经验帖 | `markdown` | `Wechatsync` 草稿同步 |
+| `zhihu` | 知乎 | 问答型、观点型长文 | `markdown` | `Wechatsync` 草稿同步 |
+| `juejin` | 掘金 | 技术实践、开发者文章 | `markdown` | `Wechatsync` 草稿同步 |
+| `csdn` | CSDN | 教程、排障、技术帖子 | `markdown` | `Wechatsync` 草稿同步 |
+| `toutiao` | 头条号 | 热点扩写、泛流量文章 | `html` | `Wechatsync` 草稿同步 |
+| `weibo` | 微博 | 短摘要、导流文案 | `text` | `Wechatsync` 草稿同步 |
+
+为什么是这 7 个，而不是 README 里一会儿 3 个一会儿 29 个：
+
+- 这是仓库的 **canonical bundle**，面向当前最常见的中文内容分发与技术内容场景。
+- 它们同时覆盖品牌长文、问答、技术社区、热点扩写和短摘要导流。
+- 这 7 个都能对应到 Wechatsync 适配器，门槛最低。
+- Wechatsync 虽然支持 29+ 平台，但仓库默认不把 29+ 全部塞进 quickstart，避免第一次使用过重。
+
+详细矩阵见 [docs/platform-support.md](/tmp/ip-publisher/docs/platform-support.md:1)。
+
+---
+
+## 发布包到底包含什么
+
+Phase 1 生成完成后，会在 `outputs/<task_id>/` 里输出：
+
+| 文件 | 作用 |
+| --- | --- |
+| `request.json` | 本次任务输入：知识库范围、关键词、热点、大纲、平台、发布模式 |
+| `draft.json` | 主稿、声明、结构信号、平台 payload、发布包元信息 |
+| `audit_report.json` | 准确性、关键词、结构、事实密度、平台规则审核结果 |
+| `publish_package.json` | 运营真正关心的发布包定义 |
+| `article.md` | 适合编辑和运营直接审阅的 Markdown 主稿 |
+| `platforms/*.md` | 每个平台可直接复制或交给 Wechatsync 的内容文件 |
+
+`publish_package.json` 里会明确写：
+
+- 是否已经通过审核门槛
+- 每个平台的 `title / summary / body / tags / cover brief`
+- 是否支持直发
+- 如果走 Wechatsync，对应的 CLI 示例命令是什么
+
+详细说明见 [docs/publish-package.md](/tmp/ip-publisher/docs/publish-package.md:1)。
+
+---
+
+## 直发怎么做
+
+当前仓库的直发口径很明确：
+
+- 默认只输出 `direct_publish_ready` 信息，不直接自动登录
+- 默认推荐 [Wechatsync](https://github.com/wechatsync/Wechatsync)
+- Wechatsync 依赖浏览器里现成的登录态和平台 Web API，同步默认进草稿
+- 只有 `audit_report.status == pass` 才应该进入同步
+
+也就是说，这一版不是“账号密码发文器”，而是“审核通过后可进入草稿同步”的内容工作流。
+
+---
+
+## Quickstart 已经换成知识库驱动逻辑
+
+现在运行：
 
 ```bash
 git clone https://github.com/veeicwgy/ip-publisher.git
@@ -37,131 +102,103 @@ bash scripts/setup.sh
 python3 scripts/quickstart.py
 ```
 
-运行 `python3 scripts/quickstart.py` 之后，脚本会直接问你几个问题，例如：
+Quickstart 问的是这类问题：
 
 ```text
-你想改写的主题是什么？
-你最想强调的核心观点是什么？
-你希望主要写给谁看？
-目标平台是什么？
+产品或工具名
+需要运营的主关键词
+热点线索 / 选题描述
+大纲描述
+主要读者
+内容类型（general / technical）
 ```
 
-答完以后，它会直接生成：
+它不会再默认追问“目标平台是什么”。  
+默认就是 7 平台 bundle，一次生成多平台 payload。
 
-| 文件 | 用途 |
+如果你要技术文，可以把 `content_type` 设成 `technical`，系统会要求：
+
+- Q&A 组织关键知识点
+- 开头 100 字内出现产品名 + 核心价值主张
+- 使用对比表格而不是纯叙述
+- H1 → H2 → H3 层级清晰
+- 明确实体标注
+- 给出可复现代码示例
+
+---
+
+## 审核通过的标准
+
+只有同时满足下面几类条件，才算审核通过：
+
+- 关键声明可以回溯到知识库 chunk
+- 主关键词命中标题、简介、正文
+- 热点词至少出现在标题、简介或正文之一
+- Q&A、对比表格、实体标注、H1/H2/H3 结构齐全
+- 事实密度和可引用声明数达到门槛
+- 每个平台版本满足长度和格式限制
+
+`audit_report.json` 现在会输出：
+
+- `grounding`
+- `keyword_fit`
+- `outline_fit`
+- `platform_fit`
+- `ai_structure`
+- `fact_density`
+- `authority_signal`
+
+以及：
+
+- `citable_claims`
+- `fact_density`
+- `authority_signal_count`
+- `primary_keywords_in_title`
+- `primary_keywords_in_summary`
+- `hotspot_hit`
+- `platforms_ready`
+
+---
+
+## Humanizer 现在怎么接
+
+仓库内已经加入一个轻量 humanizer 阶段，参考 [Humanizer-zh](https://github.com/op7418/Humanizer-zh) 的思路，先做三件事：
+
+- 去掉常见 AI 套话
+- 打散过于整齐的段落节奏
+- 保留事实不变，只做表达自然化
+
+这一步现在是仓库内置轻量版，目的是降低首次使用门槛。后续如果要进一步接入完整的 Humanizer-zh 工作流，可以继续把它升级成可插拔模块。
+
+---
+
+## 当前主入口与 legacy 入口
+
+| 入口 | 现在的定位 |
 | --- | --- |
-| `outputs/*.md` | 给人直接看，适合审稿、复制、协作 |
-| `outputs/*.json` | 给后续脚本、系统或自定义流程继续处理 |
-
----
-
-## 同一个话题，三种平台会怎么变
-
-我把 README 里最重要的价值前置成一个直观对比：同样是“**为什么我先把内容流程跑顺，再谈自动化**”，写法会完全不同。
-
-| 平台 | 典型长度与语气 | 结果感 |
-| --- | --- | --- |
-| 小红书 | 约 200 字，短句、emoji、评论区互动、标签收口 | 适合快速吸引注意力 |
-| 公众号 | 约 800 字，叙事展开、层次完整、结尾能承接转化 | 适合建立长期观点与信任 |
-| 知乎 | 介于两者之间，更强调“先说结论 + 再给论证” | 适合回答型和观点型表达 |
-
-### 小红书版
-
-> 🌟 最近我一直在想「为什么我先把内容流程跑顺，再谈自动化」这件事。  
-> 😵 真正让我卡住的，不是不会写，而是每个平台都要重写一次。  
-> 🧭 我现在更稳的做法，是先把母稿讲清楚，再去拆小红书、公众号和知乎版本。  
-> ✍️ 这样做最大的好处，不是省 5 分钟，而是内容终于不会越改越散。  
-> 如果你也在做内容，你现在最卡的是选题、改写，还是发布？  
-> #内容工作流 #小红书运营 #发布包
-
-### 公众号版
-
-> 最近我反复在想一件事：内容自动化之所以让很多人焦虑，不是因为工具不够多，而是因为每次动笔前都要重新决定角度、结构和平台。  
-> 我现在更认可的判断是，先把母稿写清楚，再把改写和发布整理成可复用的后半段流程。这样做最直接的好处，是我不会再为了同一个话题来回重写三遍。  
-> 这也是我为什么保留发布包这个中间结果。它让标题、正文、标签和封面建议都能先被审阅，再决定是否真的发出去。对于个人 IP 或小团队来说，这反而比直接代发更安全，因为你知道每个平台最终出现的到底是什么。
-
-如果你想直接看仓库里的现成样例，也可以打开 `examples/article-output-xiaohongshu.md`、`examples/article-output-wechat.md` 和 `examples/article-output-zhihu.md`。
-
----
-
-## 我为什么把“发布包不是代发”写成优势
-
-| 方式 | 优点 | 代价 |
-| --- | --- | --- |
-| 直接代发 | 看起来更自动化 | 容易误发、难审阅、团队协作不透明 |
-| 先生成发布包 | 更安全、可复核、适合多人协作，也方便继续接你自己的工具链 | 需要最后一步人工确认 |
-
-所以这个仓库现在的承诺非常直接：**帮你改写内容，并把标题、正文、标签、封面建议整理成一份可交付结果。** 如果以后真的补了平台 API 或稳定代发链路，我会单独把那部分作为新的能力写清楚，而不是混在 README 里提前承诺。
-
----
-
-## 现在仓库里哪些东西是真实可运行的
-
-| 交付物 | 现在能做什么 | 文件位置 |
-| --- | --- | --- |
-| 安装脚本 | 初始化依赖、人设配置与本地 Skill 目录 | `scripts/setup.sh` |
-| 交互式 quickstart | 问几个问题，直接生成三平台发布包 | `scripts/quickstart.py` |
-| 发布包生成脚本 | 把一个话题改写成多平台版本，并输出 Markdown / JSON | `scripts/generate-publish-pack.py` |
-| Phase 1 骨架 | 基于知识库生成草稿、输出审核报告与 Markdown / JSON 产物 | `ip_publisher/` + `data/tasks/demo-request.json` |
-| 平台规则配置 | 提供 7 个平台的长度、封面比例、标签规则 | `config/platforms.yaml` |
-| 人设模板 | 提供本地 `profile.yaml` 的字段结构 | `config/ip-profile-template.yaml` |
-| 示例内容 | 提供小红书、公众号、知乎、CSDN 的样例文案 | `examples/` |
-
----
-
-## 适合谁用
-
-| 场景 | 为什么适合 |
-| --- | --- |
-| 个人 IP 创作者 | 同一主题要反复改写成多个平台版本 |
-| 小团队内容协作 | 作者、编辑、运营需要先看一份统一结果 |
-| 想先把流程跑顺的人 | 不急着接 API，但想先把改写和整理做扎实 |
-| 需要可复制输出的人 | 希望结果能落成 Markdown / JSON，而不是只停在聊天记录里 |
-
----
-
-## 当前能力边界
-
-| 模块 | 当前状态 | 说明 |
-| --- | --- | --- |
-| 话题改写 | 已可通过脚本生成小红书、公众号、知乎版本 | 默认走平台模板化改写 |
-| 发布包整理 | 已可用 | 同时输出 Markdown 与 JSON |
-| 人设配置 | 已可用 | 可复用本地 `~/.ip-publisher/profile.yaml` |
-| 热点发现 | 主要由 Skill 工作流完成 | 当前仓库脚本不单独抓热点 |
-| 自动代发 | 默认关闭 | 不伪造已发布成功 |
-
----
-
-## Phase 1 新入口
-
-如果你要的不是“模板改写后生成发布包”，而是先搭一个**知识库驱动生成 + 审核引擎**的骨架，现在可以直接跑：
-
-```bash
-python3 -m ip_publisher.cli.run_phase1 \
-  --request data/tasks/demo-request.json
-```
-
-这条命令会把 `data/kb_raw/` 里的知识文档切块建索引，基于 `demo-request.json` 生成一版 grounded draft，并输出：
-
-| 文件 | 作用 |
-| --- | --- |
-| `outputs/<task_id>/draft.json` | 主稿、分节来源映射、平台版本 |
-| `outputs/<task_id>/audit_report.json` | grounding / keyword / outline / platform 四类审核结果 |
-| `outputs/<task_id>/article.md` | 便于编辑和运营直接审阅 |
-
-详细设计说明见 `docs/phase1-scaffold.md`。
+| `python3 scripts/quickstart.py` | 主入口，知识库驱动生成 + 审核 + 7 平台发布包 |
+| `python3 -m ip_publisher.cli.run_phase1 --request ...` | 结构化接口，适合接系统或 ClawHub |
+| `scripts/generate-publish-pack.py` | legacy template mode，保留给旧的模板化改写场景 |
 
 ---
 
 ## 仓库结构
 
 ```text
-assets/      README 展示图
-config/      平台规则、人设模板、热点来源
-docs/        补充说明与复盘文档
-examples/    示例文章与示例发布包
-scripts/     安装脚本、quickstart、发布包生成脚本
-skills/      主流程与子技能编排
+ip_publisher/
+  kb/          文档加载、切块、检索
+  planner/     关键词、热点、大纲
+  generator/   主稿生成、humanize、平台 payload
+  auditor/     grounding、关键词、结构、质量、平台审核
+  publisher/   发布包与 Wechatsync 直发桥接信息
+  workflows/   Phase 1 主流程
+data/
+  kb_raw/      示例知识库
+  tasks/       示例 request
+docs/
+  platform-support.md
+  publish-package.md
+  phase1-scaffold.md
 ```
 
 ---

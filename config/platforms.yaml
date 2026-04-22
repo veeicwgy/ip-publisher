@@ -1,77 +1,140 @@
 platforms:
+  - platform_id: wechat_official
+    display_name:
+      zh: 微信公众号
+      en: WeChat Official Account
+    article_format: [html, markdown]
+    default_output_format: html
+    max_length: 20000
+    summary_max_length: 120
+    supports_cover: true
+    cover_ratio: "2.35:1"
+    recommended_tags_count: 0
+    searchable: high
+    tier: core
+    wechatsync_adapter: weixin
+    direct_publish:
+      supported: true
+      via: wechatsync
+      draft_only: true
+      notes: 使用浏览器已登录态同步到草稿
+
   - platform_id: xiaohongshu
     display_name:
       zh: 小红书
       en: Xiaohongshu
     article_format: [markdown, text]
+    default_output_format: markdown
     max_length: 1000
+    summary_max_length: 80
     supports_cover: true
     cover_ratio: "1:1"
     recommended_tags_count: 8
+    searchable: high
+    tier: core
     wechatsync_adapter: xiaohongshu
+    direct_publish:
+      supported: true
+      via: wechatsync
+      draft_only: true
+      notes: 通过浏览器登录态同步到草稿
 
   - platform_id: zhihu
     display_name:
       zh: 知乎
       en: Zhihu
     article_format: [markdown, html]
+    default_output_format: markdown
     max_length: 5000
+    summary_max_length: 120
     supports_cover: true
     cover_ratio: "16:9"
     recommended_tags_count: 5
+    searchable: high
+    tier: core
     wechatsync_adapter: zhihu
-
-  - platform_id: wechat_official
-    display_name:
-      zh: 微信公众号
-      en: WeChat Official Account
-    article_format: [html, markdown]
-    max_length: 20000
-    supports_cover: true
-    cover_ratio: "2.35:1"
-    recommended_tags_count: 0
-    wechatsync_adapter: wechat
+    direct_publish:
+      supported: true
+      via: wechatsync
+      draft_only: true
+      notes: 草稿优先
 
   - platform_id: csdn
     display_name:
       zh: CSDN
       en: CSDN
     article_format: [markdown, html]
+    default_output_format: markdown
     max_length: 10000
+    summary_max_length: 120
     supports_cover: true
     cover_ratio: "16:9"
     recommended_tags_count: 6
+    searchable: medium
+    tier: core
     wechatsync_adapter: csdn
-
-  - platform_id: weibo
-    display_name:
-      zh: 微博
-      en: Weibo
-    article_format: [text]
-    max_length: 140
-    supports_cover: false
-    cover_ratio: "none"
-    recommended_tags_count: 2
-    wechatsync_adapter: weibo
+    direct_publish:
+      supported: true
+      via: wechatsync
+      draft_only: true
+      notes: 适合教程和实战文
 
   - platform_id: toutiao
     display_name:
-      zh: 今日头条
+      zh: 头条号
       en: Toutiao
     article_format: [html, markdown]
+    default_output_format: html
     max_length: 5000
+    summary_max_length: 100
     supports_cover: true
     cover_ratio: "16:9"
     recommended_tags_count: 5
+    searchable: medium
+    tier: growth
     wechatsync_adapter: toutiao
+    direct_publish:
+      supported: true
+      via: wechatsync
+      draft_only: true
+      notes: 适合热点扩写与泛流量内容
 
   - platform_id: juejin
     display_name:
       zh: 掘金
       en: Juejin
     article_format: [markdown, html]
+    default_output_format: markdown
     max_length: 10000
+    summary_max_length: 100
     supports_cover: true
     cover_ratio: "16:9"
     recommended_tags_count: 5
+    searchable: medium
+    tier: core
     wechatsync_adapter: juejin
+    direct_publish:
+      supported: true
+      via: wechatsync
+      draft_only: true
+      notes: 适合开发者向内容
+
+  - platform_id: weibo
+    display_name:
+      zh: 微博
+      en: Weibo
+    article_format: [text]
+    default_output_format: text
+    max_length: 140
+    summary_max_length: 70
+    supports_cover: false
+    cover_ratio: "none"
+    recommended_tags_count: 2
+    searchable: low
+    tier: growth
+    wechatsync_adapter: weibo
+    direct_publish:
+      supported: true
+      via: wechatsync
+      draft_only: true
+      notes: 更适合摘要导流，不承担完整长文

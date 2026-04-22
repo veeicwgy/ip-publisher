@@ -2,10 +2,10 @@
 
 ## 目标
 
-在本地完成安装后，实现以下最短链路：
+最短链路已经改成：
 
 ```text
-git clone -> bash scripts/setup.sh -> python3 scripts/quickstart.py -> 生成三平台发布包
+git clone -> bash scripts/setup.sh -> python3 scripts/quickstart.py -> 生成 7 平台发布包 + 审核报告
 ```
 
 ## 安装步骤
@@ -23,51 +23,67 @@ cd ip-publisher
 bash scripts/setup.sh
 ```
 
-安装脚本会完成以下动作：
+安装脚本会完成：
 
-- 安装 Python 基础依赖
-- 拉取上游开源仓库到 `~/.ip-publisher/deps/`
-- 把 `skills/` 下的 Skill 安装到 Claude Code 与 OpenClaw 目录
+- 安装 Python 依赖
+- 拉取 `wewrite`、`Humanizer-zh`、`Wechatsync` 等上游仓库到 `~/.ip-publisher/deps/`
+- 安装 `skills/`
 - 初始化 `~/.ip-publisher/profile.yaml`
 
-### 3. 运行交互式 quickstart
+### 3. 跑 quickstart
 
 ```bash
 python3 scripts/quickstart.py
 ```
 
-脚本会直接问你几个问题，例如：
+现在 quickstart 会问的不是“主题 / 核心观点 / 目标平台”，而是：
 
 ```text
-你想改写的主题是什么？
-你最想强调的核心观点是什么？
-你希望主要写给谁看？
-目标平台是什么？
+产品或工具名
+需要运营的主关键词
+热点线索 / 选题描述
+大纲描述
+主要读者
+内容类型（general / technical）
 ```
 
-答完以后，你会在 `outputs/` 下看到：
+默认直接输出 7 平台 bundle：
+
+- `wechat_official`
+- `xiaohongshu`
+- `zhihu`
+- `juejin`
+- `csdn`
+- `toutiao`
+- `weibo`
+
+## 产物
+
+执行完成后，`outputs/<task_id>/` 下会出现：
 
 | 文件 | 作用 |
 | --- | --- |
-| `*.md` | 直接审阅、复制、协作 |
-| `*.json` | 继续接入你自己的流程或脚本 |
+| `request.json` | 本次任务输入 |
+| `draft.json` | 主稿、结构信号、平台版本 |
+| `audit_report.json` | 审核结论 |
+| `publish_package.json` | 发布包定义 |
+| `article.md` | 适合人工审阅 |
+| `platforms/*.md` | 平台级 payload，可直接交给 Wechatsync 或人工复制 |
 
 ## 推荐首条动作
 
 | 动作 | 目的 |
 | --- | --- |
-| 直接跑 `python3 scripts/quickstart.py` | 最快看到三平台结果 |
-| 复用 `~/.ip-publisher/profile.yaml` | 让改写更像你自己的语气 |
-| 用 `scripts/generate-publish-pack.py` | 适合脚本化生成发布包 |
-| 用 `python3 -m ip_publisher.cli.run_phase1 --request data/tasks/demo-request.json` | 体验知识库驱动生成 + 审核骨架 |
-| 把结果交给编辑或运营复核 | 发挥“发布包先于代发”的优势 |
+| 直接跑 `python3 scripts/quickstart.py` | 最快看见知识库驱动生成 + 审核 + 7 平台发布包 |
+| 跑 `python3 -m ip_publisher.cli.run_phase1 --request data/tasks/demo-request.json` | 看结构化接口如何接系统 |
+| 看 `docs/platform-support.md` | 确认 canonical 平台矩阵 |
+| 看 `docs/publish-package.md` | 理解发布包到底交付什么 |
 
 ## 故障排查
 
 | 问题 | 原因 | 处理方式 |
 | --- | --- | --- |
-| 找不到 Skill | 安装目录未复制成功 | 重新执行 `bash scripts/setup.sh` |
-| 没有 `profile.yaml` | 初始化未完成 | 复制 `config/ip-profile-template.yaml` 到 `~/.ip-publisher/profile.yaml` |
-| quickstart 无法生成文件 | Python 依赖未装好 | 重新执行 `bash scripts/setup.sh` |
-| 发布包不符合预期 | 主题或角度太空泛 | 在 quickstart 中补充更具体的核心观点 |
-| 没有自动发布 | 当前默认就是发布包模式 | 先人工审阅，再决定是否接你自己的发布链路 |
+| quickstart 运行后还在问“目标平台” | 旧脚本未更新 | 拉最新代码后重新执行 |
+| 文章没有进入直发 | `audit_report.status` 不是 `pass` | 先修 blocker，再重新生成 |
+| 想直接发到平台 | 当前默认走 Wechatsync 草稿同步 | 先确保浏览器已登录，再看 `publish_package.json` 里的 `cli_example` |
+| 技术文章没有代码示例 | `content_type` 不是 `technical` | 生成时切到 `technical` |

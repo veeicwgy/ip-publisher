@@ -8,7 +8,9 @@
     "sections",
     "claims",
     "keyword_coverage",
-    "platform_variants"
+    "platform_variants",
+    "structure_signals",
+    "publish_package"
   ],
   "properties": {
     "task_id": { "type": "string" },
@@ -62,16 +64,80 @@
         }
       }
     },
+    "structure_signals": {
+      "type": "object",
+      "required": [
+        "opening_mentions_product",
+        "opening_mentions_value",
+        "opening_within_100_chars",
+        "qa_section_present",
+        "comparison_table_present",
+        "entity_labels_present",
+        "authority_signal_count",
+        "code_example_present",
+        "ai_friendly_score",
+        "hotspot_hit"
+      ],
+      "properties": {
+        "opening_mentions_product": { "type": "boolean" },
+        "opening_mentions_value": { "type": "boolean" },
+        "opening_within_100_chars": { "type": "boolean" },
+        "qa_section_present": { "type": "boolean" },
+        "comparison_table_present": { "type": "boolean" },
+        "entity_labels_present": { "type": "boolean" },
+        "authority_signal_count": { "type": "number" },
+        "code_example_present": { "type": "boolean" },
+        "ai_friendly_score": { "type": "number" },
+        "hotspot_hit": { "type": "boolean" }
+      }
+    },
     "platform_variants": {
       "type": "object",
       "additionalProperties": {
         "type": "object",
-        "required": ["title", "body_markdown", "checks"],
+        "required": [
+          "title",
+          "summary",
+          "body_markdown",
+          "format",
+          "tags",
+          "cover_brief",
+          "direct_publish",
+          "checks"
+        ],
         "properties": {
           "title": { "type": "string" },
+          "summary": { "type": "string" },
           "body_markdown": { "type": "string" },
+          "format": { "type": "string" },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "cover_brief": { "type": "string" },
+          "direct_publish": { "type": "object" },
           "checks": { "type": "object" }
         }
+      }
+    },
+    "publish_package": {
+      "type": "object",
+      "required": [
+        "package_version",
+        "publisher",
+        "audit_gate",
+        "review_checklist",
+        "platform_payloads"
+      ],
+      "properties": {
+        "package_version": { "type": "string" },
+        "publisher": { "type": "string" },
+        "audit_gate": { "type": "object" },
+        "review_checklist": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "platform_payloads": { "type": "object" }
       }
     }
   }

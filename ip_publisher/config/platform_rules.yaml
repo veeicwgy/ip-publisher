@@ -1,19 +1,120 @@
 platforms:
-  xiaohongshu:
-    display_name: 小红书
-    title_max_length: 20
-    body_max_length: 1000
-    recommended_tags_count: 8
-    cover_ratio: "1:1"
   wechat_official:
     display_name: 微信公众号
+    tier: core
+    default_output_format: html
+    body_formats: [html, markdown]
     title_max_length: 64
+    summary_max_length: 120
     body_max_length: 20000
     recommended_tags_count: 0
     cover_ratio: "2.35:1"
+    searchable: high
+    wechatsync_adapter: weixin
+    direct_publish:
+      supported: true
+      via: wechatsync
+      draft_only: true
+      notes: "依赖浏览器已登录公众号后台；Phase 1 只生成草稿同步信息，不托管账号密码。"
+  xiaohongshu:
+    display_name: 小红书
+    tier: core
+    default_output_format: markdown
+    body_formats: [markdown, text]
+    title_max_length: 20
+    summary_max_length: 80
+    body_max_length: 1000
+    recommended_tags_count: 8
+    cover_ratio: "1:1"
+    searchable: high
+    wechatsync_adapter: xiaohongshu
+    direct_publish:
+      supported: true
+      via: wechatsync
+      draft_only: true
+      notes: "适合走浏览器已登录态同步到草稿；不建议在仓库里直连账号密码。"
   zhihu:
     display_name: 知乎
+    tier: core
+    default_output_format: markdown
+    body_formats: [markdown, html]
     title_max_length: 40
+    summary_max_length: 120
     body_max_length: 5000
     recommended_tags_count: 5
     cover_ratio: "16:9"
+    searchable: high
+    wechatsync_adapter: zhihu
+    direct_publish:
+      supported: true
+      via: wechatsync
+      draft_only: true
+      notes: "优先同步到草稿，避免未审稿内容直接外发。"
+  juejin:
+    display_name: 掘金
+    tier: core
+    default_output_format: markdown
+    body_formats: [markdown, html]
+    title_max_length: 60
+    summary_max_length: 100
+    body_max_length: 10000
+    recommended_tags_count: 5
+    cover_ratio: "16:9"
+    searchable: medium
+    wechatsync_adapter: juejin
+    direct_publish:
+      supported: true
+      via: wechatsync
+      draft_only: true
+      notes: "更适合技术向主题；建议保留代码块与表格。"
+  csdn:
+    display_name: CSDN
+    tier: core
+    default_output_format: markdown
+    body_formats: [markdown, html]
+    title_max_length: 80
+    summary_max_length: 120
+    body_max_length: 10000
+    recommended_tags_count: 6
+    cover_ratio: "16:9"
+    searchable: medium
+    wechatsync_adapter: csdn
+    direct_publish:
+      supported: true
+      via: wechatsync
+      draft_only: true
+      notes: "适合教程、实战和问题排查内容。"
+  toutiao:
+    display_name: 头条号
+    tier: growth
+    default_output_format: html
+    body_formats: [html, markdown]
+    title_max_length: 30
+    summary_max_length: 100
+    body_max_length: 5000
+    recommended_tags_count: 5
+    cover_ratio: "16:9"
+    searchable: medium
+    wechatsync_adapter: toutiao
+    direct_publish:
+      supported: true
+      via: wechatsync
+      draft_only: true
+      notes: "更适合热点扩写和广义科普内容。"
+  weibo:
+    display_name: 微博
+    tier: growth
+    default_output_format: text
+    body_formats: [text]
+    title_max_length: 30
+    summary_max_length: 70
+    body_max_length: 140
+    recommended_tags_count: 2
+    cover_ratio: "none"
+    searchable: low
+    wechatsync_adapter: weibo
+    direct_publish:
+      supported: true
+      via: wechatsync
+      draft_only: true
+      notes: "更适合短摘要和导流，不适合承载完整长文。"

@@ -1,4 +1,8 @@
 thresholds:
   grounding_overlap: 0.18
-  pass_score: 0.85
-  manual_review_score: 0.7
+  pass_score: 0.82
+  manual_review_score: 0.68
+  min_citable_claims: 4
+  min_fact_density: 0.75
+  min_authority_signals: 3
+  min_ai_structure_score: 0.8

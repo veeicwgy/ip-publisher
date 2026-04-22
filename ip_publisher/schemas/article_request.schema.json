@@ -1,7 +1,18 @@
 {
   "$id": "article_request.schema.json",
   "type": "object",
-  "required": ["task_id", "product", "kb_scope", "seo", "platforms", "audience", "language"],
+  "required": [
+    "task_id",
+    "product",
+    "kb_scope",
+    "seo",
+    "platforms",
+    "audience",
+    "language",
+    "content_type",
+    "structure",
+    "publish"
+  ],
   "properties": {
     "task_id": { "type": "string" },
     "product": {
@@ -66,11 +77,58 @@
       "type": "array",
       "items": {
         "type": "string",
-        "enum": ["xiaohongshu", "wechat_official", "zhihu"]
+        "enum": [
+          "wechat_official",
+          "xiaohongshu",
+          "zhihu",
+          "juejin",
+          "csdn",
+          "toutiao",
+          "weibo"
+        ]
       }
     },
     "audience": { "type": "string" },
     "tone": { "type": "string" },
+    "content_type": {
+      "type": "string",
+      "enum": ["general", "technical"]
+    },
+    "structure": {
+      "type": "object",
+      "required": [
+        "qa_required",
+        "comparison_table_required",
+        "ai_friendly_required",
+        "authority_signal_required",
+        "entity_labels_required",
+        "opening_value_required",
+        "code_example_required"
+      ],
+      "properties": {
+        "qa_required": { "type": "boolean" },
+        "comparison_table_required": { "type": "boolean" },
+        "ai_friendly_required": { "type": "boolean" },
+        "authority_signal_required": { "type": "boolean" },
+        "entity_labels_required": { "type": "boolean" },
+        "opening_value_required": { "type": "boolean" },
+        "code_example_required": { "type": "boolean" }
+      }
+    },
+    "publish": {
+      "type": "object",
+      "required": ["mode", "publisher"],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["publish_pack", "direct_publish_ready"]
+        },
+        "publisher": {
+          "type": "string",
+          "enum": ["none", "wechatsync"]
+        }
+      }
+    },
     "language": {
       "type": "string",
       "enum": ["zh-CN"]

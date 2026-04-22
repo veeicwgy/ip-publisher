@@ -1,6 +1,6 @@
 ---
 name: ip-publisher-suite
-description: IP Publisher 仓库总入口。Use for: 理解“小红书、公众号、知乎三平台改写 + 发布包整理”相关 skills、companion repo 资源与安装边界。
+description: IP Publisher 仓库总入口。Use for: 理解“知识库驱动生成 + 审核引擎 + 7 平台发布包 + Wechatsync 草稿同步”相关 skills、companion repo 资源与安装边界。
 ---
 
 # IP Publisher Skill Suite
@@ -8,16 +8,16 @@ description: IP Publisher 仓库总入口。Use for: 理解“小红书、公众
 ## Use when
 
 - 需要理解整个仓库由哪些 skills、reference 文件与 companion repo 资源组成
-- 需要把一个话题改写成小红书、公众号、知乎三个版本，并整理成发布包
+- 需要基于知识库、关键词、热点和大纲生成多平台发布包
 - 需要区分“已发布 skill 默认能力”和“仓库额外脚本/配置”的边界
 
 ## Included skills
 
 | Skill | 默认职责 | 默认边界 |
 | --- | --- | --- |
-| `ip-publisher` | 生成 Xiaohongshu / WeChat / Zhihu 三个平台版本并整理发布包 | 默认只输出对话内结果 |
+| `ip-publisher` | 生成知识库驱动主稿、7 平台 payload 并整理发布包 | 默认只输出对话内结果 |
 | `ip-profile` | 整理结构化人设 YAML | 默认不自动保存本地文件 |
-| `multi-publisher` | 整理多平台可复制发布内容与预发布检查 | 默认不自动发布 |
+| `multi-publisher` | 整理多平台发布包、Wechatsync 草稿同步信息与预发布检查 | 默认不自动发布 |
 
 ## Companion repo resources
 
