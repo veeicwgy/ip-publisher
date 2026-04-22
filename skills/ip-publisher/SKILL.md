@@ -1,13 +1,13 @@
 ---
-name: ip publisher kb driven multi platform publish pack
-description: 基于知识库、关键词、热点和大纲生成 7 平台发布包，并在审核通过后输出 Wechatsync 草稿同步信息。默认只输出对话内结果，不自动读取本地文件、不默认抓取网络、不执行代发布。
+name: ip-publisher
+description: Knowledge base article generation + publish pack for WeChat, Xiaohongshu, Zhihu, Juejin, CSDN, Toutiao, and Weibo. 基于知识库、SEO 关键词、热点和大纲生成可审核内容，并附 Wechatsync 草稿同步说明。
 ---
 
 # IP Publisher
 
 ## Use this skill when the user wants KB-driven article generation with a multi-platform publish pack
 
-当用户想基于**知识库 + 关键词 + 热点 + 大纲**生成文章，并整理成一份**可审阅、可复制、可继续人工发布的多平台发布包**时，使用本 Skill。默认平台 bundle 是 7 个：微信公众号、小红书、知乎、掘金、CSDN、头条号、微博。
+当用户想基于**知识库 + 关键词 + 热点 + 大纲**做 **knowledge base article generation**，并整理成一份**可审阅、可复制、可继续人工发布的 publish pack** 时，使用本 Skill。默认平台 bundle 是 7 个：微信公众号、小红书、知乎、掘金、CSDN、头条号、微博。
 
 ## What this published package includes
 
