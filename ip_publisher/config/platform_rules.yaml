@@ -1,0 +1,19 @@
+platforms:
+  xiaohongshu:
+    display_name: 小红书
+    title_max_length: 20
+    body_max_length: 1000
+    recommended_tags_count: 8
+    cover_ratio: "1:1"
+  wechat_official:
+    display_name: 微信公众号
+    title_max_length: 64
+    body_max_length: 20000
+    recommended_tags_count: 0
+    cover_ratio: "2.35:1"
+  zhihu:
+    display_name: 知乎
+    title_max_length: 40
+    body_max_length: 5000
+    recommended_tags_count: 5
+    cover_ratio: "16:9"

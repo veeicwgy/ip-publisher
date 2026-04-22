@@ -19,3 +19,6 @@ output/
 .idea/
 .vscode/
 ~/.ip-publisher/
+/outputs/
+/tmp-outputs/
+/data/kb_index/

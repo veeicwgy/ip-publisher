@@ -1,0 +1,28 @@
+{
+  "task_id": "phase1-demo-mineru",
+  "product": {
+    "name": "MinerU"
+  },
+  "kb_scope": {
+    "doc_ids": ["mineru-overview", "mineru-faq"],
+    "tags": ["knowledge-base"]
+  },
+  "seo": {
+    "primary_keywords": ["MinerU 知识库", "自动生成文章"],
+    "secondary_keywords": ["内容审核", "多平台发布", "可信内容"],
+    "forbidden_terms": ["保证收录", "全自动无人工"]
+  },
+  "hotspot": {
+    "title": "AI 产品内容运营开始回归可信和可审计",
+    "summary": "越来越多团队开始从追求一键生成，转向先做知识库驱动与审核闭环。",
+    "source": "manual"
+  },
+  "outline": {
+    "brief": "围绕 MinerU 在知识库驱动内容生产中的价值，解释为什么先做生成和审核，再接发布。",
+    "must_include_sections": ["核心结论", "知识库价值", "审核引擎", "Phase 1 边界"]
+  },
+  "platforms": ["xiaohongshu", "wechat_official", "zhihu"],
+  "audience": "内容运营和产品营销团队",
+  "tone": "专业、克制、可执行",
+  "language": "zh-CN"
+}

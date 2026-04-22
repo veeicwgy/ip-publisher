@@ -1,0 +1,78 @@
+{
+  "$id": "article_draft.schema.json",
+  "type": "object",
+  "required": [
+    "task_id",
+    "title",
+    "body_markdown",
+    "sections",
+    "claims",
+    "keyword_coverage",
+    "platform_variants"
+  ],
+  "properties": {
+    "task_id": { "type": "string" },
+    "title": { "type": "string" },
+    "summary": { "type": "string" },
+    "body_markdown": { "type": "string" },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["heading", "content", "source_chunk_ids"],
+        "properties": {
+          "heading": { "type": "string" },
+          "content": { "type": "string" },
+          "source_chunk_ids": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim_id", "text", "source_chunk_ids"],
+        "properties": {
+          "claim_id": { "type": "string" },
+          "text": { "type": "string" },
+          "source_chunk_ids": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "keyword_coverage": {
+      "type": "object",
+      "properties": {
+        "primary_hit": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "missing_primary": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "secondary_hit": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "platform_variants": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["title", "body_markdown", "checks"],
+        "properties": {
+          "title": { "type": "string" },
+          "body_markdown": { "type": "string" },
+          "checks": { "type": "object" }
+        }
+      }
+    }
+  }
+}

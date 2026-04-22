@@ -1,0 +1,31 @@
+{
+  "$id": "kb_document.schema.json",
+  "type": "object",
+  "required": ["doc_id", "source_type", "title", "updated_at", "sections"],
+  "properties": {
+    "doc_id": { "type": "string" },
+    "source_type": {
+      "type": "string",
+      "enum": ["markdown", "html", "faq", "release_note", "manual"]
+    },
+    "source_uri": { "type": "string" },
+    "title": { "type": "string" },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["section_id", "text"],
+        "properties": {
+          "section_id": { "type": "string" },
+          "heading": { "type": "string" },
+          "text": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+thresholds:
+  grounding_overlap: 0.18
+  pass_score: 0.85
+  manual_review_score: 0.7

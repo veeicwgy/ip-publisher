@@ -12,6 +12,7 @@ required_files=(
   "$REPO_ROOT/scripts/setup.sh"
   "$REPO_ROOT/scripts/quickstart.py"
   "$REPO_ROOT/scripts/generate-publish-pack.py"
+  "$REPO_ROOT/docs/phase1-scaffold.md"
   "$REPO_ROOT/skills/ip-publisher/SKILL.md"
   "$REPO_ROOT/skills/ip-profile/SKILL.md"
   "$REPO_ROOT/skills/hotspot-fetcher/SKILL.md"
@@ -20,6 +21,12 @@ required_files=(
   "$REPO_ROOT/skills/cover-generator/SKILL.md"
   "$REPO_ROOT/skills/multi-publisher/SKILL.md"
   "$REPO_ROOT/skills/github-open-source-site-rework/SKILL.md"
+  "$REPO_ROOT/ip_publisher/cli/run_phase1.py"
+  "$REPO_ROOT/ip_publisher/workflows/phase1_generate_and_audit.py"
+  "$REPO_ROOT/ip_publisher/schemas/article_request.schema.json"
+  "$REPO_ROOT/ip_publisher/schemas/article_draft.schema.json"
+  "$REPO_ROOT/ip_publisher/schemas/audit_report.schema.json"
+  "$REPO_ROOT/data/tasks/demo-request.json"
 )
 
 for file in "${required_files[@]}"; do
@@ -44,6 +51,13 @@ python3 "$REPO_ROOT/scripts/quickstart.py" \
   --platforms xiaohongshu wechat_official zhihu \
   --output-dir outputs/quickstart-smoke-test >/dev/null
 
+PYTHONPYCACHEPREFIX="$REPO_ROOT/.pycache" python3 -m ip_publisher.cli.run_phase1 \
+  --request "$REPO_ROOT/data/tasks/demo-request.json" \
+  --kb-dir "$REPO_ROOT/data/kb_raw" \
+  --index-db "$REPO_ROOT/data/kb_index/phase1-test.db" \
+  --output-root "$REPO_ROOT/outputs/phase1-smoke-test" >/dev/null
+
 echo "Publish-pack and quickstart smoke tests passed."
+echo "Phase 1 generate-and-audit smoke test passed."
 echo "Try: bash scripts/setup.sh"
 echo "Then run: python3 scripts/quickstart.py"

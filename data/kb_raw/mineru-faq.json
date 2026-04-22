@@ -1,0 +1,25 @@
+{
+  "doc_id": "mineru-faq",
+  "source_type": "faq",
+  "source_uri": "internal://mineru/faq",
+  "title": "MinerU FAQ",
+  "tags": ["mineru", "faq", "knowledge-base"],
+  "updated_at": "2026-04-21T00:00:00Z",
+  "sections": [
+    {
+      "section_id": "faq-1",
+      "heading": "为什么内容生成要先接知识库",
+      "text": "因为内容生成如果没有知识来源，很容易把产品能力、适配场景和操作方式写成泛化表述。先接知识库，至少可以让标题、正文和案例都围绕真实资料组织。"
+    },
+    {
+      "section_id": "faq-2",
+      "heading": "审核引擎最先检查什么",
+      "text": "审核引擎最先检查关键断言是否能回溯到知识库片段，其次检查主关键词是否命中标题和正文，再检查结构是否符合大纲与平台规则。"
+    },
+    {
+      "section_id": "faq-3",
+      "heading": "Phase 1 为什么不先做自动发布",
+      "text": "因为如果生成和审核没有先跑稳，自动发布只会把错误内容更快扩散。Phase 1 更适合先输出发布包、草稿和审核报告，再决定是否进入分发环节。"
+    }
+  ]
+}

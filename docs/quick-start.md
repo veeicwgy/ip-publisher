@@ -59,6 +59,7 @@ python3 scripts/quickstart.py
 | 直接跑 `python3 scripts/quickstart.py` | 最快看到三平台结果 |
 | 复用 `~/.ip-publisher/profile.yaml` | 让改写更像你自己的语气 |
 | 用 `scripts/generate-publish-pack.py` | 适合脚本化生成发布包 |
+| 用 `python3 -m ip_publisher.cli.run_phase1 --request data/tasks/demo-request.json` | 体验知识库驱动生成 + 审核骨架 |
 | 把结果交给编辑或运营复核 | 发挥“发布包先于代发”的优势 |
 
 ## 故障排查

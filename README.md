@@ -102,6 +102,7 @@ python3 scripts/quickstart.py
 | 安装脚本 | 初始化依赖、人设配置与本地 Skill 目录 | `scripts/setup.sh` |
 | 交互式 quickstart | 问几个问题，直接生成三平台发布包 | `scripts/quickstart.py` |
 | 发布包生成脚本 | 把一个话题改写成多平台版本，并输出 Markdown / JSON | `scripts/generate-publish-pack.py` |
+| Phase 1 骨架 | 基于知识库生成草稿、输出审核报告与 Markdown / JSON 产物 | `ip_publisher/` + `data/tasks/demo-request.json` |
 | 平台规则配置 | 提供 7 个平台的长度、封面比例、标签规则 | `config/platforms.yaml` |
 | 人设模板 | 提供本地 `profile.yaml` 的字段结构 | `config/ip-profile-template.yaml` |
 | 示例内容 | 提供小红书、公众号、知乎、CSDN 的样例文案 | `examples/` |
@@ -128,6 +129,27 @@ python3 scripts/quickstart.py
 | 人设配置 | 已可用 | 可复用本地 `~/.ip-publisher/profile.yaml` |
 | 热点发现 | 主要由 Skill 工作流完成 | 当前仓库脚本不单独抓热点 |
 | 自动代发 | 默认关闭 | 不伪造已发布成功 |
+
+---
+
+## Phase 1 新入口
+
+如果你要的不是“模板改写后生成发布包”，而是先搭一个**知识库驱动生成 + 审核引擎**的骨架，现在可以直接跑：
+
+```bash
+python3 -m ip_publisher.cli.run_phase1 \
+  --request data/tasks/demo-request.json
+```
+
+这条命令会把 `data/kb_raw/` 里的知识文档切块建索引，基于 `demo-request.json` 生成一版 grounded draft，并输出：
+
+| 文件 | 作用 |
+| --- | --- |
+| `outputs/<task_id>/draft.json` | 主稿、分节来源映射、平台版本 |
+| `outputs/<task_id>/audit_report.json` | grounding / keyword / outline / platform 四类审核结果 |
+| `outputs/<task_id>/article.md` | 便于编辑和运营直接审阅 |
+
+详细设计说明见 `docs/phase1-scaffold.md`。
 
 ---
 

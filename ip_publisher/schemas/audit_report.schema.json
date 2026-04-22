@@ -1,0 +1,52 @@
+{
+  "$id": "audit_report.schema.json",
+  "type": "object",
+  "required": ["task_id", "status", "scores", "blockers", "warnings", "next_action"],
+  "properties": {
+    "task_id": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["pass", "manual_review", "reject"]
+    },
+    "scores": {
+      "type": "object",
+      "properties": {
+        "grounding": { "type": "number" },
+        "keyword_fit": { "type": "number" },
+        "outline_fit": { "type": "number" },
+        "platform_fit": { "type": "number" },
+        "overall": { "type": "number" }
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["code", "message"],
+        "properties": {
+          "code": { "type": "string" },
+          "message": { "type": "string" },
+          "location": { "type": "string" },
+          "suggestion": { "type": "string" }
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["code", "message"],
+        "properties": {
+          "code": { "type": "string" },
+          "message": { "type": "string" },
+          "location": { "type": "string" },
+          "suggestion": { "type": "string" }
+        }
+      }
+    },
+    "next_action": {
+      "type": "string",
+      "enum": ["publish_pack", "revise_and_regenerate", "manual_review"]
+    }
+  }
+}

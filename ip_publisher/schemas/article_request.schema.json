@@ -1,0 +1,79 @@
+{
+  "$id": "article_request.schema.json",
+  "type": "object",
+  "required": ["task_id", "product", "kb_scope", "seo", "platforms", "audience", "language"],
+  "properties": {
+    "task_id": { "type": "string" },
+    "product": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" }
+      }
+    },
+    "kb_scope": {
+      "type": "object",
+      "properties": {
+        "doc_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "seo": {
+      "type": "object",
+      "required": ["primary_keywords"],
+      "properties": {
+        "primary_keywords": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "secondary_keywords": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "forbidden_terms": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "hotspot": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "source": { "type": "string" }
+      }
+    },
+    "outline": {
+      "type": "object",
+      "properties": {
+        "brief": { "type": "string" },
+        "must_include_sections": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["xiaohongshu", "wechat_official", "zhihu"]
+      }
+    },
+    "audience": { "type": "string" },
+    "tone": { "type": "string" },
+    "language": {
+      "type": "string",
+      "enum": ["zh-CN"]
+    }
+  }
+}
