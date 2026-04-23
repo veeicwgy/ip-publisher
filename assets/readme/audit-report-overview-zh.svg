@@ -1,0 +1,131 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="130" y1="80" x2="1486" y2="848" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="0.6" stop-color="#EFFDF6"/>
+      <stop offset="1" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="112" y1="96" x2="1490" y2="356" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#052E16"/>
+      <stop offset="0.52" stop-color="#166534"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+    <radialGradient id="glowGreen" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1280 152) rotate(90) scale(230 300)">
+      <stop stop-color="#4ADE80" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#4ADE80" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(218 752) rotate(90) scale(170 220)">
+      <stop stop-color="#60A5FA" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#60A5FA" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="26" stdDeviation="26" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+    <filter id="softShadow" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      .sans { font-family: "PingFang SC","Hiragino Sans GB",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+      .eyebrow { font-size: 14px; font-weight: 800; letter-spacing: 0.16em; }
+      .hero-title { font-size: 52px; font-weight: 800; }
+      .hero-copy { font-size: 22px; font-weight: 500; }
+      .pill { font-size: 15px; font-weight: 800; letter-spacing: 0.05em; }
+      .score { font-size: 44px; font-weight: 800; fill: #0F172A; }
+      .metric { font-size: 23px; font-weight: 800; fill: #0F172A; }
+      .copy { font-size: 17px; font-weight: 600; fill: #334155; }
+      .small { font-size: 15px; font-weight: 600; fill: #64748B; }
+      .section { font-size: 27px; font-weight: 800; fill: #0F172A; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1280" cy="152" r="250" fill="url(#glowGreen)"/>
+  <circle cx="218" cy="752" r="180" fill="url(#glowBlue)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="46" y="46" width="1508" height="808" rx="36" fill="#FFFFFF"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="88" y="88" width="1424" height="230" rx="34" fill="url(#hero)"/>
+  </g>
+  <rect x="122" y="122" width="194" height="36" rx="18" fill="#DCFCE7"/>
+  <text x="146" y="145" class="sans eyebrow" fill="#15803D">03 审核闸门</text>
+  <text x="122" y="208" class="sans hero-title" fill="#FFFFFF">什么情况下主稿可以继续流转</text>
+  <text x="122" y="250" class="sans hero-copy" fill="#D1FAE5">在进入发布包前，先检查事实对齐、关键词命中、结构与平台规则。</text>
+
+  <rect x="1102" y="126" width="100" height="42" rx="21" fill="#16A34A"/>
+  <text x="1128" y="153" class="sans pill" fill="#F8FAFC">通过</text>
+  <rect x="1218" y="126" width="160" height="42" rx="21" fill="#0B1220" fill-opacity="0.28"/>
+  <text x="1246" y="153" class="sans pill" fill="#F8FAFC">硬闸门</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="88" y="352" width="1424" height="176" rx="30" fill="#FFFFFF"/>
+    <rect x="88.75" y="352.75" width="1422.5" height="174.5" rx="29.25" stroke="#DCFCE7" stroke-width="1.5"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="116" y="382" width="324" height="116" rx="24" fill="#F8FAFC"/>
+    <rect x="116.75" y="382.75" width="322.5" height="114.5" rx="23.25" stroke="#DBEAFE" stroke-width="1.5"/>
+  </g>
+  <text x="142" y="422" class="sans metric">事实对齐</text>
+  <text x="142" y="470" class="sans score">0.94</text>
+  <text x="142" y="494" class="sans small">12 / 12 条关键陈述都映射到知识块</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="460" y="382" width="324" height="116" rx="24" fill="#F8FAFC"/>
+    <rect x="460.75" y="382.75" width="322.5" height="114.5" rx="23.25" stroke="#D8F3E4" stroke-width="1.5"/>
+  </g>
+  <text x="486" y="422" class="sans metric">关键词命中</text>
+  <text x="486" y="470" class="sans score">1.00</text>
+  <text x="486" y="494" class="sans small">主关键词出现在标题、开头与正文</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="804" y="382" width="324" height="116" rx="24" fill="#F8FAFC"/>
+    <rect x="804.75" y="382.75" width="322.5" height="114.5" rx="23.25" stroke="#FEF3C7" stroke-width="1.5"/>
+  </g>
+  <text x="830" y="422" class="sans metric">结构完整</text>
+  <text x="830" y="470" class="sans score">0.92</text>
+  <text x="830" y="494" class="sans small">Q&amp;A、表格、标题层级、实体标注、代码示例</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="1148" y="382" width="336" height="116" rx="24" fill="#F8FAFC"/>
+    <rect x="1148.75" y="382.75" width="334.5" height="114.5" rx="23.25" stroke="#CCFBF1" stroke-width="1.5"/>
+  </g>
+  <text x="1174" y="422" class="sans metric">平台适配</text>
+  <text x="1174" y="470" class="sans score">0.97</text>
+  <text x="1174" y="494" class="sans small">篇幅、标签、简介和格式都符合要求</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="88" y="564" width="444" height="250" rx="30" fill="#FFFFFF"/>
+    <rect x="88.75" y="564.75" width="442.5" height="248.5" rx="29.25" stroke="#DCFCE7" stroke-width="1.5"/>
+  </g>
+  <rect x="120" y="596" width="118" height="34" rx="17" fill="#DCFCE7"/>
+  <text x="148" y="619" class="sans pill" fill="#15803D">硬阻塞</text>
+  <text x="120" y="682" class="sans section">没有硬阻塞</text>
+  <text x="120" y="724" class="sans copy">0 条无依据陈述</text>
+  <text x="120" y="756" class="sans copy">0 个主关键词缺失</text>
+  <text x="120" y="788" class="sans small">任何无依据陈述或硬要求缺失，都会直接拦截流程。</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="556" y="564" width="444" height="250" rx="30" fill="#FFFFFF"/>
+    <rect x="556.75" y="564.75" width="442.5" height="248.5" rx="29.25" stroke="#FEF3C7" stroke-width="1.5"/>
+  </g>
+  <rect x="588" y="596" width="122" height="34" rx="17" fill="#FEF3C7"/>
+  <text x="616" y="619" class="sans pill" fill="#B45309">警告</text>
+  <text x="588" y="682" class="sans section">仍可人工复核</text>
+  <text x="588" y="724" class="sans copy">1 处对比可换成更近的数据</text>
+  <text x="588" y="756" class="sans copy">1 个段落可以补更具体的案例</text>
+  <text x="588" y="788" class="sans small">只要硬闸门仍然完整，警告项可以保留人工处理。</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="1024" y="564" width="488" height="250" rx="30" fill="#FFFFFF"/>
+    <rect x="1024.75" y="564.75" width="486.5" height="248.5" rx="29.25" stroke="#DBEAFE" stroke-width="1.5"/>
+  </g>
+  <rect x="1056" y="596" width="170" height="34" rx="17" fill="#DBEAFE"/>
+  <text x="1084" y="619" class="sans pill" fill="#1D4ED8">质量信号</text>
+  <text x="1056" y="682" class="sans section">可发布信号包</text>
+  <text x="1056" y="724" class="sans copy">事实密度：9 条可引用陈述</text>
+  <text x="1056" y="756" class="sans copy">开头已出现产品名与核心价值</text>
+  <text x="1056" y="788" class="sans small">只有审核通过的主稿才应该进入发布包或草稿同步。</text>
+</svg>

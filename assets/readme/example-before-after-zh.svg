@@ -1,0 +1,86 @@
+<svg width="1600" height="860" viewBox="0 0 1600 860" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="94" y1="72" x2="1492" y2="808" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="0.48" stop-color="#EEF4FF"/>
+      <stop offset="1" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <linearGradient id="afterGrad" x1="864" y1="174" x2="1410" y2="746" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="0.58" stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1600" height="860" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+    <filter id="soft" x="0" y="0" width="1600" height="860" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      .sans { font-family: "PingFang SC","Hiragino Sans GB",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+      .eyebrow { font-size: 14px; font-weight: 800; letter-spacing: 0.16em; }
+      .title { font-size: 44px; font-weight: 800; fill: #0F172A; }
+      .copy { font-size: 18px; font-weight: 600; fill: #334155; }
+      .small { font-size: 15px; font-weight: 600; fill: #64748B; }
+      .cardTitle { font-size: 26px; font-weight: 800; }
+      .pill { font-size: 14px; font-weight: 800; letter-spacing: 0.05em; }
+      .mono { font-family: "SF Mono","SFMono-Regular","JetBrains Mono",ui-monospace,Consolas,monospace; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="860" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <rect x="54" y="54" width="1492" height="752" rx="36" fill="#FFFFFF"/>
+  </g>
+
+  <text x="102" y="126" class="sans eyebrow" fill="#1D4ED8">前 / 后</text>
+  <text x="102" y="188" class="sans title">这套工作流跑完之后，真正改变了什么</text>
+  <text x="102" y="228" class="sans copy">价值不在于“多一篇 AI 文章”，而在于把零散输入和高风险文案</text>
+  <text x="102" y="260" class="sans copy">变成一套可审核、可复用、可分发的内容交付包。</text>
+
+  <g filter="url(#soft)">
+    <rect x="102" y="314" width="634" height="424" rx="30" fill="#FFFFFF"/>
+    <rect x="102.75" y="314.75" width="632.5" height="422.5" rx="29.25" stroke="#E2E8F0" stroke-width="1.5"/>
+  </g>
+  <rect x="136" y="346" width="98" height="34" rx="17" fill="#FEE2E2"/>
+  <text x="165" y="368" class="sans pill" fill="#DC2626">之前</text>
+  <text x="136" y="430" class="sans cardTitle" fill="#0F172A">输入分散、审核偏软、平台改写全靠人工</text>
+
+  <rect x="136" y="468" width="566" height="74" rx="22" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="164" y="500" class="sans copy">知识散落在文档、FAQ 和版本说明里</text>
+  <text x="164" y="528" class="sans small">运营仍然需要自己收集、整理、重新表达。</text>
+
+  <rect x="136" y="560" width="566" height="74" rx="22" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="164" y="592" class="sans copy">关键词、热点线索和大纲彼此分离</text>
+  <text x="164" y="620" class="sans small">文案看起来像是对的，风险却要到人工复核时才暴露。</text>
+
+  <rect x="136" y="652" width="566" height="54" rx="22" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="164" y="686" class="sans copy">最后每个平台还要再经历一轮改写和粘贴。</text>
+
+  <path d="M768 520H832" stroke="#94A3B8" stroke-width="8" stroke-linecap="round" stroke-dasharray="16 16"/>
+  <path d="M812 492L850 520L812 548" stroke="#94A3B8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="864" y="314" width="634" height="424" rx="30" fill="url(#afterGrad)"/>
+  </g>
+  <rect x="898" y="346" width="86" height="34" rx="17" fill="#16A34A"/>
+  <text x="924" y="368" class="sans pill" fill="#F8FAFC">之后</text>
+  <text x="898" y="430" class="sans cardTitle" fill="#FFFFFF">一个请求进去，审核后的交付包出来</text>
+
+  <rect x="898" y="468" width="566" height="84" rx="22" fill="#FFFFFF" fill-opacity="0.12"/>
+  <text x="926" y="500" class="sans copy" fill="#FFFFFF">结构化请求：</text>
+  <text x="926" y="530" class="mono small" fill="#DBEAFE">product | kb_scope | seo | hotspot | outline | platforms</text>
+
+  <rect x="898" y="570" width="270" height="104" rx="22" fill="#FFFFFF" fill-opacity="0.12"/>
+  <text x="924" y="604" class="sans pill" fill="#BFDBFE">审核</text>
+  <text x="924" y="638" class="sans copy" fill="#FFFFFF">状态：pass</text>
+  <text x="924" y="664" class="sans small" fill="#E2E8F0">综合：1.00</text>
+
+  <rect x="1194" y="570" width="270" height="104" rx="22" fill="#FFFFFF" fill-opacity="0.12"/>
+  <text x="1220" y="604" class="sans pill" fill="#BFDBFE">示例输出</text>
+  <text x="1220" y="638" class="sans copy" fill="#FFFFFF">6 条声明</text>
+  <text x="1220" y="664" class="sans small" fill="#E2E8F0">4 个章节 + 7 个平台版本</text>
+
+  <rect x="898" y="692" width="566" height="54" rx="22" fill="#FFFFFF" fill-opacity="0.12"/>
+  <text x="926" y="726" class="sans copy" fill="#FFFFFF">文件：主稿、审核报告、发布包与平台文件</text>
+</svg>

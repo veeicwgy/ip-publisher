@@ -52,7 +52,7 @@
 | --- | --- |
 | 关键词、热点、资料分散在多个地方 | 把知识库、关键词、热点、大纲收进一个结构化请求 |
 | 先生成再人工兜底，看完才知道能不能发 | 先过审核闸门，再进入发布包或草稿同步 |
-| 每个平台都要重新裁剪 | 默认生成 canonical 7 平台 payload |
+| 每个平台都要重新裁剪 | 默认生成 canonical 7 平台内容包 |
 | 文章像 AI 改写稿，结构松散 | 技术内容默认偏 Q&amp;A、表格、清晰标题层级和实体标注 |
 | 运营拿到一篇文案，还要自己补充平台信息 | 运营拿到主稿、`audit_report.json`、`publish_package.json` 和平台文件 |
 
@@ -64,20 +64,20 @@
 
 <table>
   <tr>
-    <td width="50%" align="center"><img src="./assets/readme/inputs-overview.svg" alt="Inputs overview" width="100%"></td>
-    <td width="50%" align="center"><img src="./assets/readme/outputs-overview.svg" alt="Outputs overview" width="100%"></td>
+    <td width="50%" align="center"><img src="./assets/readme/inputs-overview-zh.svg" alt="输入概览" width="100%"></td>
+    <td width="50%" align="center"><img src="./assets/readme/outputs-overview-zh.svg" alt="输出概览" width="100%"></td>
   </tr>
   <tr>
     <td align="center"><strong>输入</strong><br>知识库、关键词、热点线索、大纲</td>
     <td align="center"><strong>输出</strong><br>主稿、发布包、平台内容文件</td>
   </tr>
   <tr>
-    <td width="50%" align="center"><img src="./assets/readme/audit-report-overview.svg" alt="Audit report overview" width="100%"></td>
-    <td width="50%" align="center"><img src="./assets/readme/platforms-overview.svg" alt="7 platform payload overview" width="100%"></td>
+    <td width="50%" align="center"><img src="./assets/readme/audit-report-overview-zh.svg" alt="审核报告概览" width="100%"></td>
+    <td width="50%" align="center"><img src="./assets/readme/platforms-overview-zh.svg" alt="7 平台内容包概览" width="100%"></td>
   </tr>
   <tr>
     <td align="center"><strong>审核报告</strong><br>准确性、关键词、结构、平台规则闸门</td>
-    <td align="center"><strong>7 平台 payload</strong><br>同一主题拆成 canonical 7 平台版本</td>
+    <td align="center"><strong>7 平台内容包</strong><br>同一主题拆成 canonical 7 平台版本</td>
   </tr>
 </table>
 
@@ -99,7 +99,7 @@ outputs/<task_id>/
 ## 看一个真实变化
 
 <p align="center">
-  <img src="./assets/readme/example-before-after.svg" alt="Before and after IP Publisher workflow" width="100%">
+  <img src="./assets/readme/example-before-after-zh.svg" alt="IP Publisher 前后对比" width="100%">
 </p>
 
 这个示例直接取自仓库内置 demo：

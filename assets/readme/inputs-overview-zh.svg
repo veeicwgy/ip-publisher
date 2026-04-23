@@ -1,0 +1,150 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="60" x2="1490" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7FAFF"/>
+      <stop offset="0.52" stop-color="#EEF4FF"/>
+      <stop offset="1" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="110" y1="96" x2="1490" y2="384" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="0.52" stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+    <linearGradient id="glassStroke" x1="110" y1="94" x2="1488" y2="808" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#BFDBFE" stop-opacity="0.45"/>
+    </linearGradient>
+    <linearGradient id="requestPanel" x1="468" y1="592" x2="1150" y2="792" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <radialGradient id="glowBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1320 152) rotate(90) scale(210 280)">
+      <stop stop-color="#60A5FA" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#60A5FA" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowMint" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(242 760) rotate(90) scale(180 220)">
+      <stop stop-color="#34D399" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#34D399" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+    <filter id="softShadow" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      .sans { font-family: "PingFang SC","Hiragino Sans GB",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+      .mono { font-family: "SF Mono","SFMono-Regular","JetBrains Mono",ui-monospace,Consolas,monospace; }
+      .eyebrow { font-size: 14px; font-weight: 800; letter-spacing: 0.16em; }
+      .hero-title { font-size: 52px; font-weight: 800; }
+      .hero-copy { font-size: 22px; font-weight: 500; }
+      .hero-chip { font-size: 14px; font-weight: 800; letter-spacing: 0.04em; }
+      .card-title { font-size: 27px; font-weight: 800; fill: #0F172A; }
+      .card-copy { font-size: 18px; font-weight: 600; fill: #334155; }
+      .card-small { font-size: 15px; font-weight: 600; fill: #64748B; }
+      .pill { font-size: 15px; font-weight: 800; letter-spacing: 0.05em; }
+      .request-title { font-size: 30px; font-weight: 800; fill: #0F172A; }
+      .request-copy { font-size: 18px; font-weight: 600; fill: #334155; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1320" cy="152" r="240" fill="url(#glowBlue)"/>
+  <circle cx="242" cy="760" r="190" fill="url(#glowMint)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="46" y="46" width="1508" height="808" rx="36" fill="#FFFFFF"/>
+    <rect x="46" y="46" width="1508" height="808" rx="36" fill="url(#glassStroke)" fill-opacity="0.03"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="88" y="88" width="1424" height="250" rx="34" fill="url(#hero)"/>
+    <rect x="88.75" y="88.75" width="1422.5" height="248.5" rx="33.25" stroke="#FFFFFF" stroke-opacity="0.2"/>
+  </g>
+
+  <rect x="122" y="124" width="166" height="36" rx="18" fill="#DBEAFE"/>
+  <text x="146" y="147" class="sans eyebrow" fill="#1D4ED8">01 输入结构</text>
+  <text x="122" y="214" class="sans hero-title" fill="#FFFFFF">一次生成需要什么</text>
+  <text x="122" y="256" class="sans hero-copy" fill="#DBEAFE">知识库事实、关键词意图、热点语境与内容大纲，</text>
+  <text x="122" y="292" class="sans hero-copy" fill="#DBEAFE">会合并成一个可生成、可审核的结构化请求。</text>
+
+  <rect x="1018" y="124" width="124" height="34" rx="17" fill="#0B1220" fill-opacity="0.42"/>
+  <text x="1043" y="146" class="sans hero-chip" fill="#F8FAFC">知识库优先</text>
+  <rect x="1156" y="124" width="130" height="34" rx="17" fill="#0B1220" fill-opacity="0.42"/>
+  <text x="1179" y="146" class="sans hero-chip" fill="#F8FAFC">关键词对齐</text>
+  <rect x="1300" y="124" width="140" height="34" rx="17" fill="#0B1220" fill-opacity="0.42"/>
+  <text x="1321" y="146" class="sans hero-chip" fill="#F8FAFC">热点感知</text>
+
+  <rect x="1038" y="188" width="404" height="132" rx="24" fill="#FFFFFF" fill-opacity="0.12"/>
+  <rect x="1038.75" y="188.75" width="402.5" height="130.5" rx="23.25" stroke="#BFDBFE" stroke-opacity="0.38" stroke-width="1.5"/>
+  <text x="1074" y="228" class="sans hero-chip" fill="#BFDBFE">请求结构</text>
+  <text x="1074" y="258" class="mono card-copy" fill="#FFFFFF">product | kb_scope | seo</text>
+  <text x="1074" y="286" class="mono card-copy" fill="#FFFFFF">hotspot | outline | platforms</text>
+  <text x="1074" y="314" class="sans card-small" fill="#E2E8F0">无需重复追问平台。默认就是 canonical 7 平台内容包。</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="104" y="392" width="320" height="188" rx="28" fill="#FFFFFF"/>
+    <rect x="104.75" y="392.75" width="318.5" height="186.5" rx="27.25" stroke="#D6E4FF" stroke-width="1.5"/>
+  </g>
+  <circle cx="160" cy="450" r="28" fill="#DBEAFE"/>
+  <rect x="200" y="426" width="112" height="32" rx="16" fill="#EFF6FF"/>
+  <text x="225" y="447" class="sans pill" fill="#1D4ED8">知识库</text>
+  <text x="136" y="500" class="sans card-title">产品知识库</text>
+  <text x="136" y="536" class="sans card-copy">文档、FAQ、版本说明</text>
+  <text x="136" y="566" class="sans card-small">每条关键陈述都应能回溯到真实知识块。</text>
+  <path d="M150 450H170M160 440V460" stroke="#1D4ED8" stroke-width="3.5" stroke-linecap="round"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="448" y="392" width="320" height="188" rx="28" fill="#FFFFFF"/>
+    <rect x="448.75" y="392.75" width="318.5" height="186.5" rx="27.25" stroke="#D8F3E4" stroke-width="1.5"/>
+  </g>
+  <circle cx="504" cy="450" r="28" fill="#DCFCE7"/>
+  <rect x="544" y="426" width="128" height="32" rx="16" fill="#F0FDF4"/>
+  <text x="566" y="447" class="sans pill" fill="#15803D">关键词</text>
+  <text x="480" y="500" class="sans card-title">SEO 意图</text>
+  <text x="480" y="536" class="sans card-copy">主词、次词、禁用词</text>
+  <text x="480" y="566" class="sans card-small">标题、开头、简介和正文都要明确命中关键词。</text>
+  <circle cx="504" cy="450" r="11" stroke="#15803D" stroke-width="3.5"/>
+  <path d="M516 462L526 472" stroke="#15803D" stroke-width="3.5" stroke-linecap="round"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="792" y="392" width="320" height="188" rx="28" fill="#FFFFFF"/>
+    <rect x="792.75" y="392.75" width="318.5" height="186.5" rx="27.25" stroke="#FDE7B0" stroke-width="1.5"/>
+  </g>
+  <circle cx="848" cy="450" r="28" fill="#FEF3C7"/>
+  <rect x="888" y="426" width="140" height="32" rx="16" fill="#FFFBEB"/>
+  <text x="912" y="447" class="sans pill" fill="#B45309">热点线索</text>
+  <text x="824" y="500" class="sans card-title">热点切口</text>
+  <text x="824" y="536" class="sans card-copy">搜索趋势、新闻切口、业务相关性</text>
+  <text x="824" y="566" class="sans card-small">用于提升发现度，但仍要建立在真实产品知识上。</text>
+  <path d="M844 438L856 438L849 452H861L845 470L850 455H838L844 438Z" fill="#B45309"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="1136" y="392" width="320" height="188" rx="28" fill="#FFFFFF"/>
+    <rect x="1136.75" y="392.75" width="318.5" height="186.5" rx="27.25" stroke="#E9D5FF" stroke-width="1.5"/>
+  </g>
+  <circle cx="1192" cy="450" r="28" fill="#E9D5FF"/>
+  <rect x="1232" y="426" width="120" height="32" rx="16" fill="#F5F3FF"/>
+  <text x="1258" y="447" class="sans pill" fill="#7C3AED">大纲</text>
+  <text x="1168" y="500" class="sans card-title">内容大纲</text>
+  <text x="1168" y="536" class="sans card-copy">读者、结构、内容模式</text>
+  <text x="1168" y="566" class="sans card-small">技术模式默认偏向 Q&amp;A、表格、实体标注与代码示例。</text>
+  <path d="M1181 439H1203" stroke="#7C3AED" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M1181 451H1203" stroke="#7C3AED" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M1181 463H1195" stroke="#7C3AED" stroke-width="3.5" stroke-linecap="round"/>
+
+  <path d="M264 585C264 626 426 626 632 626" stroke="#94A3B8" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 12"/>
+  <path d="M608 585C608 615 704 615 774 615" stroke="#94A3B8" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 12"/>
+  <path d="M952 585C952 615 896 615 826 615" stroke="#94A3B8" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 12"/>
+  <path d="M1296 585C1296 626 1134 626 928 626" stroke="#94A3B8" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 12"/>
+
+  <g filter="url(#shadow)">
+    <rect x="430" y="632" width="740" height="180" rx="32" fill="url(#requestPanel)"/>
+    <rect x="430.75" y="632.75" width="738.5" height="178.5" rx="31.25" stroke="#DBEAFE" stroke-width="1.5"/>
+  </g>
+  <rect x="464" y="664" width="182" height="38" rx="19" fill="#0F172A"/>
+  <text x="498" y="689" class="sans pill" fill="#F8FAFC">article_request.json</text>
+  <text x="464" y="744" class="sans request-title">进入生成与审核的结构化请求</text>
+  <text x="464" y="778" class="mono request-copy">product | kb_scope | seo | hotspot | outline | platforms</text>
+  <text x="464" y="804" class="sans card-small" fill="#64748B">上面的输入会被标准化成稳定请求，方便团队复核和复用。</text>
+</svg>

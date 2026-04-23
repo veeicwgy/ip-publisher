@@ -29,7 +29,7 @@
 </p>
 
 <p align="center">
-  <img src="./assets/readme/request-audit-publish-demo.gif" alt="IP Publisher workflow motion demo" width="100%">
+  <img src="./assets/readme/request-audit-publish-demo.gif" alt="IP Publisher English workflow motion demo" width="100%">
 </p>
 
 ## Why teams try it

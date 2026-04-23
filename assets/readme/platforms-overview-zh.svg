@@ -1,0 +1,145 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="72" x2="1490" y2="852" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="0.56" stop-color="#FAF5FF"/>
+      <stop offset="1" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="110" y1="96" x2="1490" y2="350" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#172554"/>
+      <stop offset="0.52" stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#EC4899"/>
+    </linearGradient>
+    <radialGradient id="glowPink" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1270 146) rotate(90) scale(240 300)">
+      <stop stop-color="#F472B6" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#F472B6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(230 758) rotate(90) scale(170 220)">
+      <stop stop-color="#60A5FA" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#60A5FA" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="26" stdDeviation="26" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+    <filter id="softShadow" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      .sans { font-family: "PingFang SC","Hiragino Sans GB",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+      .eyebrow { font-size: 14px; font-weight: 800; letter-spacing: 0.16em; }
+      .hero-title { font-size: 52px; font-weight: 800; }
+      .hero-copy { font-size: 22px; font-weight: 500; }
+      .pill { font-size: 14px; font-weight: 800; letter-spacing: 0.05em; }
+      .card-title { font-size: 24px; font-weight: 800; fill: #0F172A; }
+      .copy { font-size: 17px; font-weight: 600; fill: #334155; }
+      .small { font-size: 14px; font-weight: 600; fill: #64748B; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1270" cy="146" r="240" fill="url(#glowPink)"/>
+  <circle cx="230" cy="758" r="180" fill="url(#glowBlue)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="46" y="46" width="1508" height="808" rx="36" fill="#FFFFFF"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="88" y="88" width="1424" height="222" rx="34" fill="url(#hero)"/>
+  </g>
+  <rect x="122" y="122" width="238" height="36" rx="18" fill="#FCE7F3"/>
+  <text x="146" y="145" class="sans eyebrow" fill="#BE185D">04 标准发布包</text>
+  <text x="122" y="208" class="sans hero-title" fill="#FFFFFF">一个主题，拆成 7 个渠道版本</text>
+  <text x="122" y="250" class="sans hero-copy" fill="#F5D0FE">系统不会让使用者每次都重新决定平台。</text>
+  <text x="122" y="286" class="sans hero-copy" fill="#F5D0FE">它会把同一份通过审核的主稿稳定拆成 7 平台内容包。</text>
+
+  <rect x="1112" y="124" width="108" height="34" rx="17" fill="#0B1220" fill-opacity="0.28"/>
+  <text x="1142" y="146" class="sans pill" fill="#F8FAFC">默认</text>
+  <rect x="1236" y="124" width="120" height="34" rx="17" fill="#0B1220" fill-opacity="0.28"/>
+  <text x="1262" y="146" class="sans pill" fill="#F8FAFC">已适配</text>
+  <rect x="1370" y="124" width="108" height="34" rx="17" fill="#0B1220" fill-opacity="0.28"/>
+  <text x="1398" y="146" class="sans pill" fill="#F8FAFC">可复用</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="88" y="346" width="1424" height="470" rx="34" fill="#FFFFFF"/>
+    <rect x="88.75" y="346.75" width="1422.5" height="468.5" rx="33.25" stroke="#F5D0FE" stroke-width="1.5"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="120" y="378" width="312" height="162" rx="28" fill="#FFFFFF"/>
+    <rect x="120.75" y="378.75" width="310.5" height="160.5" rx="27.25" stroke="#DBEAFE" stroke-width="1.5"/>
+  </g>
+  <rect x="148" y="404" width="108" height="32" rx="16" fill="#DBEAFE"/>
+  <text x="178" y="425" class="sans pill" fill="#1D4ED8">HTML</text>
+  <text x="148" y="474" class="sans card-title">微信公众号</text>
+  <text x="148" y="506" class="sans copy">品牌长文</text>
+  <text x="148" y="532" class="sans small">深度说明、叙事完整、适合沉淀</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="452" y="378" width="312" height="162" rx="28" fill="#FFFFFF"/>
+    <rect x="452.75" y="378.75" width="310.5" height="160.5" rx="27.25" stroke="#FBCFE8" stroke-width="1.5"/>
+  </g>
+  <rect x="480" y="404" width="148" height="32" rx="16" fill="#FCE7F3"/>
+  <text x="500" y="425" class="sans pill" fill="#BE185D">MARKDOWN</text>
+  <text x="480" y="474" class="sans card-title">小红书</text>
+  <text x="480" y="506" class="sans copy">推荐型短帖</text>
+  <text x="480" y="532" class="sans small">钩子优先、社交语气、短句结构</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="784" y="378" width="312" height="162" rx="28" fill="#FFFFFF"/>
+    <rect x="784.75" y="378.75" width="310.5" height="160.5" rx="27.25" stroke="#CFFAFE" stroke-width="1.5"/>
+  </g>
+  <rect x="812" y="404" width="148" height="32" rx="16" fill="#E0F2FE"/>
+  <text x="832" y="425" class="sans pill" fill="#0369A1">MARKDOWN</text>
+  <text x="812" y="474" class="sans card-title">知乎</text>
+  <text x="812" y="506" class="sans copy">问答 / 观点长文</text>
+  <text x="812" y="532" class="sans small">逻辑优先、证据充分、适合 Q&amp;A 组织</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="1116" y="378" width="364" height="162" rx="28" fill="#FFFFFF"/>
+    <rect x="1116.75" y="378.75" width="362.5" height="160.5" rx="27.25" stroke="#DCFCE7" stroke-width="1.5"/>
+  </g>
+  <rect x="1144" y="404" width="148" height="32" rx="16" fill="#DCFCE7"/>
+  <text x="1164" y="425" class="sans pill" fill="#15803D">MARKDOWN</text>
+  <text x="1144" y="474" class="sans card-title">掘金</text>
+  <text x="1144" y="506" class="sans copy">开发者文章</text>
+  <text x="1144" y="532" class="sans small">技术视角、代码充分、步骤可复现</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="244" y="578" width="332" height="162" rx="28" fill="#FFFFFF"/>
+    <rect x="244.75" y="578.75" width="330.5" height="160.5" rx="27.25" stroke="#FEF3C7" stroke-width="1.5"/>
+  </g>
+  <rect x="272" y="604" width="148" height="32" rx="16" fill="#FEF3C7"/>
+  <text x="292" y="625" class="sans pill" fill="#B45309">MARKDOWN</text>
+  <text x="272" y="674" class="sans card-title">CSDN</text>
+  <text x="272" y="706" class="sans copy">教程 / 排障文章</text>
+  <text x="272" y="732" class="sans small">步骤清晰、实操导向、可插入代码片段</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="634" y="578" width="332" height="162" rx="28" fill="#FFFFFF"/>
+    <rect x="634.75" y="578.75" width="330.5" height="160.5" rx="27.25" stroke="#FED7AA" stroke-width="1.5"/>
+  </g>
+  <rect x="662" y="604" width="108" height="32" rx="16" fill="#FED7AA"/>
+  <text x="692" y="625" class="sans pill" fill="#C2410C">HTML</text>
+  <text x="662" y="674" class="sans card-title">头条号</text>
+  <text x="662" y="706" class="sans copy">热点扩写</text>
+  <text x="662" y="732" class="sans small">切口更宽、便于消费、兼顾关键词分发</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="1024" y="578" width="332" height="162" rx="28" fill="#FFFFFF"/>
+    <rect x="1024.75" y="578.75" width="330.5" height="160.5" rx="27.25" stroke="#E2E8F0" stroke-width="1.5"/>
+  </g>
+  <rect x="1052" y="604" width="96" height="32" rx="16" fill="#E2E8F0"/>
+  <text x="1080" y="625" class="sans pill" fill="#475569">TEXT</text>
+  <text x="1052" y="674" class="sans card-title">微博</text>
+  <text x="1052" y="706" class="sans copy">短摘要 / 导流文案</text>
+  <text x="1052" y="732" class="sans small">措辞紧凑、CTA 明确、内容更短</text>
+
+  <rect x="1400" y="616" width="82" height="86" rx="24" fill="#F8FAFC" stroke="#E9D5FF"/>
+  <text x="1421" y="654" class="sans pill" fill="#7C3AED">7X</text>
+  <text x="1421" y="684" class="sans small">同一</text>
+  <text x="1421" y="706" class="sans small">主题</text>
+
+  <rect x="120" y="766" width="1360" height="40" rx="20" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="152" y="792" class="sans copy">每个平台卡片都会映射到 publish package 中的 title、summary、body、tags 和 cover brief 字段。</text>
+</svg>
