@@ -22,7 +22,35 @@
   <a href="./docs/publish-package.md">发布包定义</a>
 </p>
 
+<p align="center">
+  <code>KB-first</code> ·
+  <code>Audit-gated</code> ·
+  <code>7-platform bundle</code> ·
+  <code>Wechatsync-ready</code>
+</p>
+
 ---
+
+## 为什么值得试
+
+<table>
+  <tr>
+    <td width="25%" valign="top"><strong>知识库优先</strong><br>不是从空白 prompt 开始写，而是先从文档、FAQ、版本说明里找依据。</td>
+    <td width="25%" valign="top"><strong>审核先于发布</strong><br>先判断准确性、关键词命中、结构和平台规则，再决定能不能进入发布包。</td>
+    <td width="25%" valign="top"><strong>一套内容多端适配</strong><br>同一主题默认拆成 7 平台版本，而不是让运营每次重新组织一遍。</td>
+    <td width="25%" valign="top"><strong>对运营友好</strong><br>给的不只是文案，而是主稿、审核报告、发布包和草稿同步提示。</td>
+  </tr>
+</table>
+
+## 传统流程 vs IP Publisher
+
+| 传统做法 | IP Publisher |
+| --- | --- |
+| 关键词、热点、资料分散在多个地方 | 把知识库、关键词、热点、大纲收进一个结构化请求 |
+| 先生成再人工兜底，看完才知道能不能发 | 先过审核闸门，再进入发布包或草稿同步 |
+| 每个平台都要重新裁剪 | 默认生成 canonical 7 平台 payload |
+| 文章像 AI 改写稿，结构松散 | 技术内容默认偏 Q&amp;A、表格、清晰标题层级和实体标注 |
+| 运营拿到一篇文案，还要自己补充平台信息 | 运营拿到主稿、`audit_report.json`、`publish_package.json` 和平台文件 |
 
 ## 30 秒看懂
 
@@ -77,6 +105,13 @@ outputs/<task_id>/
 - 做产品内容、SEO 内容、知识库运营的团队
 - 需要同一主题拆出微信公众号 / 小红书 / 知乎 / 掘金 / CSDN / 头条 / 微博版本的运营同学
 - 希望先把准确率和审核门槛做好，再考虑自动化分发的团队
+
+## 你会在哪些场景下用它
+
+- 想把产品知识库改造成更适合 AI 检索和 SEO 分发的文章体系
+- 想把一个热点话题和产品能力结合起来，快速产出可审可发的内容
+- 想把技术主题一次整理成公众号、知乎、掘金、CSDN 和小红书可用版本
+- 想给运营同学一套门槛低、可复查、不会“生成完直接乱发”的工作流
 
 ## 快速开始
 
