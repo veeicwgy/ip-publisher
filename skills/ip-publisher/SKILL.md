@@ -1,69 +1,86 @@
 ---
-name: ip-publisher
-description: Knowledge base article generation + publish pack for WeChat, Xiaohongshu, Zhihu, Juejin, CSDN, Toutiao, and Weibo. 基于知识库、SEO 关键词、热点和大纲生成可审核内容，并附 Wechatsync 草稿同步说明。
+name: ip-publisher-suite
+description: 知识库驱动的多平台内容生成与发布包准备。基于用户提供的知识来源、关键词和大纲，生成主稿、7 平台适配版本和发布说明包，默认在审核通过后交付对话内结果，不自动执行发布。
 ---
 
-# IP Publisher
+# IP Publisher Suite
 
-## Use this skill when the user wants KB-driven article generation with a multi-platform publish pack
+## 能力边界
 
-当用户想基于**知识库 + 关键词 + 热点 + 大纲**做 **knowledge base article generation**，并整理成一份**可审阅、可复制、可继续人工发布的 publish pack** 时，使用本 Skill。默认平台 bundle 是 7 个：微信公众号、小红书、知乎、掘金、CSDN、头条号、微博。
+本 Skill 负责：
 
-## What this published package includes
+1. 根据用户提供的知识来源、关键词和大纲，生成 AI 友好主稿
+2. 将主稿适配为 7 个平台的差异化版本（微信公众号、小红书、知乎、掘金、CSDN、头条号、微博）
+3. 整理封面 brief、标签建议和平台发布说明
+4. 输出一份**可人工审阅、可复制的发布包**，在对话内交付
 
-当前已发布的 skill 包默认聚焦于四件事：确认知识来源与关键词、生成 AI 友好结构主稿、整理 7 平台差异化 payload、输出一份可人工发布或进入 Wechatsync 草稿同步的发布包说明。
+**默认停在审核通过后的发布包，不自动执行任何发布动作。**
 
-## Trigger when
+## 触发条件
 
-- 用户说“基于知识库和关键词生成文章”
-- 用户说“同一主题直接出多个平台版本”
-- 用户说“给我一份可审阅的发布包”
-- 用户说“帮我准备 7 平台发布包”
-- 用户说“先不要直发，只要审核通过后的 payload”
+- 用户说"基于知识库生成文章"
+- 用户说"给我一份多平台发布包"
+- 用户说"帮我写文章，先审核再发布"
+- 用户说"同一主题出 7 个平台版本"
 
-## Default workflow
+## 核心流程
 
-### Step 1 - 确认知识来源与目标
+```
+1. 确认知识来源与输入项（见 references/input-checklist.md）
+         ↓
+2. 基于知识来源生成主稿
+         ↓
+3. 审核（必须通过才能继续）
+         ↓
+4. 适配 7 平台版本（见 references/platform-specs.md）
+         ↓
+5. 输出发布包 ← 默认终点
+```
 
-先确认用户已经给出产品/工具、知识来源、主关键词、热点线索和大纲描述。如果信息不足，再补问最少必要信息。
+## 前置闸门：审核通过是硬性条件
 
-### Step 2 - 生成主稿与 7 平台 payload
+- 审核未通过 → 不输出发布包，不进入任何发布流程
+- 审核通过 → 输出完整发布包，等待用户确认
+- 用户确认后 → 进入发布（见下方「发布模式」）
 
-围绕同一个主题，先生成 AI 友好结构主稿，再拆成 7 平台 payload。保持平台风格差异，但不编造事实，不虚构个人经历。
+## 输入要求
 
-### Step 3 - 整理发布包
+必须由用户提供，不自动填充：
 
-把 7 平台的标题、简介、正文、标签建议、封面方向、审核结论与发布说明整理成一份可审阅结果，便于用户复制、修改、协作和手动发布。
+- **知识来源**：产品文档、官网说明、已有文章等
+- **主题 / 产品名**
+- **主关键词**
 
-## Network and local-file boundaries
+详见 [`references/input-checklist.md`](./references/input-checklist.md)
 
-- 默认**不读取**任何本地路径，包括 `~/.ip-publisher/profile.yaml`。
-- 默认**不写入**任何本地文件。
-- 默认**不主动抓取**网页或实时热点。
-- 只有在用户明确要求“看最新热点”时，才进入检索，并在结果里标明来源。
-- 只有在用户明确要求“导出到本地仓库脚本”时，才说明 companion repo 模式的额外资源；该动作不属于当前已安装 skill 的默认能力。
+## 默认行为约束
 
-## Publishing boundary
+- **不读取本地文件**，不写入 `outputs/`，不构建 `request.json`
+- **不执行 CLI 命令**，不调用仓库脚本
+- **不自动抓取热点**代替知识库素材
+- **不代管**账号、Cookie、Token 或密码
+- **对话内输出结果**，不声称已发布或已保存
 
-- 默认只输出**可人工发布的发布包**或 **Wechatsync 草稿同步信息**，不直接进入平台后台。
-- 默认不代管账号、Cookie、Token 或密码。
-- 默认不声称“已发布成功”。
-- 如果用户明确要求发布执行，也要先说明：这超出当前已发布 skill 的默认边界，需要另行确认外部工具、登录状态与人工接管方式。
+## 发布模式
 
-## Output requirements
+### ClawHub 安装者（默认）
 
-最终结果至少包含以下内容：
+发布包在对话内交付，用户自行复制到各平台。Wechatsync 同步说明作为可选附注提供，不主动执行。
 
-- 知识来源与关键词摘要
-- 主稿标题、摘要与审核状态
-- 7 平台版本标题、简介与正文
-- 每个平台的标签建议
-- 封面 brief
-- 发布说明、Wechatsync 草稿同步信息与人工检查项
+### 仓库使用者（Companion Repo Mode）
 
-## Operating rules
+如果用户明确要求使用本地仓库脚本和 Wechatsync CLI 执行发布，进入 Companion Repo Mode：
 
-- 如果用户只要某一个平台，只输出对应版本。
-- 如果用户没有给知识来源，先补问，不默认联网。
-- 如果用户要求“更像人写的”，就在改写时加强口语感、节奏变化与个人语气，但不得降低事实准确性。
-- 如果用户要求使用仓库脚本或本地文件，先明确那是 **companion repo mode**，不是当前 skill 包的默认组成部分。
+→ 详细操作步骤见 [`docs/wechatsync-runbook.md`](../../docs/wechatsync-runbook.md)
+
+进入此模式前需用户明确确认：已克隆仓库、已配置环境、已安装 Wechatsync 扩展并提供 Token。
+
+## 参考文件
+
+| 文件 | 用途 |
+|---|---|
+| `references/input-checklist.md` | 输入项清单与提问规则 |
+| `references/output-contract.md` | 输出契约与禁止声明 |
+| `references/package-boundary.md` | Skill 包资产边界说明 |
+| `references/platform-specs.md` | 7 平台格式规格 |
+| `docs/wechatsync-runbook.md` | 仓库模式完整操作手册 |

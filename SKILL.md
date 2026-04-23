@@ -1,28 +1,24 @@
 ---
 name: ip-publisher-suite
-description: IP Publisher 仓库总入口。Use for: 理解“知识库驱动生成 + 审核引擎 + 7 平台发布包 + Wechatsync 草稿同步”相关 skills、companion repo 资源与安装边界。
+description: 知识库驱动的多平台内容生成与发布包准备。基于用户提供的知识来源、关键词和大纲，生成主稿、7 平台适配版本和发布说明包，默认在审核通过后交付对话内结果，用户可随时执行发布。
 ---
 
-# IP Publisher Skill Suite
+# IP Publisher Suite — 根路由
 
-## Use when
+> 本文件是项目根路由入口。Skill 逻辑、边界定义和参考文件均在 `skills/ip-publisher/` 目录下。
 
-- 需要理解整个仓库由哪些 skills、reference 文件与 companion repo 资源组成
-- 需要基于知识库、关键词、热点和大纲生成多平台发布包
-- 需要区分“已发布 skill 默认能力”和“仓库额外脚本/配置”的边界
+## 快速导航
 
-## Included skills
+| 文件 | 说明 |
+|---|---|
+| [`skills/ip-publisher/SKILL.md`](./skills/ip-publisher/SKILL.md) | **主 Skill 定义**：能力边界、触发条件、核心流程、发布模式 |
+| [`skills/ip-publisher/references/input-checklist.md`](./skills/ip-publisher/references/input-checklist.md) | 输入项清单与提问规则 |
+| [`skills/ip-publisher/references/output-contract.md`](./skills/ip-publisher/references/output-contract.md) | 输出契约与禁止声明 |
+| [`skills/ip-publisher/references/package-boundary.md`](./skills/ip-publisher/references/package-boundary.md) | Skill 包资产边界 |
+| [`skills/ip-publisher/references/platform-specs.md`](./skills/ip-publisher/references/platform-specs.md) | 7 平台格式规格 |
+| [`docs/wechatsync-runbook.md`](./docs/wechatsync-runbook.md) | 仓库模式完整操作手册（CLI、Token、发布命令） |
 
-| Skill | 默认职责 | 默认边界 |
-| --- | --- | --- |
-| `ip-publisher` | 生成知识库驱动主稿、7 平台 payload 并整理发布包 | 默认只输出对话内结果 |
-| `ip-profile` | 整理结构化人设 YAML | 默认不自动保存本地文件 |
-| `multi-publisher` | 整理多平台发布包、Wechatsync 草稿同步信息与预发布检查 | 默认不自动发布 |
+## 一句话说明
 
-## Companion repo resources
-
-仓库根目录下还可能存在 `scripts/`、`config/`、`examples/` 等资源，但这些内容应被视为 **companion repo resources**，而不是每个已发布 skill 自动自带的安装资产。只有在用户明确处于仓库模式、并且主动要求使用这些资源时，才讨论它们的调用方式。
-
-## Default rule
-
-解释能力时，优先使用“当前已发布 skill 默认能做什么”这条口径。不要把 companion repo 里的脚本、本地路径或外部发布工具，写成所有安装场景下都自动成立的默认能力。
+- **ClawHub 安装者**：读 `skills/ip-publisher/SKILL.md`，对话内交付发布包，不执行发布。
+- **仓库使用者**：读 `docs/wechatsync-runbook.md`，本地 CLI + Wechatsync 执行发布。
