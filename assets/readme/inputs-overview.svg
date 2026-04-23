@@ -1,85 +1,149 @@
 <svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="120" y1="80" x2="1480" y2="820" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F8FAFC"/>
-      <stop offset="1" stop-color="#EEF4FF"/>
+    <linearGradient id="bg" x1="120" y1="60" x2="1490" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7FAFF"/>
+      <stop offset="0.52" stop-color="#EEF4FF"/>
+      <stop offset="1" stop-color="#F8FAFC"/>
     </linearGradient>
-    <linearGradient id="accent" x1="130" y1="90" x2="1470" y2="810" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#DBEAFE"/>
-      <stop offset="1" stop-color="#E2E8F0"/>
+    <linearGradient id="hero" x1="110" y1="96" x2="1490" y2="384" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="0.52" stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
     </linearGradient>
-    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <path d="M0 0L12 6L0 12V0Z" fill="#94A3B8"/>
-    </marker>
+    <linearGradient id="glassStroke" x1="110" y1="94" x2="1488" y2="808" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#BFDBFE" stop-opacity="0.45"/>
+    </linearGradient>
+    <linearGradient id="requestPanel" x1="468" y1="592" x2="1150" y2="792" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <radialGradient id="glowBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1320 152) rotate(90) scale(210 280)">
+      <stop stop-color="#60A5FA" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#60A5FA" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowMint" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(242 760) rotate(90) scale(180 220)">
+      <stop stop-color="#34D399" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#34D399" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+    <filter id="softShadow" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
     <style>
       .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
       .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
-      .panel { fill: #FFFFFF; stroke: #E2E8F0; stroke-width: 2; }
-      .title { fill: #0F172A; font-size: 42px; font-weight: 700; }
-      .subtitle { fill: #475569; font-size: 22px; font-weight: 500; }
-      .card-title { fill: #0F172A; font-size: 26px; font-weight: 700; }
-      .card-copy { fill: #475569; font-size: 18px; font-weight: 500; }
-      .small-copy { fill: #64748B; font-size: 16px; font-weight: 500; }
-      .pill { font-size: 15px; font-weight: 700; letter-spacing: 0.04em; }
-      .request-title { fill: #0F172A; font-size: 28px; font-weight: 700; }
-      .request-copy { fill: #334155; font-size: 19px; font-weight: 500; }
+      .eyebrow { font-size: 14px; font-weight: 800; letter-spacing: 0.16em; }
+      .hero-title { font-size: 52px; font-weight: 800; }
+      .hero-copy { font-size: 22px; font-weight: 500; }
+      .hero-chip { font-size: 14px; font-weight: 800; letter-spacing: 0.04em; }
+      .card-title { font-size: 27px; font-weight: 800; fill: #0F172A; }
+      .card-copy { font-size: 18px; font-weight: 600; fill: #334155; }
+      .card-small { font-size: 15px; font-weight: 600; fill: #64748B; }
+      .pill { font-size: 15px; font-weight: 800; letter-spacing: 0.05em; }
+      .request-title { font-size: 30px; font-weight: 800; fill: #0F172A; }
+      .request-copy { font-size: 18px; font-weight: 600; fill: #334155; }
     </style>
   </defs>
 
   <rect width="1600" height="900" fill="url(#bg)"/>
-  <rect x="42" y="42" width="1516" height="816" rx="34" fill="white" stroke="url(#accent)" stroke-width="4"/>
-  <circle cx="180" cy="150" r="68" fill="#DBEAFE"/>
-  <circle cx="1435" cy="740" r="92" fill="#E0F2FE"/>
-  <circle cx="1360" cy="170" r="34" fill="#FDE68A"/>
+  <circle cx="1320" cy="152" r="240" fill="url(#glowBlue)"/>
+  <circle cx="242" cy="760" r="190" fill="url(#glowMint)"/>
 
-  <text x="100" y="120" class="sans title">Inputs</text>
-  <text x="100" y="160" class="sans subtitle">One article task starts from KB facts, keywords, a trend hook, and an outline brief.</text>
+  <g filter="url(#shadow)">
+    <rect x="46" y="46" width="1508" height="808" rx="36" fill="#FFFFFF"/>
+    <rect x="46" y="46" width="1508" height="808" rx="36" fill="url(#glassStroke)" fill-opacity="0.03"/>
+  </g>
 
-  <rect x="80" y="210" width="330" height="248" rx="24" class="panel"/>
-  <rect x="108" y="234" width="120" height="34" rx="17" fill="#DBEAFE"/>
-  <text x="131" y="257" class="sans pill" fill="#1D4ED8">KB DOCS</text>
-  <text x="108" y="310" class="sans card-title">Knowledge base</text>
-  <text x="108" y="352" class="sans card-copy">- product docs</text>
-  <text x="108" y="384" class="sans card-copy">- FAQ and help center</text>
-  <text x="108" y="416" class="sans card-copy">- release notes</text>
-  <text x="108" y="447" class="sans small-copy">Every claim should trace back to these sources.</text>
+  <g filter="url(#softShadow)">
+    <rect x="88" y="88" width="1424" height="250" rx="34" fill="url(#hero)"/>
+    <rect x="88.75" y="88.75" width="1422.5" height="248.5" rx="33.25" stroke="#FFFFFF" stroke-opacity="0.2"/>
+  </g>
 
-  <rect x="440" y="210" width="330" height="248" rx="24" class="panel"/>
-  <rect x="468" y="234" width="136" height="34" rx="17" fill="#DCFCE7"/>
-  <text x="487" y="257" class="sans pill" fill="#15803D">KEYWORDS</text>
-  <text x="468" y="310" class="sans card-title">SEO intent</text>
-  <text x="468" y="352" class="sans card-copy">- primary keywords</text>
-  <text x="468" y="384" class="sans card-copy">- secondary keywords</text>
-  <text x="468" y="416" class="sans card-copy">- forbidden terms</text>
-  <text x="468" y="447" class="sans small-copy">Title, intro, summary, and body must align.</text>
+  <rect x="122" y="124" width="166" height="36" rx="18" fill="#DBEAFE"/>
+  <text x="146" y="147" class="sans eyebrow" fill="#1D4ED8">01 INPUT MAP</text>
+  <text x="122" y="214" class="sans hero-title" fill="#FFFFFF">What the workflow needs</text>
+  <text x="122" y="256" class="sans hero-copy" fill="#DBEAFE">Knowledge base facts, keyword intent, trend context, and a content brief</text>
+  <text x="122" y="292" class="sans hero-copy" fill="#DBEAFE">feed one structured request that is ready for generation and audit.</text>
 
-  <rect x="800" y="210" width="330" height="248" rx="24" class="panel"/>
-  <rect x="828" y="234" width="134" height="34" rx="17" fill="#FDE68A"/>
-  <text x="848" y="257" class="sans pill" fill="#B45309">TREND HOOK</text>
-  <text x="828" y="310" class="sans card-title">Hot topic angle</text>
-  <text x="828" y="352" class="sans card-copy">- search trend or news hook</text>
-  <text x="828" y="384" class="sans card-copy">- angle worth operating</text>
-  <text x="828" y="416" class="sans card-copy">- timely but evidence-backed</text>
-  <text x="828" y="447" class="sans small-copy">Adds relevance without inventing unsupported facts.</text>
+  <rect x="1018" y="124" width="124" height="34" rx="17" fill="#0B1220" fill-opacity="0.42"/>
+  <text x="1043" y="146" class="sans hero-chip" fill="#F8FAFC">KB-FIRST</text>
+  <rect x="1156" y="124" width="130" height="34" rx="17" fill="#0B1220" fill-opacity="0.42"/>
+  <text x="1179" y="146" class="sans hero-chip" fill="#F8FAFC">SEO-FIT</text>
+  <rect x="1300" y="124" width="140" height="34" rx="17" fill="#0B1220" fill-opacity="0.42"/>
+  <text x="1321" y="146" class="sans hero-chip" fill="#F8FAFC">TREND-AWARE</text>
 
-  <rect x="1160" y="210" width="330" height="248" rx="24" class="panel"/>
-  <rect x="1188" y="234" width="126" height="34" rx="17" fill="#E9D5FF"/>
-  <text x="1211" y="257" class="sans pill" fill="#7C3AED">OUTLINE</text>
-  <text x="1188" y="310" class="sans card-title">Content brief</text>
-  <text x="1188" y="352" class="sans card-copy">- target audience</text>
-  <text x="1188" y="384" class="sans card-copy">- article structure</text>
-  <text x="1188" y="416" class="sans card-copy">- general or technical mode</text>
-  <text x="1188" y="447" class="sans small-copy">Technical mode prefers Q&amp;A, tables, and code examples.</text>
+  <rect x="1038" y="188" width="404" height="104" rx="24" fill="#FFFFFF" fill-opacity="0.12"/>
+  <rect x="1038.75" y="188.75" width="402.5" height="102.5" rx="23.25" stroke="#BFDBFE" stroke-opacity="0.38" stroke-width="1.5"/>
+  <text x="1074" y="228" class="sans hero-chip" fill="#BFDBFE">REQUEST SHAPE</text>
+  <text x="1074" y="260" class="mono hero-copy" fill="#FFFFFF">product | kb_scope | seo | hotspot | outline</text>
+  <text x="1074" y="286" class="sans card-small" fill="#E2E8F0">No extra platform question required. Default = canonical 7-platform bundle.</text>
 
-  <path d="M245 460V540C245 570 420 570 620 570" stroke="#94A3B8" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M605 460V540C605 560 670 560 720 560" stroke="#94A3B8" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M965 460V540C965 560 930 560 880 560" stroke="#94A3B8" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M1325 460V540C1325 570 1150 570 950 570" stroke="#94A3B8" stroke-width="4" marker-end="url(#arrow)"/>
+  <g filter="url(#softShadow)">
+    <rect x="104" y="392" width="320" height="188" rx="28" fill="#FFFFFF"/>
+    <rect x="104.75" y="392.75" width="318.5" height="186.5" rx="27.25" stroke="#D6E4FF" stroke-width="1.5"/>
+  </g>
+  <circle cx="160" cy="450" r="28" fill="#DBEAFE"/>
+  <rect x="200" y="426" width="112" height="32" rx="16" fill="#EFF6FF"/>
+  <text x="225" y="447" class="sans pill" fill="#1D4ED8">KB DOCS</text>
+  <text x="136" y="500" class="sans card-title">Knowledge base</text>
+  <text x="136" y="536" class="sans card-copy">Docs, FAQ, release notes</text>
+  <text x="136" y="566" class="sans card-small">Every key statement should trace back to real source chunks.</text>
+  <path d="M150 450H170M160 440V460" stroke="#1D4ED8" stroke-width="3.5" stroke-linecap="round"/>
 
-  <rect x="430" y="585" width="740" height="220" rx="28" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2.5"/>
-  <rect x="462" y="616" width="176" height="38" rx="19" fill="#0F172A"/>
-  <text x="494" y="641" class="sans pill" fill="#F8FAFC">article_request.json</text>
-  <text x="462" y="694" class="sans request-title">Structured request, ready for generation and audit</text>
-  <text x="462" y="734" class="mono request-copy">product | kb_scope | seo | hotspot | outline | platforms</text>
-  <text x="462" y="770" class="sans request-copy">Defaults to the canonical 7-platform bundle. No extra platform question required.</text>
+  <g filter="url(#softShadow)">
+    <rect x="448" y="392" width="320" height="188" rx="28" fill="#FFFFFF"/>
+    <rect x="448.75" y="392.75" width="318.5" height="186.5" rx="27.25" stroke="#D8F3E4" stroke-width="1.5"/>
+  </g>
+  <circle cx="504" cy="450" r="28" fill="#DCFCE7"/>
+  <rect x="544" y="426" width="128" height="32" rx="16" fill="#F0FDF4"/>
+  <text x="566" y="447" class="sans pill" fill="#15803D">KEYWORDS</text>
+  <text x="480" y="500" class="sans card-title">SEO intent</text>
+  <text x="480" y="536" class="sans card-copy">Primary, secondary, forbidden</text>
+  <text x="480" y="566" class="sans card-small">Title, intro, summary, and body need explicit keyword alignment.</text>
+  <circle cx="504" cy="450" r="11" stroke="#15803D" stroke-width="3.5"/>
+  <path d="M516 462L526 472" stroke="#15803D" stroke-width="3.5" stroke-linecap="round"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="792" y="392" width="320" height="188" rx="28" fill="#FFFFFF"/>
+    <rect x="792.75" y="392.75" width="318.5" height="186.5" rx="27.25" stroke="#FDE7B0" stroke-width="1.5"/>
+  </g>
+  <circle cx="848" cy="450" r="28" fill="#FEF3C7"/>
+  <rect x="888" y="426" width="140" height="32" rx="16" fill="#FFFBEB"/>
+  <text x="912" y="447" class="sans pill" fill="#B45309">TREND HOOK</text>
+  <text x="824" y="500" class="sans card-title">Timely angle</text>
+  <text x="824" y="536" class="sans card-copy">Search trend, news hook, relevance</text>
+  <text x="824" y="566" class="sans card-small">Useful for discovery, but still grounded in real product knowledge.</text>
+  <path d="M844 438L856 438L849 452H861L845 470L850 455H838L844 438Z" fill="#B45309"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="1136" y="392" width="320" height="188" rx="28" fill="#FFFFFF"/>
+    <rect x="1136.75" y="392.75" width="318.5" height="186.5" rx="27.25" stroke="#E9D5FF" stroke-width="1.5"/>
+  </g>
+  <circle cx="1192" cy="450" r="28" fill="#E9D5FF"/>
+  <rect x="1232" y="426" width="120" height="32" rx="16" fill="#F5F3FF"/>
+  <text x="1258" y="447" class="sans pill" fill="#7C3AED">OUTLINE</text>
+  <text x="1168" y="500" class="sans card-title">Content brief</text>
+  <text x="1168" y="536" class="sans card-copy">Audience, structure, content mode</text>
+  <text x="1168" y="566" class="sans card-small">Technical mode prefers Q&amp;A, tables, entity labels, and code examples.</text>
+  <path d="M1181 439H1203" stroke="#7C3AED" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M1181 451H1203" stroke="#7C3AED" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M1181 463H1195" stroke="#7C3AED" stroke-width="3.5" stroke-linecap="round"/>
+
+  <path d="M264 585C264 626 426 626 632 626" stroke="#94A3B8" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 12"/>
+  <path d="M608 585C608 615 704 615 774 615" stroke="#94A3B8" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 12"/>
+  <path d="M952 585C952 615 896 615 826 615" stroke="#94A3B8" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 12"/>
+  <path d="M1296 585C1296 626 1134 626 928 626" stroke="#94A3B8" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 12"/>
+
+  <g filter="url(#shadow)">
+    <rect x="430" y="632" width="740" height="180" rx="32" fill="url(#requestPanel)"/>
+    <rect x="430.75" y="632.75" width="738.5" height="178.5" rx="31.25" stroke="#DBEAFE" stroke-width="1.5"/>
+  </g>
+  <rect x="464" y="664" width="182" height="38" rx="19" fill="#0F172A"/>
+  <text x="498" y="689" class="sans pill" fill="#F8FAFC">article_request.json</text>
+  <text x="464" y="744" class="sans request-title">A structured handoff into generation + audit</text>
+  <text x="464" y="778" class="mono request-copy">product | kb_scope | seo | hotspot | outline | platforms</text>
+  <text x="464" y="804" class="sans card-small" fill="#64748B">Everything above is normalized into a predictable request the team can review and reuse.</text>
 </svg>

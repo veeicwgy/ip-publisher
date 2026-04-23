@@ -1,76 +1,131 @@
 <svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg3" x1="120" y1="70" x2="1490" y2="820" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bg" x1="130" y1="80" x2="1486" y2="848" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F8FAFC"/>
-      <stop offset="1" stop-color="#F0FDF4"/>
+      <stop offset="0.6" stop-color="#EFFDF6"/>
+      <stop offset="1" stop-color="#F8FAFC"/>
     </linearGradient>
+    <linearGradient id="hero" x1="112" y1="96" x2="1490" y2="356" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#052E16"/>
+      <stop offset="0.52" stop-color="#166534"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+    <radialGradient id="glowGreen" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1280 152) rotate(90) scale(230 300)">
+      <stop stop-color="#4ADE80" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#4ADE80" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(218 752) rotate(90) scale(170 220)">
+      <stop stop-color="#60A5FA" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#60A5FA" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="26" stdDeviation="26" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+    <filter id="softShadow" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
     <style>
       .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-      .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
-      .panel { fill: #FFFFFF; stroke: #E2E8F0; stroke-width: 2; }
-      .title { fill: #0F172A; font-size: 42px; font-weight: 700; }
-      .subtitle { fill: #475569; font-size: 22px; font-weight: 500; }
-      .label { fill: #0F172A; font-size: 26px; font-weight: 700; }
-      .copy { fill: #334155; font-size: 18px; font-weight: 500; }
-      .small { fill: #64748B; font-size: 16px; font-weight: 500; }
-      .score { fill: #0F172A; font-size: 48px; font-weight: 700; }
-      .pill { font-size: 15px; font-weight: 700; letter-spacing: 0.04em; }
+      .eyebrow { font-size: 14px; font-weight: 800; letter-spacing: 0.16em; }
+      .hero-title { font-size: 52px; font-weight: 800; }
+      .hero-copy { font-size: 22px; font-weight: 500; }
+      .pill { font-size: 15px; font-weight: 800; letter-spacing: 0.05em; }
+      .score { font-size: 44px; font-weight: 800; fill: #0F172A; }
+      .metric { font-size: 23px; font-weight: 800; fill: #0F172A; }
+      .copy { font-size: 17px; font-weight: 600; fill: #334155; }
+      .small { font-size: 15px; font-weight: 600; fill: #64748B; }
+      .section { font-size: 27px; font-weight: 800; fill: #0F172A; }
     </style>
   </defs>
 
-  <rect width="1600" height="900" fill="url(#bg3)"/>
-  <rect x="42" y="42" width="1516" height="816" rx="34" fill="white" stroke="#DCFCE7" stroke-width="4"/>
-  <circle cx="1455" cy="150" r="58" fill="#DCFCE7"/>
-  <circle cx="220" cy="760" r="74" fill="#DBEAFE"/>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1280" cy="152" r="250" fill="url(#glowGreen)"/>
+  <circle cx="218" cy="752" r="180" fill="url(#glowBlue)"/>
 
-  <text x="100" y="120" class="sans title">Audit Report</text>
-  <text x="100" y="160" class="sans subtitle">Publishing is gated by grounding, keyword coverage, structure quality, and platform fit.</text>
+  <g filter="url(#shadow)">
+    <rect x="46" y="46" width="1508" height="808" rx="36" fill="#FFFFFF"/>
+  </g>
 
-  <rect x="80" y="205" width="1440" height="92" rx="28" fill="#0F172A"/>
-  <rect x="110" y="230" width="88" height="42" rx="21" fill="#16A34A"/>
-  <text x="133" y="257" class="sans pill" fill="#F8FAFC">PASS</text>
-  <text x="230" y="260" class="sans copy" fill="#F8FAFC">Ready for publish package handoff after all hard checks pass.</text>
+  <g filter="url(#softShadow)">
+    <rect x="88" y="88" width="1424" height="230" rx="34" fill="url(#hero)"/>
+  </g>
+  <rect x="122" y="122" width="194" height="36" rx="18" fill="#DCFCE7"/>
+  <text x="146" y="145" class="sans eyebrow" fill="#15803D">03 AUDIT GATE</text>
+  <text x="122" y="208" class="sans hero-title" fill="#FFFFFF">Why a draft can move forward</text>
+  <text x="122" y="250" class="sans hero-copy" fill="#D1FAE5">Grounding, keyword fit, structure, and platform rules are evaluated before any publish handoff.</text>
 
-  <rect x="80" y="330" width="330" height="188" rx="24" class="panel"/>
-  <text x="110" y="386" class="sans label">Grounding</text>
-  <text x="110" y="452" class="sans score">0.94</text>
-  <text x="110" y="488" class="sans small">12 / 12 key claims linked to KB chunks</text>
+  <rect x="1102" y="126" width="100" height="42" rx="21" fill="#16A34A"/>
+  <text x="1128" y="153" class="sans pill" fill="#F8FAFC">PASS</text>
+  <rect x="1218" y="126" width="160" height="42" rx="21" fill="#0B1220" fill-opacity="0.28"/>
+  <text x="1246" y="153" class="sans pill" fill="#F8FAFC">HARD GATE</text>
 
-  <rect x="440" y="330" width="330" height="188" rx="24" class="panel"/>
-  <text x="470" y="386" class="sans label">Keyword fit</text>
-  <text x="470" y="452" class="sans score">1.00</text>
-  <text x="470" y="488" class="sans small">Primary terms present in title, intro, and body</text>
+  <g filter="url(#softShadow)">
+    <rect x="88" y="352" width="1424" height="176" rx="30" fill="#FFFFFF"/>
+    <rect x="88.75" y="352.75" width="1422.5" height="174.5" rx="29.25" stroke="#DCFCE7" stroke-width="1.5"/>
+  </g>
 
-  <rect x="800" y="330" width="330" height="188" rx="24" class="panel"/>
-  <text x="830" y="386" class="sans label">Structure</text>
-  <text x="830" y="452" class="sans score">0.92</text>
-  <text x="830" y="488" class="sans small">Q&amp;A, tables, H1-H2-H3, entity labels, code examples</text>
+  <g filter="url(#softShadow)">
+    <rect x="116" y="382" width="324" height="116" rx="24" fill="#F8FAFC"/>
+    <rect x="116.75" y="382.75" width="322.5" height="114.5" rx="23.25" stroke="#DBEAFE" stroke-width="1.5"/>
+  </g>
+  <text x="142" y="422" class="sans metric">Grounding</text>
+  <text x="142" y="470" class="sans score">0.94</text>
+  <text x="142" y="494" class="sans small">12 / 12 key claims mapped to KB chunks</text>
 
-  <rect x="1160" y="330" width="360" height="188" rx="24" class="panel"/>
-  <text x="1190" y="386" class="sans label">Platform fit</text>
-  <text x="1190" y="452" class="sans score">0.97</text>
-  <text x="1190" y="488" class="sans small">Length, tags, title style, summary, and format all valid</text>
+  <g filter="url(#softShadow)">
+    <rect x="460" y="382" width="324" height="116" rx="24" fill="#F8FAFC"/>
+    <rect x="460.75" y="382.75" width="322.5" height="114.5" rx="23.25" stroke="#D8F3E4" stroke-width="1.5"/>
+  </g>
+  <text x="486" y="422" class="sans metric">Keyword fit</text>
+  <text x="486" y="470" class="sans score">1.00</text>
+  <text x="486" y="494" class="sans small">Primary terms appear in title, intro, and body</text>
 
-  <rect x="80" y="550" width="450" height="250" rx="28" class="panel"/>
-  <rect x="108" y="576" width="126" height="34" rx="17" fill="#DCFCE7"/>
-  <text x="139" y="599" class="sans pill" fill="#15803D">BLOCKERS</text>
-  <text x="108" y="654" class="sans copy">- 0 unsupported claims</text>
-  <text x="108" y="690" class="sans copy">- 0 missing primary keywords</text>
-  <text x="108" y="726" class="sans copy">- 0 missing must-have sections</text>
-  <text x="108" y="764" class="sans small">Any unsupported claim moves the task to reject.</text>
+  <g filter="url(#softShadow)">
+    <rect x="804" y="382" width="324" height="116" rx="24" fill="#F8FAFC"/>
+    <rect x="804.75" y="382.75" width="322.5" height="114.5" rx="23.25" stroke="#FEF3C7" stroke-width="1.5"/>
+  </g>
+  <text x="830" y="422" class="sans metric">Structure</text>
+  <text x="830" y="470" class="sans score">0.92</text>
+  <text x="830" y="494" class="sans small">Q&amp;A, tables, headings, entity labels, code samples</text>
 
-  <rect x="575" y="550" width="450" height="250" rx="28" class="panel"/>
-  <rect x="603" y="576" width="126" height="34" rx="17" fill="#FEF3C7"/>
-  <text x="634" y="599" class="sans pill" fill="#B45309">WARNINGS</text>
-  <text x="603" y="654" class="sans copy">- 1 comparison sentence can cite fresher data</text>
-  <text x="603" y="690" class="sans copy">- 1 section can add a more specific example</text>
-  <text x="603" y="764" class="sans small">Warnings can still pass if the hard gates are satisfied.</text>
+  <g filter="url(#softShadow)">
+    <rect x="1148" y="382" width="336" height="116" rx="24" fill="#F8FAFC"/>
+    <rect x="1148.75" y="382.75" width="334.5" height="114.5" rx="23.25" stroke="#CCFBF1" stroke-width="1.5"/>
+  </g>
+  <text x="1174" y="422" class="sans metric">Platform fit</text>
+  <text x="1174" y="470" class="sans score">0.97</text>
+  <text x="1174" y="494" class="sans small">Length, tags, summary, and formatting are valid</text>
 
-  <rect x="1070" y="550" width="450" height="250" rx="28" class="panel"/>
-  <rect x="1098" y="576" width="160" height="34" rx="17" fill="#DBEAFE"/>
-  <text x="1129" y="599" class="sans pill" fill="#1D4ED8">QUALITY SIGNALS</text>
-  <text x="1098" y="654" class="sans copy">- fact density: 9 citable claims</text>
-  <text x="1098" y="690" class="sans copy">- intro mentions product + core value</text>
-  <text x="1098" y="726" class="sans copy">- title and summary include trend + keyword</text>
-  <text x="1098" y="764" class="sans small">Only audited drafts should move into publishing flows.</text>
+  <g filter="url(#softShadow)">
+    <rect x="88" y="564" width="444" height="250" rx="30" fill="#FFFFFF"/>
+    <rect x="88.75" y="564.75" width="442.5" height="248.5" rx="29.25" stroke="#DCFCE7" stroke-width="1.5"/>
+  </g>
+  <rect x="120" y="596" width="118" height="34" rx="17" fill="#DCFCE7"/>
+  <text x="148" y="619" class="sans pill" fill="#15803D">BLOCKERS</text>
+  <text x="120" y="682" class="sans section">Nothing unsupported</text>
+  <text x="120" y="724" class="sans copy">0 unsupported claims</text>
+  <text x="120" y="756" class="sans copy">0 missing primary keywords</text>
+  <text x="120" y="788" class="sans small">Any unsupported claim or missing hard requirement stops the flow.</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="556" y="564" width="444" height="250" rx="30" fill="#FFFFFF"/>
+    <rect x="556.75" y="564.75" width="442.5" height="248.5" rx="29.25" stroke="#FEF3C7" stroke-width="1.5"/>
+  </g>
+  <rect x="588" y="596" width="122" height="34" rx="17" fill="#FEF3C7"/>
+  <text x="616" y="619" class="sans pill" fill="#B45309">WARNINGS</text>
+  <text x="588" y="682" class="sans section">Still reviewable</text>
+  <text x="588" y="724" class="sans copy">1 comparison line can cite fresher data</text>
+  <text x="588" y="756" class="sans copy">1 section can add a more concrete example</text>
+  <text x="588" y="788" class="sans small">Warnings can pass when the hard gates remain intact.</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="1024" y="564" width="488" height="250" rx="30" fill="#FFFFFF"/>
+    <rect x="1024.75" y="564.75" width="486.5" height="248.5" rx="29.25" stroke="#DBEAFE" stroke-width="1.5"/>
+  </g>
+  <rect x="1056" y="596" width="170" height="34" rx="17" fill="#DBEAFE"/>
+  <text x="1084" y="619" class="sans pill" fill="#1D4ED8">QUALITY SIGNALS</text>
+  <text x="1056" y="682" class="sans section">Promotion-safe signal pack</text>
+  <text x="1056" y="724" class="sans copy">Fact density: 9 citable claims</text>
+  <text x="1056" y="756" class="sans copy">Intro mentions product + core value proposition</text>
+  <text x="1056" y="788" class="sans small">Only audited drafts should enter publish packages or draft-sync flows.</text>
 </svg>

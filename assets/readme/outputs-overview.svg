@@ -1,69 +1,120 @@
 <svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg2" x1="100" y1="80" x2="1500" y2="820" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bg" x1="140" y1="72" x2="1492" y2="850" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F8FAFC"/>
-      <stop offset="1" stop-color="#EFF6FF"/>
+      <stop offset="0.58" stop-color="#EEF4FF"/>
+      <stop offset="1" stop-color="#F7FAFF"/>
     </linearGradient>
+    <linearGradient id="hero" x1="116" y1="96" x2="1492" y2="366" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="0.48" stop-color="#1E3A8A"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="tree" x1="120" y1="376" x2="520" y2="830" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#172554"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1290 158) rotate(90) scale(220 290)">
+      <stop stop-color="#60A5FA" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#60A5FA" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(210 732) rotate(90) scale(180 220)">
+      <stop stop-color="#C084FC" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#C084FC" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="26" stdDeviation="26" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+    <filter id="softShadow" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
     <style>
       .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
       .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
-      .panel { fill: #FFFFFF; stroke: #E2E8F0; stroke-width: 2; }
-      .title { fill: #0F172A; font-size: 42px; font-weight: 700; }
-      .subtitle { fill: #475569; font-size: 22px; font-weight: 500; }
-      .card-title { fill: #0F172A; font-size: 28px; font-weight: 700; }
-      .card-copy { fill: #334155; font-size: 18px; font-weight: 500; }
-      .small-copy { fill: #64748B; font-size: 16px; font-weight: 500; }
-      .pill { font-size: 15px; font-weight: 700; letter-spacing: 0.04em; }
+      .eyebrow { font-size: 14px; font-weight: 800; letter-spacing: 0.16em; }
+      .hero-title { font-size: 52px; font-weight: 800; }
+      .hero-copy { font-size: 22px; font-weight: 500; }
+      .pill { font-size: 15px; font-weight: 800; letter-spacing: 0.05em; }
+      .card-title { font-size: 28px; font-weight: 800; fill: #0F172A; }
+      .card-copy { font-size: 18px; font-weight: 600; fill: #334155; }
+      .small { font-size: 15px; font-weight: 600; fill: #64748B; }
+      .tree { font-size: 24px; font-weight: 600; fill: #E2E8F0; }
+      .tree-small { font-size: 18px; font-weight: 600; fill: #94A3B8; }
     </style>
   </defs>
 
-  <rect width="1600" height="900" fill="url(#bg2)"/>
-  <rect x="42" y="42" width="1516" height="816" rx="34" fill="white" stroke="#DBEAFE" stroke-width="4"/>
-  <circle cx="1455" cy="135" r="60" fill="#DBEAFE"/>
-  <circle cx="170" cy="735" r="88" fill="#E2E8F0"/>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1290" cy="158" r="250" fill="url(#glowA)"/>
+  <circle cx="210" cy="732" r="180" fill="url(#glowB)"/>
 
-  <text x="100" y="120" class="sans title">Outputs</text>
-  <text x="100" y="160" class="sans subtitle">One run returns reviewable files, audit artifacts, and platform-ready payloads.</text>
+  <g filter="url(#shadow)">
+    <rect x="46" y="46" width="1508" height="808" rx="36" fill="#FFFFFF"/>
+  </g>
 
-  <rect x="80" y="210" width="560" height="590" rx="28" class="panel"/>
-  <rect x="108" y="236" width="160" height="36" rx="18" fill="#0F172A"/>
-  <text x="150" y="260" class="sans pill" fill="#F8FAFC">outputs/&lt;task_id&gt;/</text>
-  <text x="114" y="320" class="mono card-copy">article.md</text>
-  <text x="114" y="360" class="mono card-copy">audit_report.json</text>
-  <text x="114" y="400" class="mono card-copy">publish_package.json</text>
-  <text x="114" y="440" class="mono card-copy">platforms/</text>
-  <text x="146" y="478" class="mono card-copy">wechat_official.md</text>
-  <text x="146" y="516" class="mono card-copy">xiaohongshu.md</text>
-  <text x="146" y="554" class="mono card-copy">zhihu.md</text>
-  <text x="146" y="592" class="mono card-copy">juejin.md</text>
-  <text x="146" y="630" class="mono card-copy">csdn.md</text>
-  <text x="146" y="668" class="mono card-copy">toutiao.md</text>
-  <text x="146" y="706" class="mono card-copy">weibo.md</text>
-  <rect x="108" y="730" width="500" height="44" rx="16" fill="#F8FAFC" stroke="#CBD5E1"/>
-  <text x="128" y="758" class="sans small-copy">Everything is saved in a predictable bundle for editors and operators.</text>
+  <g filter="url(#softShadow)">
+    <rect x="88" y="88" width="1424" height="240" rx="34" fill="url(#hero)"/>
+  </g>
+  <rect x="122" y="122" width="192" height="36" rx="18" fill="#DBEAFE"/>
+  <text x="146" y="145" class="sans eyebrow" fill="#1D4ED8">02 OUTPUT BUNDLE</text>
+  <text x="122" y="210" class="sans hero-title" fill="#FFFFFF">What comes back from one run</text>
+  <text x="122" y="252" class="sans hero-copy" fill="#DBEAFE">Reviewable files, audit artifacts, and seven platform-ready payloads</text>
+  <text x="122" y="288" class="sans hero-copy" fill="#DBEAFE">packaged for editors, operators, and draft-sync handoff.</text>
 
-  <rect x="680" y="210" width="840" height="280" rx="28" class="panel"/>
-  <rect x="710" y="236" width="134" height="34" rx="17" fill="#DBEAFE"/>
-  <text x="738" y="259" class="sans pill" fill="#1D4ED8">article.md</text>
-  <text x="710" y="316" class="sans card-title">AI-friendly draft with strong editorial structure</text>
-  <text x="710" y="360" class="sans card-copy">- product name + value proposition within the opening block</text>
-  <text x="710" y="396" class="sans card-copy">- Q&amp;A sections for extractable key knowledge</text>
-  <text x="710" y="432" class="sans card-copy">- comparison tables instead of pure narrative</text>
-  <text x="710" y="468" class="sans card-copy">- clear H1 / H2 / H3 structure and reproducible examples</text>
+  <rect x="1074" y="128" width="128" height="34" rx="17" fill="#0B1220" fill-opacity="0.42"/>
+  <text x="1100" y="150" class="sans pill" fill="#F8FAFC">REVIEWABLE</text>
+  <rect x="1216" y="128" width="148" height="34" rx="17" fill="#0B1220" fill-opacity="0.42"/>
+  <text x="1242" y="150" class="sans pill" fill="#F8FAFC">REUSABLE</text>
+  <rect x="1378" y="128" width="102" height="34" rx="17" fill="#0B1220" fill-opacity="0.42"/>
+  <text x="1407" y="150" class="sans pill" fill="#F8FAFC">READY</text>
 
-  <rect x="680" y="520" width="402" height="280" rx="28" class="panel"/>
-  <rect x="708" y="546" width="196" height="34" rx="17" fill="#DCFCE7"/>
-  <text x="731" y="569" class="sans pill" fill="#15803D">publish_package.json</text>
-  <text x="708" y="628" class="sans card-title">Operator handoff</text>
-  <text x="708" y="670" class="sans card-copy">Title, summary, body, tags, cover brief,</text>
-  <text x="708" y="702" class="sans card-copy">publish mode, and Wechatsync sync hints.</text>
-  <text x="708" y="746" class="sans small-copy">Direct send stays gated by audit and auth checks.</text>
+  <g filter="url(#softShadow)">
+    <rect x="88" y="368" width="470" height="448" rx="32" fill="url(#tree)"/>
+  </g>
+  <rect x="122" y="402" width="176" height="38" rx="19" fill="#1E293B"/>
+  <text x="156" y="427" class="sans pill" fill="#F8FAFC">outputs/&lt;task_id&gt;/</text>
+  <text x="126" y="494" class="mono tree">article.md</text>
+  <text x="126" y="546" class="mono tree">audit_report.json</text>
+  <text x="126" y="598" class="mono tree">publish_package.json</text>
+  <text x="126" y="650" class="mono tree">platforms/</text>
+  <text x="162" y="692" class="mono tree-small">wechat_official.md</text>
+  <text x="162" y="724" class="mono tree-small">xiaohongshu.md</text>
+  <text x="162" y="756" class="mono tree-small">zhihu.md</text>
+  <text x="312" y="692" class="mono tree-small">juejin.md</text>
+  <text x="312" y="724" class="mono tree-small">csdn.md</text>
+  <text x="312" y="756" class="mono tree-small">toutiao.md</text>
+  <text x="312" y="788" class="mono tree-small">weibo.md</text>
 
-  <rect x="1118" y="520" width="402" height="280" rx="28" class="panel"/>
-  <rect x="1146" y="546" width="176" height="34" rx="17" fill="#FEF3C7"/>
-  <text x="1172" y="569" class="sans pill" fill="#B45309">platforms/*.md</text>
-  <text x="1146" y="628" class="sans card-title">7 payload files</text>
-  <text x="1146" y="670" class="sans card-copy">WeChat, Xiaohongshu, Zhihu, Juejin,</text>
-  <text x="1146" y="702" class="sans card-copy">CSDN, Toutiao, and Weibo variants.</text>
-  <text x="1146" y="746" class="sans small-copy">Same source topic, adapted tone, length, and format.</text>
+  <g filter="url(#softShadow)">
+    <rect x="598" y="368" width="874" height="210" rx="30" fill="#FFFFFF"/>
+    <rect x="598.75" y="368.75" width="872.5" height="208.5" rx="29.25" stroke="#DBEAFE" stroke-width="1.5"/>
+  </g>
+  <rect x="632" y="398" width="126" height="34" rx="17" fill="#DBEAFE"/>
+  <text x="662" y="421" class="sans pill" fill="#1D4ED8">article.md</text>
+  <text x="632" y="482" class="sans card-title">The main story is editorial-first and AI-friendly</text>
+  <text x="632" y="520" class="sans card-copy">Product name + value proposition up front, then Q&amp;A, tables, hierarchy, and concrete examples.</text>
+  <rect x="1168" y="410" width="270" height="126" rx="24" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="1200" y="452" class="sans pill" fill="#475569">INCLUDED</text>
+  <text x="1200" y="486" class="sans small">H1 / H2 / H3</text>
+  <text x="1200" y="514" class="sans small">Comparison tables</text>
+  <text x="1200" y="542" class="sans small">Reproducible code blocks</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="598" y="608" width="420" height="208" rx="30" fill="#FFFFFF"/>
+    <rect x="598.75" y="608.75" width="418.5" height="206.5" rx="29.25" stroke="#DCFCE7" stroke-width="1.5"/>
+  </g>
+  <rect x="632" y="638" width="192" height="34" rx="17" fill="#DCFCE7"/>
+  <text x="658" y="661" class="sans pill" fill="#15803D">publish_package.json</text>
+  <text x="632" y="720" class="sans card-title">Operator handoff</text>
+  <text x="632" y="756" class="sans card-copy">Title, summary, body, tags, cover brief, publish mode, and sync hints.</text>
+  <text x="632" y="788" class="sans small">Clear enough for manual ops and system integrations.</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="1052" y="608" width="420" height="208" rx="30" fill="#FFFFFF"/>
+    <rect x="1052.75" y="608.75" width="418.5" height="206.5" rx="29.25" stroke="#FEF3C7" stroke-width="1.5"/>
+  </g>
+  <rect x="1086" y="638" width="168" height="34" rx="17" fill="#FEF3C7"/>
+  <text x="1116" y="661" class="sans pill" fill="#B45309">platforms/*.md</text>
+  <text x="1086" y="720" class="sans card-title">Seven adapted payloads</text>
+  <text x="1086" y="756" class="sans card-copy">WeChat, Xiaohongshu, Zhihu, Juejin, CSDN, Toutiao, and Weibo.</text>
+  <text x="1086" y="788" class="sans small">Same source topic, tuned length, tone, and formatting.</text>
 </svg>
