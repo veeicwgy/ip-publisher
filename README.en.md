@@ -27,6 +27,25 @@
 | --- | --- | --- |
 | Product/tool KB docs, primary keywords, trend hooks, outline brief, audience | Generates from the KB, audits grounding/keyword fit/structure/platform rules, then adapts the same core piece into 7 platform payloads | `article.md`, `audit_report.json`, `publish_package.json`, and `platforms/*.md` |
 
+<table>
+  <tr>
+    <td width="50%" align="center"><img src="./assets/readme/inputs-overview.svg" alt="Inputs overview" width="100%"></td>
+    <td width="50%" align="center"><img src="./assets/readme/outputs-overview.svg" alt="Outputs overview" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Inputs</strong><br>KB docs, keywords, trend hooks, and outline brief</td>
+    <td align="center"><strong>Outputs</strong><br>Draft, publish package, and platform files</td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><img src="./assets/readme/audit-report-overview.svg" alt="Audit report overview" width="100%"></td>
+    <td width="50%" align="center"><img src="./assets/readme/platforms-overview.svg" alt="7 platform payload overview" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Audit report</strong><br>Grounding, keyword fit, structure, and platform gates</td>
+    <td align="center"><strong>7 platform payloads</strong><br>One source topic adapted into the canonical bundle</td>
+  </tr>
+</table>
+
 ```text
 outputs/<task_id>/
   article.md

@@ -1,0 +1,69 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="100" y1="80" x2="1500" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#EFF6FF"/>
+    </linearGradient>
+    <style>
+      .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+      .panel { fill: #FFFFFF; stroke: #E2E8F0; stroke-width: 2; }
+      .title { fill: #0F172A; font-size: 42px; font-weight: 700; }
+      .subtitle { fill: #475569; font-size: 22px; font-weight: 500; }
+      .card-title { fill: #0F172A; font-size: 28px; font-weight: 700; }
+      .card-copy { fill: #334155; font-size: 18px; font-weight: 500; }
+      .small-copy { fill: #64748B; font-size: 16px; font-weight: 500; }
+      .pill { font-size: 15px; font-weight: 700; letter-spacing: 0.04em; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg2)"/>
+  <rect x="42" y="42" width="1516" height="816" rx="34" fill="white" stroke="#DBEAFE" stroke-width="4"/>
+  <circle cx="1455" cy="135" r="60" fill="#DBEAFE"/>
+  <circle cx="170" cy="735" r="88" fill="#E2E8F0"/>
+
+  <text x="100" y="120" class="sans title">Outputs</text>
+  <text x="100" y="160" class="sans subtitle">One run returns reviewable files, audit artifacts, and platform-ready payloads.</text>
+
+  <rect x="80" y="210" width="560" height="590" rx="28" class="panel"/>
+  <rect x="108" y="236" width="160" height="36" rx="18" fill="#0F172A"/>
+  <text x="150" y="260" class="sans pill" fill="#F8FAFC">outputs/&lt;task_id&gt;/</text>
+  <text x="114" y="320" class="mono card-copy">article.md</text>
+  <text x="114" y="360" class="mono card-copy">audit_report.json</text>
+  <text x="114" y="400" class="mono card-copy">publish_package.json</text>
+  <text x="114" y="440" class="mono card-copy">platforms/</text>
+  <text x="146" y="478" class="mono card-copy">wechat_official.md</text>
+  <text x="146" y="516" class="mono card-copy">xiaohongshu.md</text>
+  <text x="146" y="554" class="mono card-copy">zhihu.md</text>
+  <text x="146" y="592" class="mono card-copy">juejin.md</text>
+  <text x="146" y="630" class="mono card-copy">csdn.md</text>
+  <text x="146" y="668" class="mono card-copy">toutiao.md</text>
+  <text x="146" y="706" class="mono card-copy">weibo.md</text>
+  <rect x="108" y="730" width="500" height="44" rx="16" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="128" y="758" class="sans small-copy">Everything is saved in a predictable bundle for editors and operators.</text>
+
+  <rect x="680" y="210" width="840" height="280" rx="28" class="panel"/>
+  <rect x="710" y="236" width="134" height="34" rx="17" fill="#DBEAFE"/>
+  <text x="738" y="259" class="sans pill" fill="#1D4ED8">article.md</text>
+  <text x="710" y="316" class="sans card-title">AI-friendly draft with strong editorial structure</text>
+  <text x="710" y="360" class="sans card-copy">- product name + value proposition within the opening block</text>
+  <text x="710" y="396" class="sans card-copy">- Q&amp;A sections for extractable key knowledge</text>
+  <text x="710" y="432" class="sans card-copy">- comparison tables instead of pure narrative</text>
+  <text x="710" y="468" class="sans card-copy">- clear H1 / H2 / H3 structure and reproducible examples</text>
+
+  <rect x="680" y="520" width="402" height="280" rx="28" class="panel"/>
+  <rect x="708" y="546" width="196" height="34" rx="17" fill="#DCFCE7"/>
+  <text x="731" y="569" class="sans pill" fill="#15803D">publish_package.json</text>
+  <text x="708" y="628" class="sans card-title">Operator handoff</text>
+  <text x="708" y="670" class="sans card-copy">Title, summary, body, tags, cover brief,</text>
+  <text x="708" y="702" class="sans card-copy">publish mode, and Wechatsync sync hints.</text>
+  <text x="708" y="746" class="sans small-copy">Direct send stays gated by audit and auth checks.</text>
+
+  <rect x="1118" y="520" width="402" height="280" rx="28" class="panel"/>
+  <rect x="1146" y="546" width="176" height="34" rx="17" fill="#FEF3C7"/>
+  <text x="1172" y="569" class="sans pill" fill="#B45309">platforms/*.md</text>
+  <text x="1146" y="628" class="sans card-title">7 payload files</text>
+  <text x="1146" y="670" class="sans card-copy">WeChat, Xiaohongshu, Zhihu, Juejin,</text>
+  <text x="1146" y="702" class="sans card-copy">CSDN, Toutiao, and Weibo variants.</text>
+  <text x="1146" y="746" class="sans small-copy">Same source topic, adapted tone, length, and format.</text>
+</svg>

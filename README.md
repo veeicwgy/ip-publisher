@@ -30,6 +30,25 @@
 | --- | --- | --- |
 | 产品/工具知识库、主关键词、热点线索、大纲、受众 | 基于知识库生成主稿，审核事实准确性/关键词命中/结构完整性/平台格式，再拆成 7 平台版本 | `article.md`、`audit_report.json`、`publish_package.json`、`platforms/*.md` |
 
+<table>
+  <tr>
+    <td width="50%" align="center"><img src="./assets/readme/inputs-overview.svg" alt="Inputs overview" width="100%"></td>
+    <td width="50%" align="center"><img src="./assets/readme/outputs-overview.svg" alt="Outputs overview" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>输入</strong><br>知识库、关键词、热点线索、大纲</td>
+    <td align="center"><strong>输出</strong><br>主稿、发布包、平台内容文件</td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><img src="./assets/readme/audit-report-overview.svg" alt="Audit report overview" width="100%"></td>
+    <td width="50%" align="center"><img src="./assets/readme/platforms-overview.svg" alt="7 platform payload overview" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>审核报告</strong><br>准确性、关键词、结构、平台规则闸门</td>
+    <td align="center"><strong>7 平台 payload</strong><br>同一主题拆成 canonical 7 平台版本</td>
+  </tr>
+</table>
+
 ```text
 outputs/<task_id>/
   article.md
