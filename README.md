@@ -318,3 +318,7 @@ docs/
 ## License
 
 本项目采用 [MIT License](LICENSE)。
+
+## Download History
+
+[![Download History](https://skill-history.com/chart/veeicwgy/ip-publisher.svg)](https://skill-history.com/veeicwgy/ip-publisher)
