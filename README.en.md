@@ -4,7 +4,57 @@
 
 <p align="center"><img src="assets/logo.webp" alt="IP Publisher Logo" width="520"></p>
 
-> A KB-driven content workflow for teams that need **generation + audit + 7-platform publish packs** before any publishing step.
+<p align="center">
+  <a href="https://github.com/veeicwgy/ip-publisher/stargazers"><img src="https://img.shields.io/github/stars/veeicwgy/ip-publisher?style=flat-square" alt="GitHub stars"></a>
+  <a href="https://github.com/veeicwgy/ip-publisher/releases"><img src="https://img.shields.io/github/v/release/veeicwgy/ip-publisher?style=flat-square" alt="GitHub release"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/github/license/veeicwgy/ip-publisher?style=flat-square" alt="MIT License"></a>
+  <a href="https://clawhub.ai/veeicwgy/ip-publisher"><img src="https://img.shields.io/badge/Install-ClawHub-111827?style=flat-square" alt="Install from ClawHub"></a>
+</p>
+
+> Turn product documentation, knowledge-base facts, SEO keywords, trend hooks, and an outline into **audited articles + 7-platform publish packs** before any publishing step.
+
+<p align="center">
+  <a href="https://clawhub.ai/veeicwgy/ip-publisher"><strong>👉 Install from ClawHub</strong></a> ·
+  <a href="./data/tasks/demo-request.json">Demo Request</a> ·
+  <a href="./data/kb_raw/mineru-overview.md">Demo KB</a> ·
+  <a href="./docs/platform-support.md">Platform Matrix</a> ·
+  <a href="./docs/publish-package.md">Publish Package Contract</a>
+</p>
+
+## 30-second overview
+
+| You provide | The workflow does | You get back |
+| --- | --- | --- |
+| Product/tool KB docs, primary keywords, trend hooks, outline brief, audience | Generates from the KB, audits grounding/keyword fit/structure/platform rules, then adapts the same core piece into 7 platform payloads | `article.md`, `audit_report.json`, `publish_package.json`, and `platforms/*.md` |
+
+```text
+outputs/<task_id>/
+  article.md
+  audit_report.json
+  publish_package.json
+  platforms/
+    wechat_official.md
+    xiaohongshu.md
+    zhihu.md
+    juejin.md
+    csdn.md
+    toutiao.md
+    weibo.md
+```
+
+## Why this is not just another AI rewriter
+
+- It starts from a **knowledge base**, not an empty prompt.
+- It runs an **audit gate** before packaging content for distribution.
+- It defaults to a **canonical 7-platform bundle**, not an inconsistent 3-platform vs. 29-platform story.
+- It is **draft-sync first** through [Wechatsync](https://github.com/wechatsync/Wechatsync), not a username/password autopublisher.
+- For technical content it explicitly optimizes for `Q&A`, comparison tables, clear heading hierarchy, entity labels, and reproducible code examples.
+
+## Who this is for
+
+- Product, SEO, and knowledge-base content teams
+- Operators who need one source topic adapted into WeChat, Xiaohongshu, Zhihu, Juejin, CSDN, Toutiao, and Weibo
+- Teams that want accuracy and auditability before adding publishing automation
 
 ## What it does now
 
@@ -45,6 +95,12 @@ The new quickstart asks for:
 - content type (`general` or `technical`)
 
 It no longer asks “which platform?” as the main question. One topic now defaults to the 7-platform bundle.
+
+Useful demo inputs:
+
+- [Demo KB overview](./data/kb_raw/mineru-overview.md)
+- [Demo KB FAQ](./data/kb_raw/mineru-faq.json)
+- [Demo request](./data/tasks/demo-request.json)
 
 ## Outputs
 

@@ -4,28 +4,90 @@
 
 <p align="center"><img src="assets/logo.webp" alt="IP Publisher Logo" width="520"></p>
 
-> 基于 **知识库 + 关键词 + 热点 + 大纲** 自动生成文章，先过审核，再输出 **7 平台发布包 / Wechatsync 草稿同步信息**。
+<p align="center">
+  <a href="https://github.com/veeicwgy/ip-publisher/stargazers"><img src="https://img.shields.io/github/stars/veeicwgy/ip-publisher?style=flat-square" alt="GitHub stars"></a>
+  <a href="https://github.com/veeicwgy/ip-publisher/releases"><img src="https://img.shields.io/github/v/release/veeicwgy/ip-publisher?style=flat-square" alt="GitHub release"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/github/license/veeicwgy/ip-publisher?style=flat-square" alt="MIT License"></a>
+  <a href="https://clawhub.ai/veeicwgy/ip-publisher"><img src="https://img.shields.io/badge/Install-ClawHub-111827?style=flat-square" alt="Install from ClawHub"></a>
+</p>
+
+> 把 **产品/工具知识库 + SEO 关键词 + 热点线索 + 大纲**，变成一套 **先审核、再分发** 的内容工作流：主稿、`audit_report.json`、`publish_package.json` 和 **7 平台 payload** 一次产出。
 
 <p align="center">
   <a href="https://clawhub.ai/veeicwgy/ip-publisher"><strong>👉 Install from ClawHub</strong></a> ·
   <a href="https://github.com/veeicwgy/ip-publisher">GitHub 仓库</a> ·
+  <a href="./data/tasks/demo-request.json">Demo Request</a> ·
+  <a href="./data/kb_raw/mineru-overview.md">Demo KB</a> ·
   <a href="./docs/platform-support.md">平台矩阵</a> ·
   <a href="./docs/publish-package.md">发布包定义</a>
 </p>
 
 ---
 
-## 现在这个仓库到底解决什么问题
+## 30 秒看懂
 
-它不再把自己定义成“一个话题改写成三平台文案”的小工具，而是一个更完整的内容工作流：
+| 你提供什么 | 系统做什么 | 你拿到什么 |
+| --- | --- | --- |
+| 产品/工具知识库、主关键词、热点线索、大纲、受众 | 基于知识库生成主稿，审核事实准确性/关键词命中/结构完整性/平台格式，再拆成 7 平台版本 | `article.md`、`audit_report.json`、`publish_package.json`、`platforms/*.md` |
 
-1. 从知识库里检索真实资料
-2. 结合主关键词、热点线索和大纲生成文章
-3. 做准确性、结构、关键词、平台格式审核
-4. 审核通过后输出 7 平台发布包
-5. 如果你已经装了 [Wechatsync](https://github.com/wechatsync/Wechatsync)，再进入草稿同步
+```text
+outputs/<task_id>/
+  article.md
+  audit_report.json
+  publish_package.json
+  platforms/
+    wechat_official.md
+    xiaohongshu.md
+    zhihu.md
+    juejin.md
+    csdn.md
+    toutiao.md
+    weibo.md
+```
 
-默认不托管账号密码，也不直接伪装成“已发布成功”。
+## 为什么不是普通 AI 改写器
+
+- 它从 **知识库** 出发，不是从空白 prompt 出发。
+- 它先做 **审核**，再产出可分发的发布包，不是“生成完就发”。
+- 它默认是 **canonical 7 平台 bundle**，不是一会儿 3 个平台、一会儿 29 个平台。
+- 它默认走 **Wechatsync 草稿同步说明**，不是账号密码直登发布器。
+- 它对技术内容有明确结构要求：`Q&A`、对比表格、`H1 -> H2 -> H3`、实体标注、代码示例。
+
+## 适合谁
+
+- 做产品内容、SEO 内容、知识库运营的团队
+- 需要同一主题拆出微信公众号 / 小红书 / 知乎 / 掘金 / CSDN / 头条 / 微博版本的运营同学
+- 希望先把准确率和审核门槛做好，再考虑自动化分发的团队
+
+## 快速开始
+
+```bash
+git clone https://github.com/veeicwgy/ip-publisher.git
+cd ip-publisher
+bash scripts/setup.sh
+python3 scripts/quickstart.py
+```
+
+Quickstart 现在问的是：
+
+```text
+产品或工具名
+需要运营的主关键词
+热点线索 / 选题描述
+大纲描述
+主要读者
+内容类型（general / technical）
+```
+
+它不会再默认追问“目标平台是什么”。默认就是 7 平台 bundle，一次生成多平台 payload。
+
+如果你想先看一套可复现的输入格式：
+
+- 示例知识库：[data/kb_raw/mineru-overview.md](./data/kb_raw/mineru-overview.md)
+- 示例 FAQ：[data/kb_raw/mineru-faq.json](./data/kb_raw/mineru-faq.json)
+- 示例请求：[data/tasks/demo-request.json](./data/tasks/demo-request.json)
+
+默认不托管账号密码，也不直接伪装成“已发布成功”。默认停在 **审核通过后的发布包 / Wechatsync 草稿同步信息**。
 
 ---
 
@@ -50,7 +112,7 @@
 - 这 7 个都能对应到 Wechatsync 适配器，门槛最低。
 - Wechatsync 虽然支持 29+ 平台，但仓库默认不把 29+ 全部塞进 quickstart，避免第一次使用过重。
 
-详细矩阵见 [docs/platform-support.md](/tmp/ip-publisher/docs/platform-support.md:1)。
+详细矩阵见 [docs/platform-support.md](./docs/platform-support.md)。
 
 ---
 
@@ -74,7 +136,7 @@ Phase 1 生成完成后，会在 `outputs/<task_id>/` 里输出：
 - 是否支持直发
 - 如果走 Wechatsync，对应的 CLI 示例命令是什么
 
-详细说明见 [docs/publish-package.md](/tmp/ip-publisher/docs/publish-package.md:1)。
+详细说明见 [docs/publish-package.md](./docs/publish-package.md)。
 
 ---
 
@@ -92,26 +154,6 @@ Phase 1 生成完成后，会在 `outputs/<task_id>/` 里输出：
 ---
 
 ## Quickstart 已经换成知识库驱动逻辑
-
-现在运行：
-
-```bash
-git clone https://github.com/veeicwgy/ip-publisher.git
-cd ip-publisher
-bash scripts/setup.sh
-python3 scripts/quickstart.py
-```
-
-Quickstart 问的是这类问题：
-
-```text
-产品或工具名
-需要运营的主关键词
-热点线索 / 选题描述
-大纲描述
-主要读者
-内容类型（general / technical）
-```
 
 它不会再默认追问“目标平台是什么”。  
 默认就是 7 平台 bundle，一次生成多平台 payload。
