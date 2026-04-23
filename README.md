@@ -30,7 +30,7 @@
 </p>
 
 <p align="center">
-  <img src="./assets/readme/hero-banner.svg" alt="IP Publisher hero banner" width="100%">
+  <img src="./assets/readme/request-audit-publish-demo-cn-square.gif" alt="IP Publisher 中文工作流动效演示" width="78%">
 </p>
 
 ---
