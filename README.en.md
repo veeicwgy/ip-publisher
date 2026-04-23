@@ -28,6 +28,10 @@
   <code>Wechatsync-ready</code>
 </p>
 
+<p align="center">
+  <img src="./assets/readme/hero-banner.svg" alt="IP Publisher hero banner" width="100%">
+</p>
+
 ## Why teams try it
 
 <table>
@@ -88,6 +92,18 @@ outputs/<task_id>/
     toutiao.md
     weibo.md
 ```
+
+## See a real before / after
+
+<p align="center">
+  <img src="./assets/readme/example-before-after.svg" alt="Before and after IP Publisher workflow" width="100%">
+</p>
+
+This example comes directly from the bundled repo demo:
+
+- Request: [data/tasks/demo-request.json](./data/tasks/demo-request.json)
+- Output: [outputs/phase1-demo-mineru/article.md](./outputs/phase1-demo-mineru/article.md) and [outputs/phase1-demo-mineru/audit_report.json](./outputs/phase1-demo-mineru/audit_report.json)
+- Current demo audit result: `pass` with all four scores at `1.0`
 
 ## Why this is not just another AI rewriter
 

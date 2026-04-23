@@ -1,0 +1,86 @@
+<svg width="1600" height="860" viewBox="0 0 1600 860" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="94" y1="72" x2="1492" y2="808" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="0.48" stop-color="#EEF4FF"/>
+      <stop offset="1" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <linearGradient id="afterGrad" x1="864" y1="174" x2="1410" y2="746" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="0.58" stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1600" height="860" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+    <filter id="soft" x="0" y="0" width="1600" height="860" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .eyebrow { font-size: 14px; font-weight: 800; letter-spacing: 0.16em; }
+      .title { font-size: 44px; font-weight: 800; fill: #0F172A; }
+      .copy { font-size: 18px; font-weight: 600; fill: #334155; }
+      .small { font-size: 15px; font-weight: 600; fill: #64748B; }
+      .cardTitle { font-size: 26px; font-weight: 800; }
+      .pill { font-size: 14px; font-weight: 800; letter-spacing: 0.05em; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="860" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <rect x="54" y="54" width="1492" height="752" rx="36" fill="#FFFFFF"/>
+  </g>
+
+  <text x="102" y="126" class="sans eyebrow" fill="#1D4ED8">BEFORE / AFTER</text>
+  <text x="102" y="188" class="sans title">What changes after the workflow runs</text>
+  <text x="102" y="228" class="sans copy">The value is not “one more AI article”. The value is moving from scattered inputs and risky copy</text>
+  <text x="102" y="260" class="sans copy">to an audited content package that operations can actually review, reuse, and distribute.</text>
+
+  <g filter="url(#soft)">
+    <rect x="102" y="314" width="634" height="424" rx="30" fill="#FFFFFF"/>
+    <rect x="102.75" y="314.75" width="632.5" height="422.5" rx="29.25" stroke="#E2E8F0" stroke-width="1.5"/>
+  </g>
+  <rect x="136" y="346" width="98" height="34" rx="17" fill="#FEE2E2"/>
+  <text x="165" y="368" class="sans pill" fill="#DC2626">BEFORE</text>
+  <text x="136" y="430" class="sans cardTitle" fill="#0F172A">Scattered work, soft review, manual re-packaging</text>
+
+  <rect x="136" y="468" width="566" height="74" rx="22" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="164" y="500" class="sans copy">Knowledge lives in docs, FAQ, and release notes</text>
+  <text x="164" y="528" class="sans small">Operators still need to collect and restate it by hand.</text>
+
+  <rect x="136" y="560" width="566" height="74" rx="22" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="164" y="592" class="sans copy">Keywords, trend hooks, and outline are separate inputs</text>
+  <text x="164" y="620" class="sans small">The draft may look aligned, but the risk is hidden until manual review.</text>
+
+  <rect x="136" y="652" width="566" height="54" rx="22" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="164" y="686" class="sans copy">Then every platform needs its own rewrite and paste flow.</text>
+
+  <path d="M768 520H832" stroke="#94A3B8" stroke-width="8" stroke-linecap="round" stroke-dasharray="16 16"/>
+  <path d="M812 492L850 520L812 548" stroke="#94A3B8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="864" y="314" width="634" height="424" rx="30" fill="url(#afterGrad)"/>
+  </g>
+  <rect x="898" y="346" width="86" height="34" rx="17" fill="#16A34A"/>
+  <text x="924" y="368" class="sans pill" fill="#F8FAFC">AFTER</text>
+  <text x="898" y="430" class="sans cardTitle" fill="#FFFFFF">One request in, audited package out</text>
+
+  <rect x="898" y="468" width="566" height="84" rx="22" fill="#FFFFFF" fill-opacity="0.12"/>
+  <text x="926" y="500" class="sans copy" fill="#FFFFFF">Structured request:</text>
+  <text x="926" y="530" class="mono small" fill="#DBEAFE">product | kb_scope | seo | hotspot | outline | platforms</text>
+
+  <rect x="898" y="570" width="270" height="104" rx="22" fill="#FFFFFF" fill-opacity="0.12"/>
+  <text x="924" y="604" class="sans pill" fill="#BFDBFE">AUDIT</text>
+  <text x="924" y="638" class="sans copy" fill="#FFFFFF">status: pass</text>
+  <text x="924" y="664" class="sans small" fill="#E2E8F0">overall: 1.00</text>
+
+  <rect x="1194" y="570" width="270" height="104" rx="22" fill="#FFFFFF" fill-opacity="0.12"/>
+  <text x="1220" y="604" class="sans pill" fill="#BFDBFE">DEMO OUTPUT</text>
+  <text x="1220" y="638" class="sans copy" fill="#FFFFFF">6 claims</text>
+  <text x="1220" y="664" class="sans small" fill="#E2E8F0">4 sections + 7 payloads</text>
+
+  <rect x="898" y="692" width="566" height="54" rx="22" fill="#FFFFFF" fill-opacity="0.12"/>
+  <text x="926" y="726" class="sans copy" fill="#FFFFFF">Files: article.md, audit_report.json, publish_package.json, platforms/*.md</text>
+</svg>

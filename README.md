@@ -29,6 +29,10 @@
   <code>Wechatsync-ready</code>
 </p>
 
+<p align="center">
+  <img src="./assets/readme/hero-banner.svg" alt="IP Publisher hero banner" width="100%">
+</p>
+
 ---
 
 ## 为什么值得试
@@ -91,6 +95,18 @@ outputs/<task_id>/
     toutiao.md
     weibo.md
 ```
+
+## 看一个真实变化
+
+<p align="center">
+  <img src="./assets/readme/example-before-after.svg" alt="Before and after IP Publisher workflow" width="100%">
+</p>
+
+这个示例直接取自仓库内置 demo：
+
+- 请求来自 [data/tasks/demo-request.json](./data/tasks/demo-request.json)
+- 输出来自 [outputs/phase1-demo-mineru/article.md](./outputs/phase1-demo-mineru/article.md) 和 [outputs/phase1-demo-mineru/audit_report.json](./outputs/phase1-demo-mineru/audit_report.json)
+- 当前 demo 审核结果是 `pass`，四项分数都是 `1.0`
 
 ## 为什么不是普通 AI 改写器
 
